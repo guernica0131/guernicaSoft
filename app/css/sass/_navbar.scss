@@ -1,0 +1,25 @@
+.navbar-gsoft {
+	//background-color: $night;
+	background-color: radial-gradient(#004, #000);
+
+	
+}
+
+
+.curtain {
+	
+	&.closed {
+		height: 50%;
+		border:none;
+	}
+
+	&.opened {
+//		height: 40px;
+	}
+}
+
+
+
+.curtain-top, .curtain-bottom {
+
+}

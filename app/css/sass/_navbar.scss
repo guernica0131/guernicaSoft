@@ -1,24 +1,135 @@
 .navbar-gsoft {
-	//background-color: $night;
-	background-color: radial-gradient(#004, #000);
-
-	
+	background-color: $night;
+	border:none;
+	@include transition(background-color 1000ms ease);
 }
 
+.brand-img {
+	
+	.navbar-brand {
+
+	background-image: url('../../images/logo2.png');
+	background-repeat: no-repeat;
+	background-position: center center;
+//	width: 300px;
+	width: 50px;
+	background-size: 50px;
+
+	}
+
+}
+
+.nav-button-tog {
+	@include transition(background-color 300ms ease);
+	
+	&:hover {
+		background-color: $blue !important;
+	}
+}
+
+.nav-button {
+	
+	a {
+
+		color: white !important;
+
+	}
+
+	&.home {
+		//background: red;
+		//color: $white;
+		width: 75px;
+		//font-size: 2em;
+		//font-style: oblique;
+		//text-decoration: none;
+		 //background-color: $night;
+		// padding: 0;
+		// margin: 0;
+		// height: 100%;
+	}
+
+	&.services {
+		background-color: $night;
+	}
+
+	&.global {
+		background-color: $base;
+	}
+
+	&.work {
+		background-color: $blue;
+	}
+
+	&.about {
+		background-color: $rust;
+	}
+
+	&.contact {
+		background-color: $gold;
+	}
+
+	&.client {
+		background-color: $black;
+	}
+
+	&.active {
+		background-color: $base;
+	}
+}
 
 .curtain {
+
+	//background-color: $night;
+
+	&.curtain-top {
+
+		background: $contrast;
+	}
+
+	&.curtain-bottom {
+
+		background-color: $night; 
+		//background: -webkit-linear-gradient($night, #000); /* For Safari 5.1 to 6.0 */
+  		//background: -o-linear-gradient($night, #000); /* For Opera 11.1 to 12.0 */
+  		//background: -moz-linear-gradient($night, #000); /* For Firefox 3.6 to 15 */
+  		//background: linear-gradient($night, #000); /* Standard syntax */
+
+	}
 	
 	&.closed {
-		height: 50%;
+		height: 100%;
+
+		// @include respond-to(less_than_tablet) {
+		// 	height: 100%;			
+		// }
+
 		border:none;
+
+		&.curtain-top {
+			background-color: $night;
+
+					//background: -webkit-linear-gradient($contrast,$night); /* For Safari 5.1 to 6.0 */
+  		//background: -o-linear-gradient($contrast, $night); /* For Opera 11.1 to 12.0 */
+  		//background: -moz-linear-gradient($contrast, $night); /* For Firefox 3.6 to 15 */
+  		//background: linear-gradient($contrast, $night); /* Standard syntax */
+  		//background: -webkit-linear-gradient(#000,$night); /* For Safari 5.1 to 6.0 */
+  		//background: -o-linear-gradient(#000, $night); /* For Opera 11.1 to 12.0 */
+  		//background: -moz-linear-gradient(#000, $night); /* For Firefox 3.6 to 15 */
+  		//background: linear-gradient(#000, $night); /* Standard syntax */
+		}
+
 	}
+
+
 
 	&.opened {
 //		height: 40px;
+/* 		&.curtain-top {
+			background: $night;
+
+		} */
 	}
 }
-
-
 
 .curtain-top, .curtain-bottom {
 

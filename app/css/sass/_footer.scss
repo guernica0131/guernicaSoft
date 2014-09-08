@@ -1,0 +1,25 @@
+
+.footer-colors {
+	@include transition(color 300ms ease-in);
+	color: $rust !important;
+	&:hover {
+		color: $white !important;
+	}
+}
+
+.legal {
+	
+	a {
+		@extend .footer-colors;
+	}
+
+	
+}
+
+.social-button {
+	margin-top: -5px;
+
+	.social-icons {
+		@extend .footer-colors;		
+	}
+}

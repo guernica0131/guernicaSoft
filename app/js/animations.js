@@ -7,9 +7,13 @@
 
   	var drawCurtains = function(element, className, done) {
   	
-  		jQuery(element).animate({height:40},600, function() {
+  		jQuery(element).animate({height:45},600, function() {
   	//		console.log("FInsihed");
-  			$(this).removeClass('closed');
+        var el = this;
+       // angular.$timeout(function() {
+          $(el).removeClass('closed');
+        //}, 600);
+  			
   			done();
   		});
   		

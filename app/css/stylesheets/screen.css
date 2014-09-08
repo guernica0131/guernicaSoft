@@ -7894,13 +7894,110 @@ button.close {
 }
 /* line 1, ../sass/_navbar.scss */
 .navbar-gsoft {
-  background-color: radial-gradient(#000044, #000000);
+  background-color: #272822;
+  border: none;
+  -webkit-transition: background-color 1000ms ease;
+  -o-transition: background-color 1000ms ease;
+  transition: background-color 1000ms ease;
 }
 
-/* line 11, ../sass/_navbar.scss */
+/* line 9, ../sass/_navbar.scss */
+.brand-img .navbar-brand {
+  background-image: url("../../images/logo2.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 50px;
+  background-size: 50px;
+}
+
+/* line 22, ../sass/_navbar.scss */
+.nav-button-tog {
+  -webkit-transition: background-color 300ms ease;
+  -o-transition: background-color 300ms ease;
+  transition: background-color 300ms ease;
+}
+/* line 25, ../sass/_navbar.scss */
+.nav-button-tog:hover {
+  background-color: #2b4b6a !important;
+}
+
+/* line 32, ../sass/_navbar.scss */
+.nav-button a {
+  color: white !important;
+}
+/* line 38, ../sass/_navbar.scss */
+.nav-button.home {
+  width: 75px;
+}
+/* line 51, ../sass/_navbar.scss */
+.nav-button.services {
+  background-color: #272822;
+}
+/* line 55, ../sass/_navbar.scss */
+.nav-button.global {
+  background-color: #276e55;
+}
+/* line 59, ../sass/_navbar.scss */
+.nav-button.work {
+  background-color: #2b4b6a;
+}
+/* line 63, ../sass/_navbar.scss */
+.nav-button.about {
+  background-color: #a45c3a;
+}
+/* line 67, ../sass/_navbar.scss */
+.nav-button.contact {
+  background-color: #a4793a;
+}
+/* line 71, ../sass/_navbar.scss */
+.nav-button.client {
+  background-color: black;
+}
+/* line 75, ../sass/_navbar.scss */
+.nav-button.active {
+  background-color: #276e55;
+}
+
+/* line 84, ../sass/_navbar.scss */
+.curtain.curtain-top {
+  background: #061f37;
+}
+/* line 89, ../sass/_navbar.scss */
+.curtain.curtain-bottom {
+  background-color: #272822;
+}
+/* line 99, ../sass/_navbar.scss */
 .curtain.closed {
-  height: 50%;
+  height: 100%;
   border: none;
+}
+/* line 108, ../sass/_navbar.scss */
+.curtain.closed.curtain-top {
+  background-color: #272822;
+}
+/* line 125, ../sass/_navbar.scss */
+.curtain.opened {
+  /* 		&.curtain-top {
+  			background: $night;
+  
+  		} */
+}
+
+/* line 2, ../sass/_footer.scss */
+.footer-colors, .legal a, .social-button .social-icons {
+  -webkit-transition: color 300ms ease-in;
+  -o-transition: color 300ms ease-in;
+  transition: color 300ms ease-in;
+  color: #a45c3a !important;
+}
+/* line 5, ../sass/_footer.scss */
+.footer-colors:hover, .legal a:hover, .social-button .social-icons:hover {
+  color: white !important;
+}
+
+/* line 19, ../sass/_footer.scss */
+.social-button {
+  margin-top: -5px;
 }
 
 /* line 1, ../sass/_animate.scss */
@@ -8005,5 +8102,125 @@ button.close {
   /* line 72, ../sass/_animate.scss */
   to {
     opacity: 0;
+  }
+}
+/* line 2, ../sass/_windows.scss */
+#home video#bgvid {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+}
+
+/* line 3, ../sass/_spinner.scss */
+.spin-contents-parent {
+  position: fixed;
+  top: 50%;
+  right: 50%;
+  z-index: 100000;
+  top: 50%;
+  right: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+/* line 13, ../sass/_spinner.scss */
+.load-slogan {
+  width: 200px;
+  color: #a4793a;
+  position: absolute;
+}
+
+/* line 20, ../sass/_spinner.scss */
+.spin-contents {
+  position: relative;
+}
+
+/* line 24, ../sass/_spinner.scss */
+.spinner {
+  width: 4em;
+  height: 4em;
+  background: #061f37;
+  border-radius: 50%;
+  margin: 5em auto;
+  border: .3em solid transparent;
+  -webkit-animation: glow 1s ease infinite;
+  -moz-animation: glow 1s ease infinite;
+  -o-animation: glow 1s ease infinite;
+  animation: glow 1s ease infinite;
+}
+
+@-webkit-keyframes glow {
+  /* line 40, ../sass/_spinner.scss */
+  0% {
+    box-shadow: 0 0 0 0.4em #a45c3a, 0 0 0 0.1em #a1a2a1;
+    -webkit-transform: rotate(360deg);
+  }
+
+  /* line 45, ../sass/_spinner.scss */
+  50% {
+    border-top-color: #276e55;
+  }
+
+  /* line 46, ../sass/_spinner.scss */
+  100% {
+    box-shadow: 0 0 0 0.4em #2b4b6a, 0 0 0 3.6em transparent;
+  }
+}
+@-moz-keyframes glow {
+  /* line 54, ../sass/_spinner.scss */
+  0% {
+    box-shadow: 0 0 0 .4em #a1a2a1, 0 0 0 .1em #a1a2a1;
+    -moz-transform: rotate(360deg);
+  }
+
+  /* line 59, ../sass/_spinner.scss */
+  50% {
+    border-top-color: #605556;
+  }
+
+  /* line 60, ../sass/_spinner.scss */
+  100% {
+    box-shadow: 0 0 0 .4em #a1a2a1, 0 0 0 3.6em transparent;
+  }
+}
+@-o-keyframes glow {
+  /* line 66, ../sass/_spinner.scss */
+  0% {
+    box-shadow: 0 0 0 .4em #a1a2a1, 0 0 0 .1em #a1a2a1;
+    -o-transform: rotate(360deg);
+  }
+
+  /* line 71, ../sass/_spinner.scss */
+  50% {
+    border-top-color: #605556;
+  }
+
+  /* line 72, ../sass/_spinner.scss */
+  100% {
+    box-shadow: 0 0 0 .4em #a1a2a1, 0 0 0 3.6em transparent;
+  }
+}
+@keyframes glow {
+  /* line 79, ../sass/_spinner.scss */
+  0% {
+    box-shadow: 0 0 0 .4em #a1a2a1 0 0 0 .1em #a1a2a1;
+    transform: rotate(360deg);
+  }
+
+  /* line 83, ../sass/_spinner.scss */
+  50% {
+    border-top-color: #605556;
+  }
+
+  /* line 86, ../sass/_spinner.scss */
+  100% {
+    box-shadow: 0 0 0 .4em #a1a2a1 0 0 0 3.6em transparent;
   }
 }

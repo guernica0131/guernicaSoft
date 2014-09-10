@@ -1,12 +1,4 @@
-.view-container {
-  padding-top: 40px;
-  position: relative;
-  //background: $contrast;
-}
 
-.view-frame-closed {
-  display: none;
-}
 
 
 .view-frame-opened {
@@ -15,6 +7,7 @@
 
 .view-frame.ng-enter, .view-frame.ng-leave {
   background: white;
+  
   position: absolute;
   top: 0;
   left: 0;

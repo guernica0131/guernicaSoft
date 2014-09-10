@@ -16,7 +16,7 @@
             restrict: 'E',
             templateUrl: 'components/navbar/navbar.html',
             controller: function($scope, $location) {
-            	console.log("This is the controller");
+            	
         		$scope.buttons = buttons;
         		$scope.isActive = function(selected) {
         			return (selected === $location.path());
@@ -29,7 +29,7 @@
             scope: true,
           ///  location: true
         }
-    })
+    });
 
 /*    .controller('navbarCtrl', ["$scope",
         function($scope) {
@@ -43,7 +43,7 @@
 
         {
             name: "Services",
-            cssClass: "services",
+            cssClass: "night",
             url: "/services",
             tooltip: "This discusses our services offered.",
             images: {
@@ -56,7 +56,7 @@
 
       {
             name: "Global",
-            cssClass: "global",
+            cssClass: "base",
             url: "/global",
             tooltip: "This link brings us home",
             images: {
@@ -69,7 +69,7 @@
 
         {
             name: "Portfolio",
-            cssClass: "work",
+            cssClass: "blue",
             url: "/portfolio",
             tooltip: "This offers a sample of our work",
             images: {
@@ -82,7 +82,7 @@
 
         {
             name: "About",
-            cssClass: "about",
+            cssClass: "rust",
             url: "/about",
             tooltip: "This link talks about us",
             images: {
@@ -95,7 +95,7 @@
 
         {
             name: "Contact us",
-            cssClass: "contact",
+            cssClass: "gold",
             url: "/contact",
             tooltip: "This link talks about us",
             images: {
@@ -108,7 +108,7 @@
 
         {
             name: "Client Portal",
-            cssClass: "client",
+            cssClass: "black",
             url: "/client",
             tooltip: "This is a portal for existing clients",
             images: {

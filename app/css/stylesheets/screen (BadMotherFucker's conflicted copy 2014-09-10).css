@@ -1,0 +1,75 @@
+/*
+Error: File to import not found or unreadable: structures.
+       Load paths:
+         Compass::SpriteImporter
+         /home/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass
+         /home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets
+         /home/guernica0131/.rvm/gems/ruby-2.1.2/gems/bootstrap-sass-3.2.0.1/assets/stylesheets
+         /home/guernica0131/.rvm/gems/ruby-2.1.2/gems/bootstrap-sass-3.2.0.1/assets/stylesheets
+        on line 15 of /home/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss
+
+10: 
+11: //@import "font-awesome-compess";
+12: //@import "font-awesome";
+13: @import "mixins";
+14: 
+15: @import "structures";
+16: 
+17: @import "variables";
+18: 
+19: @import "navbar";
+20: 
+
+Backtrace:
+/home/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss:15
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/import_node.rb:45:in `import'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/import_node.rb:28:in `imported_file'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/import_node.rb:37:in `css_import?'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:295:in `visit_import'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/stack.rb:79:in `block in with_base'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/stack.rb:115:in `with_frame'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/stack.rb:79:in `with_base'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/base.rb:52:in `map'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/base.rb:36:in `visit'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/root_node.rb:36:in `css_tree'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/tree/root_node.rb:20:in `render'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/engine.rb:268:in `render'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:492:in `update_stylesheet'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:209:in `each'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/sass-3.4.1/lib/sass/plugin/compiler.rb:294:in `watch'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/lib/compass/sass_compiler.rb:46:in `watch!'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/lib/compass/commands/watch_project.rb:41:in `perform'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/lib/compass/commands/base.rb:18:in `execute'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/lib/compass/commands/project_base.rb:19:in `execute'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:43:in `perform!'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/lib/compass/exec/sub_command_ui.rb:15:in `run!'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/bin/compass:30:in `block in <top (required)>'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/bin/compass:44:in `call'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-1.0.1/bin/compass:44:in `<top (required)>'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/bin/compass:23:in `load'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/bin/compass:23:in `<main>'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `eval'
+/home/guernica0131/.rvm/gems/ruby-2.1.2/bin/ruby_executable_hooks:15:in `<main>'
+*/
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: File to import not found or unreadable: structures.\A        Load paths:\A          Compass::SpriteImporter\A          /home/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass\A          /home/guernica0131/.rvm/gems/ruby-2.1.2/gems/compass-core-1.0.1/stylesheets\A          /home/guernica0131/.rvm/gems/ruby-2.1.2/gems/bootstrap-sass-3.2.0.1/assets/stylesheets\A          /home/guernica0131/.rvm/gems/ruby-2.1.2/gems/bootstrap-sass-3.2.0.1/assets/stylesheets\A         on line 15 of /home/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss\A \A 10: \A 11: //@import \"font-awesome-compess\";\A 12: //@import \"font-awesome\";\A 13: @import \"mixins\";\A 14: \A 15: @import \"structures\";\A 16: \A 17: @import \"variables\";\A 18: \A 19: @import \"navbar\";\A 20: "; }

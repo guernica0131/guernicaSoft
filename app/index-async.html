@@ -12,6 +12,8 @@
   <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
   <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+
+  <!--base href="index-async.html"-->
   <script>
     // include angular loader, which allows the files to load in any order
     //@@NG_LOADER_START@@
@@ -45,7 +47,7 @@
       'bower_components/angular-route/angular-route.js',
       'bower_components/angular-resource/angular-resource.js',
       'bower_components/angular-animate/angular-animate.js',
-
+      'bower_components/angular-ui-router/release/angular-ui-router.js',
       'js/app.js',
       'js/animations.js',
       'services/services.js',
@@ -56,6 +58,8 @@
       'components/footer/footer.js',
       'components/version/version-directive.js',
       'components/version/interpolate-filter.js',
+      'components/pages/primary/page.js',
+      'components/portals/portal.js',
       'bower_components/bootstrap/dist/js/bootstrap.js'
     ], function() {
       // when all is done, execute bootstrap angular application
@@ -89,9 +93,9 @@
   </ul>
 -->
 
-  <div class="view-container" ng-controller="windowCtrl">
-    <div ng-view ng-class="{'view-frame-open':windowOpened , 'view-frame-closed':!drawCurtains}" class="view-frame"></div>
-  </div>
+  <!--div class="view-container" ng-controller="windowCtrl"  class="view-frame"--> 
+    <div ng-view ng-class="{'view-frame-open':windowOpened , 'view-frame-closed':!drawCurtains}" ng-controller="windowCtrl"></div>
+  <!-- /div -->
 
   <foot-bar></foot-bar>
   <!--<div>Angular seed app: v<span app-version></span></div>-->

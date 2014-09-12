@@ -16,10 +16,11 @@
             restrict: 'E',
             templateUrl: 'components/navbar/navbar.html',
             controller: function($scope, $location) {
-            	
         		$scope.buttons = buttons;
         		$scope.isActive = function(selected) {
         			return (selected === $location.path());
+
+
 
         			//console.log("IS ACTIVE ", $location.path());
         			//return false;

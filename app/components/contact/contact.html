@@ -1,0 +1,57 @@
+<div class="row">
+	<a class="btn btn-danger " ng-click="openContact()">Tell me more!</a>
+</div>
+<div class="contact-container fog" ng-class="{in:openContactForm}">
+	<div class="pad-70"></div>
+	<div class="form-box">
+		
+		<div class="contain-form">
+			<div class="close-btn" ng-click="closeContact()">X</div>
+			
+			<form name="contact form" ng-submit="sendContact(portals[activeIndex])" ng-class="{hidden:thinking}">
+				<h1 class="color white">Tell us a little about your needs</h1>
+				<div class="form-group">
+					<label class="color white" for="fName">First Name</label>
+					<input type="text" class="form-control input-lg" id="fName" placeholder="Your first name" ng-model="contact.fName" required>
+				</div>
+				<div class="form-group">
+					<label class="color white" for="lName">Last Name</label>
+					<input type="text" class="form-control input-lg" id="lName" placeholder="Your last name" required ng-model="contact.lName" required>
+				</div>
+				<div class="form-group">
+					<label class="color white" for="email">Email</label>
+					<input type="email" class="form-control input-lg" id="email" placeholder="Your email address" required ng-model="contact.email">
+				</div>
+				<div class="form-group">
+					<label class="color white" for="interests">What are your interest categories</label>
+					<select id="interests" multiple class="form-control" ng-model="contact.interests">
+						<option ng-repeat="ptls in portals" ng-selected="$index == activeIndex">{{ptls.title}}</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label class="color white" for="details">Tell us a bit more about your needs</label>					
+					<textarea id="details" class="form-control" rows="3" ng-model="contact.details"></textarea>
+				</div>
+				
+				<input type="submit" class="btn btn-info btn-lg" Value="Send Interest"/>
+				<div class="form-accent top"></div>
+				<div class="form-accent bottom"></div>
+				
+				<br/>
+				<h5  style="text-align:left;"><small class="color white">You can trust us with your private information. We will NOT use your personal data for 3rd party marketing purposes. Your information is safe with us.</small></h5>
+			</form>
+
+			<div class="contact-form-spinner fog" ng-class="{in:thinking,hidden:confirmed}"><span class="color white">We are processing your request...<i class="fa fa-spinner fa-spin fa-5x color white"></i></div>
+			
+			<div class="confirmation fog" ng-class="{in:confirmed}">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="color white"><small>Thank you,</small> {{contact.fName}}</h1>
+						<p class="lead color white"><small>We appreciate the interests you have in our products and services. A gS processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>

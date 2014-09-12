@@ -8030,7 +8030,16 @@ button.close {
   }
 }
 /* line 1, ../sass/_structures.scss */
-.fill {
+a {
+  color: #fffefa !important;
+}
+/* line 4, ../sass/_structures.scss */
+a:hover {
+  color: #96354D !important;
+}
+
+/* line 9, ../sass/_structures.scss */
+.fill, .page-view .content-container {
   min-width: 100%;
   min-height: 100%;
   width: auto;
@@ -8038,24 +8047,72 @@ button.close {
   position: absolute;
 }
 
-/* line 13, ../sass/_structures.scss */
+/* line 21, ../sass/_structures.scss */
 .pad-70 {
   padding-top: 70px;
 }
 
-/* line 17, ../sass/_structures.scss */
+/* line 25, ../sass/_structures.scss */
 .fog {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
+  -moz-transition: opacity 400ms ease;
+  -o-transition: opacity 400ms ease;
+  -webkit-transition: opacity 400ms ease;
+  transition: opacity 400ms ease;
+  display: none;
 }
-/* line 19, ../sass/_structures.scss */
+/* line 29, ../sass/_structures.scss */
 .fog.in {
+  display: block;
   filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
   opacity: 1;
-  -moz-transition: opacity 300ms ease-in;
-  -o-transition: opacity 300ms ease-in;
-  -webkit-transition: opacity 300ms ease-in;
-  transition: opacity 300ms ease-in;
+}
+
+/* line 38, ../sass/_structures.scss */
+.btn.btn-primary {
+  background-color: #061F37;
+  border-color: #041729;
+}
+/* line 41, ../sass/_structures.scss */
+.btn.btn-primary:hover {
+  background-color: #041729;
+}
+/* line 46, ../sass/_structures.scss */
+.btn.btn-success {
+  background-color: #276E55;
+  border-color: #23634c;
+}
+/* line 49, ../sass/_structures.scss */
+.btn.btn-success:hover {
+  background-color: #23634c;
+}
+/* line 54, ../sass/_structures.scss */
+.btn.btn-info {
+  background-color: #2B4B6A;
+  border-color: #2f5375;
+}
+/* line 57, ../sass/_structures.scss */
+.btn.btn-info:hover {
+  background-color: #27435f;
+}
+/* line 62, ../sass/_structures.scss */
+.btn.btn-warning {
+  background-color: #A4793A;
+  border-color: #997136;
+}
+/* line 65, ../sass/_structures.scss */
+.btn.btn-warning:hover {
+  background-color: #997136;
+}
+/* line 70, ../sass/_structures.scss */
+.btn.btn-danger {
+  background-color: #96354D;
+  border-color: #8b3147;
+}
+/* line 73, ../sass/_structures.scss */
+.btn.btn-danger:hover {
+  background-color: #8b3147;
 }
 
 /* line 3, ../sass/_colorscheme.scss */
@@ -8152,7 +8209,7 @@ button.close {
 
 /* line 9, ../sass/_navbar.scss */
 .brand-img .navbar-brand {
-  background-image: url("../../images/logo2.png");
+  background-image: url("../../images/logo3.png");
   background-repeat: no-repeat;
   background-position: center center;
   width: 50px;
@@ -8180,24 +8237,24 @@ button.close {
   width: 75px;
 }
 
-/* line 56, ../sass/_navbar.scss */
+/* line 61, ../sass/_navbar.scss */
 .curtain.curtain-top {
   background: #061F37;
 }
-/* line 61, ../sass/_navbar.scss */
+/* line 70, ../sass/_navbar.scss */
 .curtain.curtain-bottom {
   background-color: #272822;
 }
-/* line 71, ../sass/_navbar.scss */
+/* line 80, ../sass/_navbar.scss */
 .curtain.closed {
   height: 100%;
   border: none;
 }
-/* line 80, ../sass/_navbar.scss */
+/* line 89, ../sass/_navbar.scss */
 .curtain.closed.curtain-top {
   background-color: #272822;
 }
-/* line 97, ../sass/_navbar.scss */
+/* line 106, ../sass/_navbar.scss */
 .curtain.opened {
   /* 		&.curtain-top {
   			background: $night;
@@ -8211,7 +8268,7 @@ button.close {
   -o-transition: color 300ms ease-in;
   -webkit-transition: color 300ms ease-in;
   transition: color 300ms ease-in;
-  color: #96354D !important;
+  color: black !important;
 }
 /* line 5, ../sass/_footer.scss */
 .footer-colors:hover, .legal a:hover, .social-button .social-icons:hover {
@@ -8223,7 +8280,10 @@ button.close {
   margin-top: -5px;
 }
 
-/* line 8, ../sass/_animate.scss */
+/* .view-container {
+  position: relative;
+}
+
 .view-frame.ng-enter, .view-frame.ng-leave {
   background: white;
   position: absolute;
@@ -8232,72 +8292,47 @@ button.close {
   right: 0;
 }
 
-/* line 17, ../sass/_animate.scss */
 .view-frame.ng-enter {
-  -moz-animation: 0.5s fade-in;
   -webkit-animation: 0.5s fade-in;
-  animation: 0.5s fade-in;
   -moz-animation: 0.5s fade-in;
+  -o-animation: 0.5s fade-in;
+  animation: 0.5s fade-in;
   z-index: 100;
 }
 
-/* line 26, ../sass/_animate.scss */
 .view-frame.ng-leave {
-  -moz-animation: 0.5s fade-out;
   -webkit-animation: 0.5s fade-out;
-  animation: 0.5s fade-out;
   -moz-animation: 0.5s fade-out;
-  z-index: 99;
+  -o-animation: 0.5s fade-out;
+  animation: 0.5s fade-out;
+  z-index:99;
 }
 
 @keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @-moz-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 @-webkit-keyframes fade-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
+
 @keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 @-moz-keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
+  from { opacity: 1; }
+  to { opacity: 0; }
 }
 @-webkit-keyframes fade-out {
-  from {
-    opacity: 1;
-  }
-  to {
-    opacity: 0;
-  }
-}
+  from { opacity: 1; }
+  to { opacity: 0; }
+} */
 /* line 2, ../sass/_windows.scss */
 #home video#bgvid {
   position: fixed;
@@ -8400,14 +8435,29 @@ button.close {
 }
 /* line 1, ../sass/_pages.scss */
 .page-view {
-  background: #fffefa;
+  background: transparent;
   height: 100%;
-  left: 30%;
+  left: 0;
   top: 0;
   right: 0;
-  overflow-y: scroll;
   position: absolute;
-  z-index: 1;
+}
+/* line 15, ../sass/_pages.scss */
+.page-view .content-container {
+  overflow: hidden;
+}
+/* line 25, ../sass/_pages.scss */
+.page-view .content-container .page-body {
+  height: 100%;
+  width: 70%;
+  position: absolute;
+  left: 30%;
+  overflow: hidden;
+  overflow-y: auto;
+}
+/* line 37, ../sass/_pages.scss */
+.page-view .view-frame {
+  padding: 40px;
 }
 
 /* line 4, ../sass/_portal.scss */
@@ -8417,14 +8467,15 @@ button.close {
   height: 100%;
   background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39ra2uRkZGZmZlpaWmXl5dvb29xcXGTk5NnZ2c8TV1mAAAAG3RSTlNAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEAvEOwtAAAFVklEQVR4XpWWB67c2BUFb3g557T/hRo9/WUMZHlgr4Bg8Z4qQgQJlHI4A8SzFVrapvmTF9O7dmYRFZ60YiBhJRCgh1FYhiLAmdvX0CzTOpNE77ME0Zty/nWWzchDtiqrmQDeuv3powQ5ta2eN0FY0InkqDD73lT9c9lEzwUNqgFHs9VQce3TVClFCQrSTfOiYkVJQBmpbq2L6iZavPnAPcoU0dSw0SUTqz/GtrGuXfbyyBniKykOWQWGqwwMA7QiYAxi+IlPdqo+hYHnUt5ZPfnsHJyNiDtnpJyayNBkF6cWoYGAMY92U2hXHF/C1M8uP/ZtYdiuj26UdAdQQSXQErwSOMzt/XWRWAz5GuSBIkwG1H3FabJ2OsUOUhGC6tK4EMtJO0ttC6IBD3kM0ve0tJwMdSfjZo+EEISaeTr9P3wYrGjXqyC1krcKdhMpxEnt5JetoulscpyzhXN5FRpuPHvbeQaKxFAEB6EN+cYN6xD7RYGpXpNndMmZgM5Dcs3YSNFDHUo2LGfZuukSWyUYirJAdYbF3MfqEKmjM+I2EfhA94iG3L7uKrR+GdWD73ydlIB+6hgref1QTlmgmbM3/LeX5GI1Ux1RWpgxpLuZ2+I+IjzZ8wqE4nilvQdkUdfhzI5QDWy+kw5Wgg2pGpeEVeCCA7b85BO3F9DzxB3cdqvBzWcmzbyMiqhzuYqtHRVG2y4x+KOlnyqla8AoWWpuBoYRxzXrfKuILl6SfiWCbjxoZJUaCBj1CjH7GIaDbc9kqBY3W/Rgjda1iqQcOJu2WW+76pZC9QG7M00dffe9hNnseupFL53r8F7YHSwJWUKP2q+k7RdsxyOB11n0xtOvnW4irMMFNV4H0uqwS5ExsmP9AxbDTc9JwgneAT5vTiUSm1E7BSflSt3bfa1tv8Di3R8n3Af7MNWzs49hmauE2wP+ttrq+AsWpFG2awvsuOqbipWHgtuvuaAE+A1Z/7gC9hesnr+7wqCwG8c5yAg3AL1fm8T9AZtp/bbJGwl1pNrE7RuOX7PeMRUERVaPpEs+yqeoSmuOlokqw49pgomjLeh7icHNlG19yjs6XXOMedYm5xH2YxpV2tc0Ro2jJfxC50ApuxGob7lMsxfTbeUv07TyYxpeLucEH1gNd4IKH2LAg5TdVhlCafZvpskfncCfx8pOhJzd76bJWeYFnFciwcYfubRc12Ip/ppIhA1/mSZ/RxjFDrJC5xifFjJpY2Xl5zXdguFqYyTR1zSp1Y9p+tktDYYSNflcxI0iyO4TPBdlRcpeqjK/piF5bklq77VSEaA+z8qmJTFzIWiitbnzR794USKBUaT0NTEsVjZqLaFVqJoPN9ODG70IPbfBHKK+/q/AWR0tJzYHRULOa4MP+W/HfGadZUbfw177G7j/OGbIs8TahLyynl4X4RinF793Oz+BU0saXtUHrVBFT/DnA3ctNPoGbs4hRIjTok8i+algT1lTHi4SxFvONKNrgQFAq2/gFnWMXgwffgYMJpiKYkmW3tTg3ZQ9Jq+f8XN+A5eeUKHWvJWJ2sgJ1Sop+wwhqFVijqWaJhwtD8MNlSBeWNNWTa5Z5kPZw5+LbVT99wqTdx29lMUH4OIG/D86ruKEauBjvH5xy6um/Sfj7ei6UUVk4AIl3MyD4MSSTOFgSwsH/QJWaQ5as7ZcmgBZkzjjU1UrQ74ci1gWBCSGHtuV1H2mhSnO3Wp/3fEV5a+4wz//6qy8JxjZsmxxy5+4w9CDNJY09T072iKG0EnOS0arEYgXqYnXcYHwjTtUNAcMelOd4xpkoqiTYICWFq0JSiPfPDQdnt+4/wuqcXY47QILbgAAAABJRU5ErkJggg==);
   position: absolute;
+  z-index: 1;
 }
 
-/* line 18, ../sass/_portal.scss */
+/* line 19, ../sass/_portal.scss */
 .portals {
   list-style-type: none;
   margin-left: -20px;
 }
-/* line 25, ../sass/_portal.scss */
+/* line 26, ../sass/_portal.scss */
 .portals .portal {
   display: inline-block;
   width: 150px;
@@ -8439,7 +8490,7 @@ button.close {
   -webkit-box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 3px 3px 10px 0px rgba(0, 0, 0, 0.75);
 }
-/* line 37, ../sass/_portal.scss */
+/* line 38, ../sass/_portal.scss */
 .portals .portal:hover {
   -moz-box-shadow: 3px 3px 10px 2px rgba(39, 110, 85, 0.75);
   -webkit-box-shadow: 3px 3px 10px 2px rgba(39, 110, 85, 0.75);
@@ -8453,20 +8504,20 @@ button.close {
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
 }
-/* line 48, ../sass/_portal.scss */
+/* line 49, ../sass/_portal.scss */
 .portals .portal.active {
   -moz-box-shadow: 3px 3px 10px 2px rgba(164, 121, 58, 0.75);
   -webkit-box-shadow: 3px 3px 10px 2px rgba(164, 121, 58, 0.75);
   box-shadow: 3px 3px 10px 2px rgba(164, 121, 58, 0.75);
 }
-/* line 55, ../sass/_portal.scss */
+/* line 56, ../sass/_portal.scss */
 .portals .portal .portal-container {
   background: #272822;
   position: absolute;
   width: 100%;
   height: 100%;
 }
-/* line 66, ../sass/_portal.scss */
+/* line 67, ../sass/_portal.scss */
 .portals .portal .portal-container .portal-frame .p-block {
   width: 100%;
   height: 100%;
@@ -8474,7 +8525,7 @@ button.close {
   position: absolute;
   background-image: url(data:image/png;base64,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);
 }
-/* line 84, ../sass/_portal.scss */
+/* line 85, ../sass/_portal.scss */
 .portals .portal .portal-container .portal-frame .portal-text {
   width: 100%;
   bottom: 0px;
@@ -8482,9 +8533,90 @@ button.close {
   text-align: center;
   z-index: 1;
 }
-/* line 92, ../sass/_portal.scss */
+/* line 93, ../sass/_portal.scss */
 .portals .portal .portal-container .portal-frame .portal-text p {
   padding: 5px;
   margin: 0;
   color: #fffefa;
+}
+
+/* line 1, ../sass/_contact.scss */
+.contact-container {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(39, 40, 34, 0.7);
+  z-index: 10;
+  text-align: center;
+  	/* #interests {
+  		width: 200px;
+  	}
+   */
+}
+/* line 15, ../sass/_contact.scss */
+.contact-container .form-box {
+  background-color: #061F37;
+  position: relative;
+  margin: 30px;
+  padding: 30px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+/* line 25, ../sass/_contact.scss */
+.contact-container .form-box form {
+  padding-bottom: 25px;
+}
+/* line 29, ../sass/_contact.scss */
+.contact-container .form-box .form-accent {
+  position: absolute;
+  width: 100%;
+  height: 10px;
+  left: 0;
+}
+/* line 31, ../sass/_contact.scss */
+.contact-container .form-box .form-accent.bottom {
+  background-color: #276E55;
+  bottom: 0;
+  -moz-border-radius: 0 0 5px 5px;
+  -webkit-border-radius: 0;
+  border-radius: 0 0 5px 5px;
+}
+/* line 37, ../sass/_contact.scss */
+.contact-container .form-box .form-accent.top {
+  background-color: #A45C3A;
+  top: 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px;
+  border-radius: 5px 5px 0 0;
+}
+/* line 52, ../sass/_contact.scss */
+.contact-container .form-box .contact-form-spinner {
+  text-align: center;
+  padding: 50px 0 50px 0;
+}
+/* line 55, ../sass/_contact.scss */
+.contact-container .form-box .contact-form-spinner i {
+  font-size: 10em;
+}
+/* line 61, ../sass/_contact.scss */
+.contact-container .form-box .close-btn {
+  cursor: pointer;
+  width: 40px;
+  height: 60px;
+  z-index: 3;
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  color: #96354D;
+  font-size: 3em;
+}
+/* line 75, ../sass/_contact.scss */
+.contact-container .form-box .close-btn:hover {
+  color: #b03e5b;
 }

@@ -17,17 +17,21 @@
                 
 
 
-                
+                    
 
 
                 $scope.images = ImageLocation.retrieve;
+                
                 // function() {
                 //     console.log("Getting pulled");
                 //     return {
                 //         pull : ImageLocation.retrieve
                 //     }
                 //     //return "get MEEERERE;";
-                // }
+                // }'
+
+
+                //$scoImageLocation.retrieve()
 
 
 

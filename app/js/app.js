@@ -9,6 +9,7 @@ angular.module('gSoft', [
   'gSoft.navbar',
   'gSoft.footer',
   'gSoft.version'
+
   //'ui.router'
 ]).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
@@ -91,8 +92,10 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
             this.activeIndex--; 
       }
 
-      this.setIndex = function(index) {
+      this.setIndex = function(index, $scope) {
         this.activeIndex = index;
+        if ($scope)
+           $scope.activeIndex = index;
       }
 
       this.get = function($routeParams) {
@@ -112,11 +115,22 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     }
 })
 
+.constant('constants', {
+  CONTACT: {
+    url: 'components/contact/contact.html'
+  }
+  
+})
 
-.controller('gSoftCtrl', ["$scope", "$log",  "LoadPage" , function($scope, $log, LoadPage) {
+
+.controller('gSoftCtrl', ["$scope", "$log",  "LoadPage" , 'constants', function($scope, $log, LoadPage, constants) {
 
     $scope.$log = $log;
 
+    //$log.log(constants.CONTACT.url);
+    $scope.constants = constants;
+
+    //$scope.hideSpin = true;
 		//$scope.greeting = "HI Adam";	
 		LoadPage.timeout(2000).then(function() {
 		//console.log("I promise", control);
@@ -131,15 +145,33 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
 }])
 .controller('windowCtrl', ["$scope", "$window" , "LoadPage" , 
   function($scope, $window, $routeParams, LoadPage, PortalIndex) {
-	
+	 
+  angular.element($window).bind("scroll", function() {
+    console.log("Scrolling");
+
+  });
+
+  
+
+
+  $(document).on('scroll', '.page-body', function() {
+      console.log("Srolliong");
+  });
+
+  $('.page-body').scroll(function () {
+    console.log("Srolliong");
+
+  });
+
+
    $(window).resize(function(){
    // alert(window.innerWidth);
     var win = this;
     $scope.$apply(function(){
        //do something to update current scope based on the new innerWidth and let angular update the view.
-       console.log($(win).width());
+       console.log("Resizing" , $(win).width());
     });
-});
+})
 
 }]);
 

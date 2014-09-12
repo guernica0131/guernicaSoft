@@ -1,10 +1,21 @@
-
-<div class="container">
-	<div class="row">
-		<div class="col-md-8"></div>
-	</div>
-	<div class="row">
-		<h1>{{portals[activeIndex].title}}</h1>
-		<p>{{portals[activeIndex].body}}</p>
+<!--div class="view-container" ng-controller="windowCtrl"  class="view-frame"-->
+<div class="view-container fog" ng-class="{in:drawcontent}">
+	<div class="content-container" style="background: url({{ images('BODY', portals[activeIndex].content.body.src)}} ) no-repeat 50% 0; ">
+		<div class="page-body">
+			<div class="view-frame">
+				<div class="pad-70"></div>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-8">
+							<h1 class="color {{portals[activeIndex].css.text.header}}">{{portals[activeIndex].title}} <small class="lead  color {{portals[activeIndex].css.text.lead}}">{{portals[activeIndex].lead}}</small></h1>
+							<p class="color {{portals[activeIndex].css.text.p}}">{{portals[activeIndex].body.text}}</p>
+							<h1>{{activeIndex}}</h1>
+						</div>
+					</div>
+					<contact></contact>
+				</div>
+			</div>
+			
+		</div>
 	</div>
 </div>

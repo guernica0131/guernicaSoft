@@ -8,7 +8,7 @@
 	
 	.navbar-brand {
 
-	background-image: url('../../images/logo2.png');
+	background-image: url('../../images/logo3.png');
 	background-repeat: no-repeat;
 	background-position: center center;
 //	width: 300px;
@@ -49,6 +49,11 @@
 	}
 }
 
+#nav-spinner {
+	//margin-top: 5px;
+}
+
+
 .curtain {
 
 	//background-color: $night;
@@ -56,6 +61,10 @@
 	&.curtain-top {
 
 		background: $contrast;
+
+	
+	
+	
 	}
 
 	&.curtain-bottom {

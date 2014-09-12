@@ -1,16 +1,21 @@
 'use strict';
 
-angular.module('gSoft.view1', ['ngRoute', 'gSoft.portal', 'ui.router'])
+angular.module('gSoft.view1', 
+	['ngRoute', 
+	'gSoft.portal', 
+	'gSoft.pPage',
+	//'gSoft.Contact'
+	])
 
-.config(['$routeProvider', '$stateProvider', function($routeProvider, $stateProvider) {
+.config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/view1', {
     templateUrl: 'views/view1/view1.html',
     controller: 'View1Ctrl'
   });
 
-  $stateProvider.state('portalContent', {
+  /*$stateProvider.state('portalContent', {
   	url: ''
-  })
+  })*/
 
 }])
 //*/
@@ -21,19 +26,60 @@ angular.module('gSoft.view1', ['ngRoute', 'gSoft.portal', 'ui.router'])
 
 }])*/
 
-.controller('View1Ctrl', ["$scope", "$routeParams", "PortalIndex" , function($scope, $routeParams, PortalIndex) {
+.controller('View1Ctrl', ["$scope", "$routeParams", "$location" , "LoadPage" ,"PortalIndex" , function($scope, $routeParams, $location, LoadPage, PortalIndex) {
 	//$scope.greeting = "HI Adam";
 	$scope.portals = portals;
 
 
-    var pIndex = new PortalIndex.i([{},{}]);
+    var pIndex = new PortalIndex.i(portals);
+
+    $scope.activeIndex = pIndex.get($routeParams);
+
+    var timeout = $scope.windowOpened ? 300 : 3000;
+
+
+   	LoadPage.timeout(timeout).then(function() {
+   		console.log("I was triggered");
+   		
+   		$scope.drawcontent = true;
+   	});
+
+   	LoadPage.timeout(timeout * 2).then(function() {
+   		angular.element($('#nav-spinner')).addClass('hidden');
+   	});
+
+    
     
     //console.log($routeParams);
-    console.log(pIndex.get($routeParams));
+   // console.log();
 
-    $scope.updatePage = function() {
-    	//console.log("CLICKING" );
-    	//$routeParams.portal = "100"
+    $scope.updatePage = function(index) {
+    	console.log("CLICKING and finding hidespin",$scope.$parent.hideSpin  );
+
+
+    	
+    	if (index == pIndex.get($routeParams))
+    		return;
+
+
+		//$scope.$parent.hideSpin = false; 
+
+		angular.element($('#nav-spinner')).removeClass('hidden');
+
+		//$scope.apply()
+
+    	$scope.drawcontent = false;
+    	$routeParams.portal = index;
+    	$location.search({portal: index})
+
+
+    	pIndex.setIndex(index, $scope);
+
+    	  ///$location.path(  $location.path() )
+
+
+    	
+
     	//$scope.$apply();
     }
 
@@ -44,6 +90,7 @@ var portals = [
 
 	{
 		title: 'guernica Softworks',
+		lead: 'digital artisans',
 		body: {
 			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
 		}, 
@@ -56,6 +103,13 @@ var portals = [
 			body:  {
 				src: 'global',
 				alt: "Na Na"
+			}
+		},
+		css: {
+			text: {
+				header: 'white',
+				lead: 'base',
+				p: 'white'
 			}
 		},
 		video: true,

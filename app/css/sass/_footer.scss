@@ -1,7 +1,7 @@
 
 .footer-colors {
 	@include transition(color 300ms ease-in);
-	color: $red !important;
+	color: $black !important;
 	&:hover {
 		color: $white !important;
 	}

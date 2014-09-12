@@ -1,4 +1,4 @@
- angular.module('gSoft.pPage', [])
+ angular.module('gSoft.pPage', ['gSoft.Contact'])
 
 /*     .config(['$routeProvider', function($routeProvider) {
       	$routeProvider.when('/view1', {
@@ -11,8 +11,11 @@
         return {
             restrict: 'E',
             templateUrl: 'components/pages/primary/page.html',
-            controller: function($scope, $location) {
+            controller: function($scope, $location, ImageLocation) {
             	console.log("This is the page element");
+
+              $scope.images = ImageLocation.retrieve;
+
             },
             controllerAs: 'pPage',
             scope: true

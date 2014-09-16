@@ -1,3 +1,8 @@
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+
 a {
 	color: $white !important;
 
@@ -24,55 +29,49 @@ a {
 
 .fog {
 	@include opacity(0);
-	@include transition(opacity 400ms ease);
-	display: none;
+	@include transition(opacity 500ms ease-in-out);
+//	display: none;
 	&.in {
-		display: block;
+		//display: block;
 		@include opacity(1);
-		
+//	display: block;
 	}
 
 }
 
+.none {
+	display:none;
+}
+
+.block {
+	display: block;
+}
+
+.glyphicon-ok {
+	color: $base !important;
+}
+
+
+
 .btn {
 	&.btn-primary {
-		background-color: $contrast;
-		border-color: adjust-lightness($contrast, -3);
-		&:hover {
-			background-color: adjust-lightness($contrast, -3);
-		}
+		@include button-color($contrast, white);
 	}
 
 	&.btn-success {
-		background-color: $base;	
-		border-color: adjust-lightness($base, -3);
-		&:hover {
-			background-color: adjust-lightness($base, -3);
-		}
+		@include button-color($base, white);
 	}
 
 	&.btn-info {
-		background-color: $blue;
-		border-color: adjust-lightness($blue, 3);
-		&:hover {
-			background-color: adjust-lightness($blue, -3);
-		}
+		@include button-color($blue, white);
 	}
 
 	&.btn-warning {
-		background-color: $gold;
-		border-color: adjust-lightness($gold, -3);
-		&:hover {
-			background-color: adjust-lightness($gold, -3);
-		}
+		@include button-color($gold, white);
 	}
 
 	&.btn-danger {
-		background-color: $red;
-		border-color: adjust-lightness($red, -3);
-		&:hover {
-			background-color: adjust-lightness($red, -3);
-		}
+		@include button-color($red, white);
 	}
 
 

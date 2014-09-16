@@ -37,3 +37,14 @@ $break-narrow: 1680px;
   }
 }
 
+@mixin button-color($color, $text) {
+  background-color: $color;
+    border-color: adjust-lightness($color, -3);
+    color: $text;
+    &:hover {
+    
+      background-color: adjust-lightness($color, -3);
+      color: $text !important;
+    }
+}
+

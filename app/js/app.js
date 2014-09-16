@@ -145,23 +145,29 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
 }])
 .controller('windowCtrl', ["$scope", "$window" , "LoadPage" , 
   function($scope, $window, $routeParams, LoadPage, PortalIndex) {
+
+
+  $(function() {
+
+
+    angular.element( $('.page-body') ).bind("scroll", function() {
+      console.log("Scrolling with angular page body");
+    });
+
+
+ 
+  })
 	 
-  angular.element($window).bind("scroll", function() {
-    console.log("Scrolling");
+  angular.element($window).bind("scroll", function(e) {
+    //$(window).scrollTop()
+    console.log("Scrolling with angular window" );
 
   });
 
   
+  
 
 
-  $(document).on('scroll', '.page-body', function() {
-      console.log("Srolliong");
-  });
-
-  $('.page-body').scroll(function () {
-    console.log("Srolliong");
-
-  });
 
 
    $(window).resize(function(){

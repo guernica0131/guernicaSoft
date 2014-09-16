@@ -3,8 +3,21 @@
 
 .portal-view {
 	width: 30%;
-	float:left;
+	
 	height:100%;
+	@include respond-to(tablet) {
+			width: 20%;
+	}
+
+	@include respond-to(reduced) {
+		//width: 20%;
+		display: none;
+	}
+
+	@include respond-to(handhelds) {
+		//width: 20%;
+		display: none;
+	}
 	//top:0;
 	//left:0;
 	//bottom:0;
@@ -12,24 +25,35 @@
 	//background-color: red;
 	//z-index: 10;
 	position:absolute;
+	overflow-y:auto;
+
+	overflow-y: -moz-scrollbars-none;
+
 	z-index:1;
+	padding-bottom: 40px;
+	text-align:center;
 }
 
 
 .portals {
 
 	list-style-type: none;
-	margin-left: -20px;
-	
+	margin-left: -40px;
+	margin-bottom: 40px;
+	//margin: auto 0;	
 
 
 	.portal {
-		//background-image: $noise;
+
+		
+		
+
+
 		display: inline-block;
 		width: 150px;
 		height: 150px;
 		position:relative;
-		margin: 10px;
+		margin: 5px;
 	//	padding: 5px;
 		overflow:hidden;
 		@include border-radius(5px);
@@ -41,9 +65,36 @@
 			width: 155px;
 			height: 155px;
 			//padding: 0;
-			margin: 5px;
-			margin-right: 10px;
+			margin: 2.5px;
+			//margin-right: 10px;
+			//margin-left: 10px;
 			@include transition(all 300ms ease);
+		}
+
+		@include respond-to(tablet) {
+			width: 75px;
+			height: 75px;
+			margin: 3px;
+
+			&:hover { 
+				width: 78px;
+				height: 78px;
+				margin: 1.5px;	
+			}
+
+		}
+
+		@include respond-to(reduced) {
+			width: 75px;
+			height: 75px;
+			margin: 3px;
+
+			&:hover { 
+				width: 78px;
+				height: 78px;
+				margin: 1.5px;				
+			}
+
 		}
 
 		&.active {
@@ -94,6 +145,14 @@
 						padding: 5px;
 						margin: 0;
 						color: $white;
+						@include respond-to(tablet) {
+							padding: 0;
+						}
+
+						@include respond-to(reduced) {
+							padding: 0;
+						}
+
 					}
 				}
 

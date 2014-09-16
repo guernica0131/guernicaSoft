@@ -120,6 +120,7 @@ var portals = [
 
 	{
 		title: 'Custom Software',
+		lead: 'software desgined for you',
 		body: {
 			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
 		}, 
@@ -129,6 +130,15 @@ var portals = [
 				alt: 'Custom Software Solutions'
 			}, 
 			body: {
+				src: 'custom',
+				alt: "Na Na"
+			}
+		},
+		css: {
+			text: {
+				header: 'night',
+				lead: 'contrast',
+				p: 'night'
 			}
 		},
 		video: true,
@@ -139,6 +149,7 @@ var portals = [
 
 	{
 		title: 'ICT Consulting',
+		lead: 'your personal tech gurus',
 		body: {
 			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
 		}, 
@@ -148,6 +159,14 @@ var portals = [
 				alt: 'Consulting Services'
 			}, 
 			body: {
+				src: 'consulting'
+			}
+		},
+		css: {
+			text: {
+				header: 'white',
+				lead: 'red',
+				p: 'white'
 			}
 		},
 		video: true,

@@ -13,14 +13,14 @@
             templateUrl: 'components/contact/contact.html',
             controller: function($scope, $location, LoadPage) {
 
-                console.log("WOrking the contact");
-
+                
                 var closeContact = function() {
-                    console.log("Closing form");
                     $scope.thinking = false;
                     $scope.openContactForm = false;
+                    $scope.confirmed = false;
                 }
 
+                $scope.closeContact = closeContact;
 
                 var validateEmail = function(email) {
                     var re = /\S+@\S+\.\S+/;
@@ -40,27 +40,20 @@
                 }
 
                 $scope.openContact = function() {
-                    console.log("Opening form");
                     $scope.thinking = false;
                     $scope.confirmed = false;
                     $scope.openContactForm = true;
-
                 }
-
-                $scope.closeContact = closeContact;
 
                 $scope.validateForm = function(selector, element) {
                   
                     var el =  $("#" + selector),
                      val = el.val();
-                     //console.log("Typing " + selector + " ", val );
                      if ( checkEmail(val, element) )
                          el.siblings('.form-control-feedback').addClass('glyphicon-ok');
                      else
                          el.siblings('.form-control-feedback').removeClass('glyphicon-ok');
                 }
-
-
 
                 $scope.sendContact = function(portal) {
                     
@@ -69,15 +62,10 @@
                     var contact = $scope.contact;
 
                     contact.portal = portal.title;
-                    console.log("This submits my form", contact);
-
                     // memics a restful call
                     LoadPage.timeout(1000).then(function() {
-                  //    $scope.thinking = false;
-
-                      // now we force hide the thinker
-                      $('.contact-form-spinner').hide();
                       $scope.confirmed = true;
+                      $scope.thinking = false;
                     });
 
                 }

@@ -14,7 +14,7 @@
 	right:0;
 	//width:100%;
 	//overflow-y: scroll;
-	position:absolute;
+	//position:absolute;
 	//z-index:1;
 
 	.content-container {
@@ -26,7 +26,7 @@
 		//margin:0 auto;
 
 		//left: 30%;
-		//position: absolute;
+		//position: relative;
 
 		.page-body {
 			//@extend .fill;
@@ -37,6 +37,142 @@
 			left: 30%;
 			overflow: hidden;
 			overflow-y: auto;
+
+		.page-body-wrapper {
+			position:relative;
+			//overflow: er;
+		}		
+
+
+	
+		.nav-elements {
+			position:relative;
+			background-color: rgba($base, 0.8);
+			@include border-radius(5px);
+
+			// @include respond-to(handhelds) {
+			// 	margin-left: 50px;
+			// }
+
+			margin-top: 40px;
+			margin-bottom: 40px;
+			//@extend .nav-width;
+
+			padding: 10px;
+			//height: 340px;
+			//margin: 20px;
+		//	margin-top: 20px;
+		//	margin-bottom: 150px;
+			//padding: 10px;
+
+			//margin-left: auto;
+			//margin-right: auto;
+
+			.nav-parents {
+			
+				display: inline-block;
+
+			//@extend .nav-width;
+			//	text-align: center;
+
+			//text-align: center;
+			//padding:5px;
+			//width: 100%;
+			//height: 100%;
+				position:relative;
+			//position:absolute;
+			//bottom: 100px;
+			//right: 5px;
+			padding: 5px;
+
+			//margin-left: auto;
+			//margin-right: auto;
+			text-align: center;
+			&.top-parent {
+				//background: red;
+				//text-align: center;
+
+			}
+
+			&.middle-parent {
+				//background: green;
+			//	text-align: center;
+			}
+
+			&.bottom-parent {
+				//background: blue;
+			//	text-align: center;
+			}
+
+			.nav-ctl {
+				//text-align: center;
+				
+				color: $gray;
+				cursor:pointer;
+
+				&.nav-arrow {
+				//	left: 50%;
+					//line-height: 1em;
+					font-size: 5em;
+					//position:absolute;
+					@include transition(color 300ms ease);
+					color: rgba($white, 0.5 );
+
+					&:hover {
+						color: white;						
+					}
+				}
+
+				&.nav-ctl-parent {
+					//position:absolute;	
+				//	top: 8em;
+				//	left: 0;
+				
+					
+					font-size: 0.8em;
+					.nav-links-indicators {
+						//bottom: 100px;
+						display: block;
+						//margin: 0;
+						//padding: 0;
+					}
+
+					.visible {
+						color: $white;
+					}
+					width: 100%;
+					//background-color: red;
+					//@include vertical-align();
+					//margin-left: -40px;
+					padding:0;
+					padding-top: 5px;
+					padding-bottom: 5px;
+				}
+
+
+
+				&.nav-up  {
+					//top: 0px;
+				}
+
+				&.nav-down {
+					//bottom: 0px;
+				}
+
+
+
+
+				&.no-show {
+					display: none;
+				}
+
+
+}
+			}
+
+			}
+
+			
 
 			@include respond-to(tablet) {
 				width: 80%;

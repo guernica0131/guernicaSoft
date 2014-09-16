@@ -4,7 +4,7 @@
 angular.module('gSoft', [
   'gSoftAnimations',
   'ngRoute',
-  'gSoft.view1',
+  'gSoft.service',
   'gSoft.view2',
   'gSoft.navbar',
   'gSoft.footer',
@@ -14,7 +14,7 @@ angular.module('gSoft', [
 ]).
 config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
   //$locationProvider.html5Mode(true);
-  $routeProvider.otherwise({redirectTo: '/view1'});
+  $routeProvider.otherwise({redirectTo: '/'});
 }])
 .factory('LoadPage', function($q, $timeout) {
 

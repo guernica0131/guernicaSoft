@@ -45,7 +45,7 @@
         {
             name: "Services",
             cssClass: "night",
-            url: "/services",
+            url: "/",
             tooltip: "This discusses our services offered.",
             images: {
                 steady: "",

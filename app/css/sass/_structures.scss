@@ -11,6 +11,10 @@ a {
 	}
 }
 
+.raise {
+	min-height: 100%;
+}
+
 .fill { // not used
 	 min-width:100%;
 	 min-height:100%;
@@ -25,6 +29,10 @@ a {
 
 .pad-70 {
 	padding-top: 70px;
+}
+
+.pad-40 {
+	padding-top: 40px;
 }
 
 .fog {

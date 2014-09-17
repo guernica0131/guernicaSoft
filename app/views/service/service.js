@@ -1,379 +1,303 @@
-'use strict';
+(function() {
 
-angular.module('gSoft.service', 
-	['ngRoute', 
-	'gSoft.portal', 
-	'gSoft.pPage',
-	])
+    'use strict';
+    // our service view is the default view for users. It is comprised or portals and uses the primary page moduel for page rendering
+    angular.module('gSoft.service', ['ngRoute',
+        'gSoft.portal',
+        'gSoft.pPage',
+    ])
+    // we set the route as the default view
+    .config(['$routeProvider',
+        function($routeProvider) {
+            $routeProvider.when('/', {
+                templateUrl: 'views/service/service.html',
+                controller: 'ServiceCtrl'
+            });
+        }
+    ])
+    // our ServiceCtrl
+    .controller('ServiceCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
+        function($scope, $routeParams, $location, LoadPage, PortalIndex) {
+            //we push our portals into the scope
+            $scope.portals = portals;
+            // we create a PortalIndex Instance
+            var pIndex = new PortalIndex.i(portals);
+            // now we set the portal link into the scope
+            $scope.portalLink = pIndex.get($routeParams);
+            // we build the portal paramters
+            pIndex.setIndex($scope.portalLink, $scope);
+            // pageChange is a local function that sets all the appriate params for a page change
+            var pageChanger = function(portal) {
+                    // we the imput is indefined or we are traversing a portal we are already at, we return
+                    if (typeof portal === 'undefined' || portal == pIndex.get($routeParams))
+                        return;
+                    // we activate the spinner in the navbar
+                    angular.element($('#nav-spinner')).removeClass('hidden');
+                    $scope.drawcontent = false;
+                    $routeParams.portal = portal;
+                    // sets the portal as a paramter
+                    $location.search({
+                        portal: portal
+                    })
+                    // set index actually creates the page content
+                    pIndex.setIndex(portal, $scope);
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/', {
-    templateUrl: 'views/service/service.html',
-    controller: 'ServiceCtrl'
-  });
+                }
+                // we set the timeout either at 300ms or 3000ms depending on if it is freshly opened
+            var timeout = $scope.windowOpened ? 300 : 3000;
+            // this timeout allows us to mimick restful call
+            LoadPage.timeout(timeout).then(function() {
+                $scope.drawcontent = true;
+            });
+            // this shutsdown the spinner effect in the navbar
+            LoadPage.timeout(timeout * 2).then(function() {
+                angular.element($('#nav-spinner')).addClass('hidden');
+            });
+            // updatePage calls page changer to fill the correct portal
+            $scope.updatePage = function(index) {
+                pageChanger(index);
+            }
+            // surfPortals allows the users to increment or decrement the portals pages
+            $scope.surfPortals = function(position) {
+                var newIndex = pIndex.changePortalIndex(position, $scope.activeIndex);
+                pageChanger(portals[newIndex].portal);
+            }
+        }
+    ]);
 
-  /*$stateProvider.state('portalContent', {
-  	url: ''
-  })*/
+    // change to a REST Call
+    var portals = [
 
-}])
-//*/
-/*
-.controller('view1ContentCtrl', ["$scope", "$routeParams", "PortalIndex" , function($scope, $routeParams, PortalIndex) {
-	//$scope.greeting = "HI Adam";
-	console.log("My content");
+        {
+            title: 'guernica Softworks',
+            lead: 'digital artisans',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
 
-}])*/
+                thumbnail: {
+                    src: 'logo',
+                    alt: 'guernica Softworks Logo'
+                },
+                body: {
+                    src: 'global',
+                    alt: "Na Na"
+                }
+            },
+            css: {
+                text: {
+                    header: 'white',
+                    lead: 'base',
+                    p: 'white'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'gSoft',
+            cssClass: 'night'
+        },
 
-.controller('ServiceCtrl', ["$scope", "$routeParams", "$location" , "LoadPage" ,"PortalIndex" , function($scope, $routeParams, $location, LoadPage, PortalIndex) {
-	//$scope.greeting = "HI Adam";
-	$scope.portals = portals;
+        {
+            title: 'Custom Software',
+            lead: 'software desgined for you',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'custom',
+                    alt: 'Custom Software Solutions'
+                },
+                body: {
+                    src: 'custom',
+                    alt: "Na Na"
+                }
+            },
+            css: {
+                text: {
+                    header: 'night',
+                    lead: 'contrast',
+                    p: 'night'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'custom',
+            cssClass: 'night'
+        },
 
+        {
+            title: 'ICT Consulting',
+            lead: 'your personal tech gurus',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'consulting',
+                    alt: 'Consulting Services'
+                },
+                body: {
+                    src: 'consulting'
+                }
+            },
+            css: {
+                text: {
+                    header: 'white',
+                    lead: 'red',
+                    p: 'white'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'consult',
+            cssClass: 'night'
+        },
 
-    var pIndex = new PortalIndex.i(portals);
+        {
+            title: 'Graphic Design',
+            lead: 'meaningful designs',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'graphic',
+                    alt: 'Graphic Design solutions'
+                },
+                body: {
+                    src: 'design'
+                }
+            },
+            css: {
+                text: {
+                    header: 'white',
+                    lead: 'night',
+                    p: 'white'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'design',
+            cssClass: 'night'
+        },
 
-    $scope.activeIndex = pIndex.get($routeParams);
-    $scope.noShowUp = false;
-    $scope.noShowDown = false;
-
-    
-
-    var verifyNavPosition = function(activeIndex)  {
-    	console.log("Making the rounds " ,activeIndex);
-
-    	// if (activeIndex === 0) {
-    	// 	$scope.noShowUp = true;
-    	// } else {
-    	// 	$scope.noShowUp = false;
-    	// }
-
-     // 	if (activeIndex < portals.length - 1) {
-    	// 	$scope.noShowDown = false;
-    	// } else {
-    	// 	$scope.noShowDown = true;
-    	// }
-
-    }
-
-    var pageChanger = function(index) {
-    	//console.log("CLICKING and finding hidespin",index  );
-    	if (typeof index === 'undefined' || index == pIndex.get($routeParams))
-    		return;
-		//$scope.$parent.hideSpin = false; 
-
-		angular.element($('#nav-spinner')).removeClass('hidden');
-
-		//$scope.apply()
-
-    	$scope.drawcontent = false;
-    	$routeParams.portal = index;
-    	$location.search({portal: index})
-
-
-    	pIndex.setIndex(index, $scope);
-
-
-    	verifyNavPosition(index);
-    }
-
-    verifyNavPosition($scope.activeIndex);
-
-    var timeout = $scope.windowOpened ? 300 : 3000;
-
-
-   	LoadPage.timeout(timeout).then(function() {
-   		console.log("I was triggered");
-   		
-   		$scope.drawcontent = true;
-   	});
-
-   	LoadPage.timeout(timeout * 2).then(function() {
-   		angular.element($('#nav-spinner')).addClass('hidden');
-   	});
-    
-    
-    //console.log($routeParams);
-   // console.log();
-
-    $scope.updatePage = function(index) {
-		pageChanger(index);    	
-    }
-
-    $scope.changePortal = function(position) {
-
-    	var current = pIndex.get($routeParams);
-
-    	console.log("Our current page going " + position + " " , current);
-
-    	if (position === 'up') {
-    		if (current === 0)
-    			current = portals.length - 1;
-    		else 
-    			current = --current;
-
-    		pageChanger(current);    	
-    	} else if (position === 'down') {
-    		if (current === portals.length - 1)
-    			current = 0;
-    		else 
-    			current = ++current;
-
-    		pageChanger(current);
-    	}
-
-    } 
-
-}]);
-
-
-var portals = [
-
-	{
-		title: 'guernica Softworks',
-		lead: 'digital artisans',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-
-			thumbnail: {
-				src: 'logo',
-				alt: 'guernica Softworks Logo'
-			}, 
-			body:  {
-				src: 'global',
-				alt: "Na Na"
-			}
-		},
-		css: {
-			text: {
-				header: 'white',
-				lead: 'base',
-				p: 'white'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
-
-	{
-		title: 'Custom Software',
-		lead: 'software desgined for you',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-			thumbnail: {
-				src: 'custom',
-				alt: 'Custom Software Solutions'
-			}, 
-			body: {
-				src: 'custom',
-				alt: "Na Na"
-			}
-		},
-		css: {
-			text: {
-				header: 'night',
-				lead: 'contrast',
-				p: 'night'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
-
-	{
-		title: 'ICT Consulting',
-		lead: 'your personal tech gurus',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-			thumbnail: {
-				src: 'consulting',
-				alt: 'Consulting Services'
-			}, 
-			body: {
-				src: 'consulting'
-			}
-		},
-		css: {
-			text: {
-				header: 'white',
-				lead: 'red',
-				p: 'white'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
-
-	{
-		title: 'Graphic Design',
-		lead: 'meaningful designs',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-			thumbnail: {
-				src: 'graphic',
-				alt: 'Graphic Design solutions'
-			}, 
-			body: {
-				src: 'design'
-			}
-		},
-		css: {
-			text: {
-				header: 'white',
-				lead: 'night',
-				p: 'white'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
-
-	{
-		title: 'Cloud Deployment',
-		lead: 'scalable, secure, rubust, everywhere, always',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-			thumbnail: {
-				src: 'cloud',
-				alt: 'Cloud-base delployment solutions'
-			}, 
-			body: {
-				src:'cloud'
-			}
-		},
-		css: {
-			text: {
-				header: 'night',
-				lead: 'contrast',
-				p: 'night'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
+        {
+            title: 'Cloud Deployment',
+            lead: 'scalable, secure, rubust, everywhere, always',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'cloud',
+                    alt: 'Cloud-base delployment solutions'
+                },
+                body: {
+                    src: 'cloud'
+                }
+            },
+            css: {
+                text: {
+                    header: 'night',
+                    lead: 'contrast',
+                    p: 'night'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'cloud',
+            cssClass: 'night'
+        },
 
 
 
-	{
-		title: 'Brand Strategies',
-		lead: 'finding voice for your ideas',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-			thumbnail: {
-				src: 'brand',
-				alt: 'Brand Strategy Solutions'
-			}, 
-			body: {
-				src:'brand-dark'
-			}
-		},
-		css: {
-			text: {
-				header: 'white',
-				lead: 'base',
-				p: 'white'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
+        {
+            title: 'Brand Strategies',
+            lead: 'finding voice for your ideas',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'brand',
+                    alt: 'Brand Strategy Solutions'
+                },
+                body: {
+                    src: 'brand-dark'
+                }
+            },
+            css: {
+                text: {
+                    header: 'white',
+                    lead: 'base',
+                    p: 'white'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'brand',
+            cssClass: 'night'
+        },
 
-	{
-		title: 'Search Engine Optimizations',
-		lead:'connecting you are yours',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-			thumbnail: {
-				src: 'seo',
-				alt: 'Search Engine Optimzation Services'
-			}, 
-			body: {
-				src: 'seo'
-			}
-		},
-		css: {
-			text: {
-				header: 'night',
-				lead: 'contrast',
-				p: 'night'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
+        {
+            title: 'Search Engine Optimizations',
+            lead: 'connecting you are yours',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'seo',
+                    alt: 'Search Engine Optimzation Services'
+                },
+                body: {
+                    src: 'seo'
+                }
+            },
+            css: {
+                text: {
+                    header: 'night',
+                    lead: 'contrast',
+                    p: 'night'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'seo',
+            cssClass: 'night'
+        },
 
-	{
-		title: 'Service Contracts',
-		lead: 'forever available, forever up-to-date',
-		body: {
-			text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		}, 
-		content: {
-			thumbnail: {
-				src: 'service',
-				alt: 'Service Agreement Contracts'
-			}, 
-			body: {
-				src: 'service'
-			}
-		},
-		css: {
-			text: {
-				header: 'night',
-				lead: 'contrast',
-				p: 'night'
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	},
+        {
+            title: 'Service Contracts',
+            lead: 'forever available, forever up-to-date',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'service',
+                    alt: 'Service Agreement Contracts'
+                },
+                body: {
+                    src: 'service'
+                }
+            },
+            css: {
+                text: {
+                    header: 'night',
+                    lead: 'contrast',
+                    p: 'night'
+                }
+            },
+            video: true,
+            order: 1,
+            portal: 'service',
+            cssClass: 'night'
+        },
 
-/*	{
-		title: 'IT Services',
-		b,ody: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-		content: {
-			thumbnail: {
-				src: 'global',
-				alt: 'Information Technology Service Contracts'
-			}, 
-			body: {
-			}
-		},
-		video: true,
-		order: 1,
-		page: 'primary',
-		cssClass: 'night'
-	}
-*/
+    ];
 
 
-];
+})();

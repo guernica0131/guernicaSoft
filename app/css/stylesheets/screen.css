@@ -8473,8 +8473,9 @@ a:hover {
 /* line 140, ../sass/_pages.scss */
 .page-view .content-container .page-body .nav-elements .nav-parents .nav-ctl.nav-ctl-parent .visible {
   color: #fffefa;
+  cursor: default;
 }
-/* line 165, ../sass/_pages.scss */
+/* line 166, ../sass/_pages.scss */
 .page-view .content-container .page-body .nav-elements .nav-parents .nav-ctl.no-show {
   display: none;
 }
@@ -8499,12 +8500,12 @@ a:hover {
     left: 0;
   }
 }
-/* line 196, ../sass/_pages.scss */
+/* line 197, ../sass/_pages.scss */
 .page-view .view-frame {
   padding: 40px;
 }
 @media only screen and (min-width: 321px) and (max-width: 500px) {
-  /* line 196, ../sass/_pages.scss */
+  /* line 197, ../sass/_pages.scss */
   .page-view .view-frame {
     padding: 0;
   }

@@ -1,6 +1,5 @@
-<!--div class="view-container" ng-controller="windowCtrl"  class="view-frame"-->
 <div class="view-container fog" ng-class="{in:drawcontent}">
-	<div class="content-container" style="background: url({{ images('BODY', portals[activeIndex].content.body.src)}} ) no-repeat center center /cover; ">
+	<div class="content-container" style="background: url({{ images('BODY', activePortal.content.body.src)}} ) no-repeat center center /cover; ">
 		
 		<div class="page-body">
 			<div class="page-body-wrapper raise">
@@ -9,9 +8,9 @@
 					<div class="container">
 						<div class="row">
 							<div class="col-md-8">
-								<h1 class="color {{portals[activeIndex].css.text.header}}">{{portals[activeIndex].title}} <small class="lead  color {{portals[activeIndex].css.text.lead}}">{{portals[activeIndex].lead}}</small></h1>
-								<p class="color {{portals[activeIndex].css.text.p}}">{{portals[activeIndex].body.text}}</p>
-								<h1>{{activeIndex}}</h1>
+								<h1 class="color {{activePortal.css.text.header}}">{{activePortal.title}} <small class="lead  color {{activePortal.css.text.lead}}">{{activePortal.lead}}</small></h1>
+								<p class="color {{pactivePortal.css.text.p}}">{{activePortal.body.text}}</p>
+								<h1>HEY {{activeIndex}}</h1>
 							</div>
 						</div>
 						<!-- insert the contact form -->
@@ -21,15 +20,16 @@
 							<div class="col-md-1 pull-left hidden-sm hidden-md hidden-lg">
 								<div class="nav-elements">
 									<div class="nav-parents top-parent">
-										<div class="nav-ctl nav-arrow nav-up color {{portals[activeIndex].css.text.nav}}"  ng-class="{'no-show':noShowUp}" ng-click="changePortal('up')"><i class="fa fa-chevron-circle-up"></i></div>
+										<div class="nav-ctl nav-arrow nav-up color {{activePortal.css.text.nav}}" ng-click="surfPortals('up')"><i class="fa fa-chevron-circle-up"></i></div>
 									</div>
 									<div class="nav-parents middle-parent">
 										<ul class="nav-ctl-parent nav-ctl">
-											<li class="nav-links-indicators color {{portals[activeIndex].css.text.nav}}" ng-repeat="ports in portals" ng-class="{visible:activeIndex==$index}" ng-click="updatePage($index)">{{ports.title}}</li>
+											<!-- need to check here too -->
+											<li class="nav-links-indicators color {{activePortal.css.text.nav}}" ng-repeat="ports in portals" ng-class="{visible:activeIndex==$index}" ng-click="updatePage(ports.portal)">{{ports.title}}</li>
 										</ul>
 									</div>
 									<div class="nav-parents bottom-parent">
-										<div class="nav-ctl nav-arrow nav-down color {{portals[activeIndex].css.text.nav}}" ng-class="{'no-show':noShowDown}" ng-click="changePortal('down')"><i class="fa fa-chevron-circle-down"></i></div>
+										<div class="nav-ctl nav-arrow nav-down color {{activePortal.css.text.nav}}" ng-click="surfPortals('down')"><i class="fa fa-chevron-circle-down"></i></div>
 									</div>
 								</div>
 							</div>

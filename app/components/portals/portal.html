@@ -1,5 +1,6 @@
 <ul class="portals">
-	<li class="portal out" ng-repeat="p in portals" ng-class="{active: $index == activeIndex}" ng-click="updatePage($index)"> <!-- ng-class="out" -->
+	<li class="portal out" ng-repeat="p in portals" ng-class="{active: $index == activeIndex}" ng-click="updatePage(p.portal)"> <!-- ng-class="out" -->
+		
 	<div class="portal-container">
 		<div class="portal-frame fog" ng-class="{'in':windowOpened}">
 				<div class="portal-text background {{p.cssClass}}"><p class="">{{p.title}}</p></div>

@@ -5,10 +5,11 @@ angular.module('gSoft', [
   'gSoftAnimations',
   'ngRoute',
   'gSoft.service',
-  'gSoft.view2',
+  'gSoft.global',
   'gSoft.navbar',
   'gSoft.footer',
-  'gSoft.version'
+  'gSoft.version',
+  'gSoft.version.interpolate-filter'
 
   //'ui.router'
 ]).
@@ -37,8 +38,7 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     var directory = 'images/portals/',
     resolution = function() {
      var width = $(window).width();
-     console.log("My width", width);
-
+     //console.log("My width", width);
      if (width > 2000) 
       return 'high';
      else if (width > 1200)
@@ -73,39 +73,67 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
     }
 
 })
-.factory('PortalIndex', function() {
+.factory('PortalIndex', function($filter) {
 
     var pIndex = function(portals) {
       this.activeIndex = 0;
+      this.portal = '';
       this.pLength = portals.length;
       this.portals = portals;
 
-      this.incrementIndex = function() {
-         if (this.activeIndex < this.pLength) 
-            this.activeIndex++;
-         else 
-            this.activeIndex = 0;
+      this.setPageParams = function(filtered, $scope) {
+        //console.log("My filter " , filtered );
+        if ($scope) {
+          $scope.activePortal =  filtered.portal;
+          $scope.activeIndex = filtered.index;
+          $scope.portalLink = filtered.link;
+        }
+        
+
       }
 
-      this.decrementIndex = function() {
-          if (this.activeIndex > 0) 
-            this.activeIndex--; 
+      var incrementIndex = function(current) {
+        if (current === 0)
+          current = portals.length - 1;
+        else 
+          current = --current;
+        return current;
       }
 
-      this.setIndex = function(index, $scope) {
-        this.activeIndex = index;
-        if ($scope)
-           $scope.activeIndex = index;
+      var decrementIndex = function(current) {
+        if (current === portals.length - 1)
+          current = 0;
+        else 
+          current = ++current;
+        return current;
+      }
+
+      this.changePortalIndex = function(position, activeIndex) {
+        var current = activeIndex;//pIndex.get($routeParams);
+        if (position === 'up') {
+          return incrementIndex(current);
+        } else if (position === 'down') {
+          return decrementIndex(current);
+        }
+      }
+
+      this.setIndex = function(portal, $scope) {
+        // lets filter based on name
+        var filtered = $filter('portal')(portals, this.portal );
+        // set instance variables
+        this.portal = portal;
+        this.activeIndex = filtered.index;
+        
+        // set the page paramters
+        this.setPageParams(filtered, $scope);
+        
       }
 
       this.get = function($routeParams) {
-          var index = $routeParams.portal || 0;
-          if (index > 0 && index < this.pLength)
-              //this.activeIndex = 0;
-              this.activeIndex = index;
-        //console.log("Is the getting called", $routeParams);   
-          return this.activeIndex;
-
+        this.portal = $routeParams.portal || portals[0].portal ;
+        // we filter it because we wantt to ensure the user cannot hit an arbitrary link
+        var filtered = $filter('portal')(portals, this.portal );
+        return filtered.link;
       }
 
     }
@@ -147,37 +175,31 @@ config(['$routeProvider', '$locationProvider', function($routeProvider, $locatio
   function($scope, $window, $routeParams, LoadPage, PortalIndex) {
 
 
-  $(function() {
+  // $(function() {
 
 
-    angular.element( $('.page-body') ).bind("scroll", function() {
-      console.log("Scrolling with angular page body");
-    });
+  //   angular.element( $('.page-body') ).bind("scroll", function() {
+  //     console.log("Scrolling with angular page body");
+  //   });
 
 
  
-  })
+  // })
 	 
-  angular.element($window).bind("scroll", function(e) {
-    //$(window).scrollTop()
-    console.log("Scrolling with angular window" );
+  // angular.element($window).bind("scroll", function(e) {
+  //   //$(window).scrollTop()
+  //   console.log("Scrolling with angular window" );
 
-  });
+  // });
 
-  
-  
-
-
-
-
-   $(window).resize(function(){
-   // alert(window.innerWidth);
-    var win = this;
-    $scope.$apply(function(){
-       //do something to update current scope based on the new innerWidth and let angular update the view.
-       console.log("Resizing" , $(win).width());
-    });
-})
+//    $(window).resize(function(){
+//    // alert(window.innerWidth);
+//     var win = this;
+//     $scope.$apply(function(){
+//        //do something to update current scope based on the new innerWidth and let angular update the view.
+//        //console.log("Resizing" , $(win).width());
+//     });
+// })
 
 }]);
 

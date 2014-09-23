@@ -1,7 +1,7 @@
 'use strict';
 
 describe('gSoft.version module', function() {
-  beforeEach(module('myApp.version'));
+  beforeEach(module('gSoft.version'));
 
   describe('app-version directive', function() {
     it('should print current version', function() {

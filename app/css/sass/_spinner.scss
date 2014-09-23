@@ -1,78 +1,71 @@
 .spin-contents-parent {
-  position:fixed;
-  //height: 100%;
-  top: 50%;
-  right: 50%;
-  z-index: 100000;
-  @include vertical-align;
-
+    position: fixed;
+    //height: 100%;
+    top: 50%;
+    right: 50%;
+    z-index: 100000;
+    @include vertical-align;
 }
 
 .load-slogan {
-  //background: red;
-  width: 200px;
-  color:$gold;
-  position: absolute;
+    //background: red;
+    width: 200px;
+    color: $gold;
+    position: absolute;
 }
 
 .spin-contents {
-  position: relative;
+    position: relative;
 }
 
-.spinner{
-
- // position:absolute;
-  width:4em;
-  height:4em;
-  background: $contrast; //#a1a2a1;
-  //border-radius:50%;
-  @include border-radius(50%);
-  margin:5em auto;
-  border:.3em solid transparent;
-  @include animation(glow 1s ease infinite);
-
-  //-webkit-animation:glow 1s ease infinite;
-  //-moz-animation:glow 1s ease infinite;
-  //-o-animation:glow 1s ease infinite;
-  //animation:glow 1s ease infinite;
+.spinner {
+    // position:absolute;
+    width: 4em;
+    height: 4em;
+    background: $contrast;
+    //#a1a2a1;
+    //border-radius:50%;
+    @include border-radius(50%);
+    margin: 5em auto;
+    border: .3em solid transparent;
+    @include animation(glow 1s ease infinite);
+    //-webkit-animation:glow 1s ease infinite;
+    //-moz-animation:glow 1s ease infinite;
+    //-o-animation:glow 1s ease infinite;
+    //animation:glow 1s ease infinite;
 }
 
-
-@mixin spinGlow() {
-0% {
-  box-shadow:0 0 0 .4em $rust,
-  0 0 0 .1em #a1a2a1;
-
-
-  -webkit-transform:rotate(360deg);
-  
-  -moz-transform:rotate(360deg);
-
-  -o-transform:rotate(360deg);
-
-  transform:rotate(360deg);
-
-  }
-  50% {
-    border-top-color:$base;
-  }
-  100% {
-    box-shadow:0 0 0 .4em $blue,
-    0 0 0 3.6em transparent;
-  }
-
+@mixin spinGlow {
+    0% {
+        box-shadow: 0 0 0 0.4em $rust, 0 0 0 0.1em #a1a2a1;
+        -webkit-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+    50% {
+        border-top-color: $base;
+    }
+    100% {
+        box-shadow: 0 0 0 0.4em $blue, 0 0 0 3.6em transparent;
+    }
 }
 
 @-webkit-keyframes glow {
-  @include spinGlow();
+    @include spinGlow;
 }
 
+
 @-moz-keyframes glow {
-  @include spinGlow()
+    @include spinGlow;
 }
+
+
 @-o-keyframes glow {
-  @include spinGlow();
+    @include spinGlow;
 }
+
+
 @keyframes glow {
- @include spinGlow();
-}  
+    @include spinGlow;
+}

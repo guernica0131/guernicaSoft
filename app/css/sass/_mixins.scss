@@ -1,11 +1,10 @@
 @mixin vertical-align {
-  top: 50%;
-  right: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+    top: 50%;
+    right: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
-
 
 $break-tiny: 320px;
 $break-small: 500px;
@@ -14,37 +13,44 @@ $break-large: 1024px;
 $break-narrow: 1680px;
 
 @mixin respond-to($media) {
-
-  @if $media == handhelds {
-    @media only screen and (max-width: $break-tiny) { @content; }
-  }
-  @else if $media == reduced {
-    @media only screen and (min-width: $break-tiny + 1) and (max-width: $break-small) { @content; }
-  }  
-  @else if $media == tablet {
-    @media only screen and (min-width: $break-small + 1) and (max-width: $break-medium) { @content; }
-  }
-  @else if $media == medium-screens {
-    @media only screen and (min-width: $break-medium + 1) and (max-width: $break-large) { @content; }
-  }
-
-  @else if $media == narrow-screens {
-    @media only screen and (min-width: $break-large + 1) and (max-width: $break-narrow) { @content; }
-  }
-
-  @else if $media == less_than_tablet {
-    @media only screen and (max-width: $break-medium)  { @content; }
-  }
-}
-
-@mixin button-color($color, $text) {
-  background-color: $color;
-    border-color: adjust-lightness($color, -3);
-    color: $text;
-    &:hover {
-    
-      background-color: adjust-lightness($color, -3);
-      color: $text !important;
+    @if $media == handhelds {
+        @media only screen and (max-width: $break-tiny) {
+            @content;
+        }
+    }
+    @else if $media == reduced {
+        @media only screen and (min-width: $break-tiny + 1) and (max-width: $break-small) {
+            @content;
+        }
+    }
+    @else if $media == tablet {
+        @media only screen and (min-width: $break-small + 1) and (max-width: $break-medium) {
+            @content;
+        }
+    }
+    @else if $media == medium-screens {
+        @media only screen and (min-width: $break-medium + 1) and (max-width: $break-large) {
+            @content;
+        }
+    }
+    @else if $media == narrow-screens {
+        @media only screen and (min-width: $break-large + 1) and (max-width: $break-narrow) {
+            @content;
+        }
+    }
+    @else if $media == less_than_tablet {
+        @media only screen and (max-width: $break-medium) {
+            @content;
+        }
     }
 }
 
+@mixin button-color($color, $text) {
+    background-color: $color;
+    border-color: adjust-lightness($color, -3);
+    color: $text;
+    &:hover {
+        background-color: adjust-lightness($color, -3);
+        color: $text !important;
+    }
+}

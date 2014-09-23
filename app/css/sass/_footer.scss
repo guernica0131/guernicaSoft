@@ -1,50 +1,38 @@
-
-
 .footer-colors {
-	@include transition(color 300ms ease-in);
-	color: $black !important;
-	&:hover {
-		color: $white !important;
-	}
+    @include transition(color 300ms ease-in);
+    color: $black !important;
+    &:hover {
+        color: $white !important;
+    }
 }
 
 .legal {
-	
-	a {
-		
-		cursor:pointer;
-		@extend .footer-colors;
-	}
-
-	
+    a {
+        cursor: pointer;
+        @extend .footer-colors;
+    }
 }
 
 .social-button {
-	margin-top: -5px;
-
-	.social-icons {
-		@extend .footer-colors;		
-	}
+    margin-top: -5px;
+    .social-icons {
+        @extend .footer-colors;
+    }
 }
 
-
-#nav-mini  {
-	
-	//height: 0px !important;
-
-
-	.mini-nav-ul {
-		//margin-left: -20px
-		margin: 0;
-		padding: 0;
-		margin-top: 5px;
-		list-style: none;
-
-		li {
-		display: inline-block;
-		margin: 5px;
-		//padding-left: 0;
-		}
-		
-	}
+#nav-mini {
+    //height: 0px !important;
+    .mini-nav-ul {
+        //margin-left: -20px
+        margin: 0;
+        padding: 0;
+        margin-top: 5px;
+        list-style: none;
+        li {
+            display: inline-block;
+            margin: 5px;
+            //padding-left: 0;
+       
+        }
+    }
 }

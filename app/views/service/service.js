@@ -15,6 +15,16 @@
             });
         }
     ])
+
+    .controller('ServiceCtrlTest', ["$scope",
+        function($scope) {
+
+            this.portals = portals;
+
+        }
+    ])
+
+    //.controller("ServiceCtrl", [function() {}])
     // our ServiceCtrl
     .controller('ServiceCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
         function($scope, $routeParams, $location, LoadPage, PortalIndex) {
@@ -23,6 +33,9 @@
             // we create a PortalIndex Instance
             var pIndex = new PortalIndex.i(portals);
             // now we set the portal link into the scope
+            pIndex.portalLoader($scope, $routeParams, $location, LoadPage);
+
+            /*
             $scope.portalLink = pIndex.get($routeParams);
             // we build the portal paramters
             pIndex.setIndex($scope.portalLink, $scope);
@@ -62,6 +75,7 @@
                 var newIndex = pIndex.changePortalIndex(position, $scope.activeIndex);
                 pageChanger(portals[newIndex].portal);
             }
+*/
         }
     ]);
 
@@ -157,7 +171,7 @@
 
         {
             title: 'Graphic Design',
-            lead: 'meaningful designs',
+            lead: 'relevant designs',
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },

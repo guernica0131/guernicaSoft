@@ -1,87 +1,107 @@
 .background {
+    &.black {
+        background-color: $black;
+    }
+    &.blue {
+        background-color: $blue;
+    }
+    &.red {
+        background-color: $red;
+    }
+    &.night {
+        background-color: $night;
+    }
+    &.base {
+        background-color: $base;
+    }
+    &.gold {
+        background-color: $gold;
+    }
+    &.contrast {
+        background-color: $contrast;
+    }
+    &.gray {
+        background-color: $gray;
+    }
+    &.white {
+        background-color: $white;
+    }
+    &.rust {
+        background-color: $rust;
+    }
 
-	&.black {
-		background-color: $black;
-	}
+    &.noise {
+        background: $noise;
+    }
 
-	&.blue {
-		background-color: $blue;
-	}
-
-	&.red {
-		background-color: $red;
-	}
-
-	&.night {
-		background-color: $night;
-	}
-
-	&.base {
-		background-color: $base;
-	}
-
-	&.gold {
-		background-color: $gold;
-	}
-
-	&.contrast {
-		background-color: $contrast;
-	}
-
-	&.gray {
-		background-color: $gray;
-	}
-
-	&.white {
-		background-color: $white;
-	}
-
-	&.rust {
-		background-color: $rust;
-	}
+    &.noise-soft {
+        background: $noise_soft;
+    }
+}
 
 
+.background-rgba {
+    &.black {
+        background-color: rgba($black,0.7);
+    }
+    &.blue {
+        background-color: rgba($blue,0.7);
+    }
+    &.red {
+        background-color: rgba($red,0.7);
+    }
+    &.night {
+        background-color: rgba($night,0.7);
+    }
+    &.base {
+        background-color: rgba($base,0.7);
+    }
+    &.gold {
+        background-color: rgba($gold,0.7);
+    }
+    &.contrast {
+        background-color: rgba($contrast,0.7);
+    }
+    &.gray {
+        background-color: rgba($gray,0.7);
+    }
+    &.white {
+        background-color: rgba($white,0.7);
+    }
+    &.rust {
+        background-color: rgba($rust,0.7);
+    }
 }
 
 .color {
-
-	&.black {
-		color: $black;
-	}
-
-	&.blue {
-		color: $blue;
-	}
-
-	&.red {
-		color: $red;
-	}
-
-	&.night {
-		color: $night;
-	}
-
-	&.base {
-		color: $base;
-	}
-
-	&.gold {
-		color: $gold;
-	}
-
-	&.contrast {
-		color: $contrast;
-	}
-
-	&.gray {
-		color: $gray;
-	}
-
-	&.white {
-		color: $white;
-	}
-
-	&.rust {
-		color: $rust;
-	}
+    &.black {
+        color: $black;
+    }
+    &.blue {
+        color: $blue;
+    }
+    &.red {
+        color: $red;
+    }
+    &.night {
+        color: $night;
+    }
+    &.base {
+        color: $base;
+    }
+    &.gold {
+        color: $gold;
+    }
+    &.contrast {
+        color: $contrast;
+    }
+    &.gray {
+        color: $gray;
+    }
+    &.white {
+        color: $white;
+    }
+    &.rust {
+        color: $rust;
+    }
 }

@@ -1,15 +1,16 @@
 'use strict';
 
-describe('myApp.view2 module', function() {
+describe('gSoft.global module', function() {
 
-  beforeEach(module('myApp.view2'));
+  beforeEach(module('gSoft.global'));
 
-  describe('view2 controller', function(){
+  describe('global controller', function(){
 
-    it('should ....', inject(function($controller) {
+    it('should ....', inject(function($controller, $rootScope) {
       //spec body
-      var view2Ctrl = $controller('View2Ctrl');
-      expect(view2Ctrl).toBeDefined();
+      var myScope = $rootScope.$new(),
+       globalCtrl = $controller('GlobalCtrl', {$scope: myScope});
+      expect(globalCtrl).toBeDefined();
     }));
 
   });

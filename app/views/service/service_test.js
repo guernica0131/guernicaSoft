@@ -1,16 +1,34 @@
 'use strict';
 
-describe('myApp.service module', function() {
+describe('gSoft.service module', function() {
 
-  beforeEach(module('myApp.service'));
+	var controller,
+		LoadPage,
+  		myScope;
 
-  describe('service controller', function(){
+ beforeEach(function() {
+  	module('gSoft.service');
+ });
 
-    it('should ....', inject(function($controller) {
+ describe('service controller', function(){
+
+    it('should exist', inject(function($controller, $rootScope) {
       //spec body
-      var SericeCtrl = $controller('service');
-      expect(SericeCtrl).toBeDefined();
+      var myScope = $rootScope.$new(),
+       serviceCtrl = $controller('ServiceCtrlTest', { $scope: myScope });
+       expect(serviceCtrl).toBeDefined();
+
     }));
+
+     it('should have portals', inject(function($controller, $rootScope) {
+     	var myScope = $rootScope.$new(),
+     	serviceCtrl = $controller('ServiceCtrlTest', { $scope: myScope });
+     	//console.log("MY COntrollers", serviceCtrl);
+     	expect(serviceCtrl.portals).toBeDefined();
+
+     }));
+
+
 
   });
 });

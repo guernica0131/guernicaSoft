@@ -2,7 +2,7 @@
 
 /* https://github.com/angular/protractor/blob/master/docs/toc.md */
 
-describe('my app', function() {
+describe('guernica Softworks', function() {
 
   browser.get('index-async.html');
 

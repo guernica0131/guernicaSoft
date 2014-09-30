@@ -51,6 +51,10 @@ a {
     padding-top: 40px;
 }
 
+.pad-20 {
+    padding-top: 20px;
+}
+
 .fog {
     @include opacity(0);
     @include transition(opacity 500ms ease-in-out);

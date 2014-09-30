@@ -287,7 +287,7 @@ config(['$routeProvider', '$locationProvider',
                 feedback: {
                     'CONTAINER': {
                         'GOOD': ["'has-success'"],
-                        'BAD': ["'has-error'"],
+                        'BAD': ["dummy","'has-error'"],
                         'WARNING': ["'has-warning'"]
                     },
                     'FEEDBACK': {
@@ -300,21 +300,6 @@ config(['$routeProvider', '$locationProvider',
                         'BAD': ["'red'"],
                         'WARNING': ["'gold'"]
                     }   
-
-                    // classes: [{
-                    //     selector: 'ELEMENT',
-                    //     GOOD: 'glyphicon-ok',
-                    //     BAD: 'glyphicon-remove',
-                    //     relation: 'sibling'
-                    // },
-                    // {
-                    //     // selector: '.glyphicon',
-                    //     GOOD: 'has-success',
-                    //     BAD: 'has-error',
-                    //     relation: 'parent'
-                    //     // if parentes we need a selector
-
-                    // }]
                 },
                 elements: [{
                         id: 'f-name',
@@ -334,16 +319,10 @@ config(['$routeProvider', '$locationProvider',
                         disabled: false,
                         feedback: {
                             // this is our error text
-                            helpText: 'This input is required',
-                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            helpText: 'Required',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            // we could also have our good text
-                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
                             goodHelpText: "Nicely done! You have followed the rules.",
-                            // and we have our warning text as well
-                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
                             warningHelpText: "This is crazy you can't follow simple rules."
-                            // now we have our class options
                         }
                     },
 
@@ -353,6 +332,7 @@ config(['$routeProvider', '$locationProvider',
                         elClasses: ['form-control', 'input-lg'],
                         labelClasses: ['color', 'night'],
                         feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        helpTextClasses: ['help-block', 'color'],
                         el: 'input',
                         type: 'text',
                         model: 'lName',
@@ -364,16 +344,10 @@ config(['$routeProvider', '$locationProvider',
                         disabled: false,
                         feedback: {
                             // this is our error text
-                            helpText: 'This input is required',
-                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            helpText: 'Required',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            // we could also have our good text
-                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
                             goodHelpText: "Nicely done! You have followed the rules.",
-                            // and we have our warning text as well
-                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
                             warningHelpText: "This is crazy you can't follow simple rules."
-                            // now we have our class options
                         }
 
 
@@ -385,6 +359,7 @@ config(['$routeProvider', '$locationProvider',
                         elClasses: ['form-control', 'input-lg'],
                         labelClasses: ['color', 'night'],
                         feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        helpTextClasses: ['help-block', 'color'],
                         el: 'input',
                         type: 'email',
                         model: 'email',
@@ -395,16 +370,10 @@ config(['$routeProvider', '$locationProvider',
                         disabled: false,
                          feedback: {
                             // this is our error text
-                            helpText: 'This input is required',
-                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            helpText: 'Required',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            // we could also have our good text
-                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
                             goodHelpText: "Nicely done! You have followed the rules.",
-                            // and we have our warning text as well
-                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
                             warningHelpText: "This is crazy you can't follow simple rules."
-                            // now we have our class options
                         }
 
 
@@ -416,6 +385,7 @@ config(['$routeProvider', '$locationProvider',
                         elClasses: ['form-control', 'input-lg'],
                         labelClasses: ['color', 'night'],
                         feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        helpTextClasses: ['help-block', 'color'],
                         multiple: true,
                         readonly: false,
                         el: 'selectMultiple',
@@ -467,18 +437,12 @@ config(['$routeProvider', '$locationProvider',
                         label: 'Interest categories',
                         required: false,
                         disabled: false,
-                         feedback: {
+                        feedback: {
                             // this is our error text
                             helpText: 'This input is required',
-                            // helpTextClasses: ['help-block', 'color', 'red'],
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            // we could also have our good text
-                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
                             goodHelpText: "Nicely done! You have followed the rules.",
-                            // and we have our warning text as well
-                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
                             warningHelpText: "This is crazy you can't follow simple rules."
-                            // now we have our class options
                         }
 
 
@@ -490,6 +454,7 @@ config(['$routeProvider', '$locationProvider',
                         elClasses: ['form-control', 'input-lg'],
                         labelClasses: ['color', 'night'],
                         feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        helpTextClasses: ['help-block', 'color'],
                         rows: 3,
                         cols: 55,
                         maxlength: 10000,
@@ -504,15 +469,9 @@ config(['$routeProvider', '$locationProvider',
                          feedback: {
                             // this is our error text
                             helpText: 'This input is required',
-                            // helpTextClasses: ['help-block', 'color', 'red'],
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            // we could also have our good text
-                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
                             goodHelpText: "Nicely done! You have followed the rules.",
-                            // and we have our warning text as well
-                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
                             warningHelpText: "This is crazy you can't follow simple rules."
-                            // now we have our class options
                         }
 
                     }
@@ -521,27 +480,27 @@ config(['$routeProvider', '$locationProvider',
         },
 
 
-        cssClasses: {
-            forms: {
+        // cssClasses: {
+        //     forms: {
 
-                contact: [{
-                        selector: '.glyphicon',
-                        OK: 'glyphicon-ok',
-                        BAD: 'glyphicon-remove',
-                        relation: 'sibling'
-                    }, {
-                        // selector: '.glyphicon',
-                        OK: 'has-success',
-                        BAD: 'has-error',
-                        relation: 'parent'
-                        // if parentes we need a selector
+        //         contact: [{
+        //                 selector: '.glyphicon',
+        //                 OK: 'glyphicon-ok',
+        //                 BAD: 'glyphicon-remove',
+        //                 relation: 'sibling'
+        //             }, {
+        //                 // selector: '.glyphicon',
+        //                 OK: 'has-success',
+        //                 BAD: 'has-error',
+        //                 relation: 'parent'
+        //                 // if parentes we need a selector
 
-                    }
+        //             }
 
-                ],
+        //         ],
 
-            }
-        }
+        //     }
+        // }
 
 
 

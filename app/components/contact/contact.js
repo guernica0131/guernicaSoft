@@ -13,11 +13,11 @@
             templateUrl: 'components/contact/contact.html',
             controller: function($scope, $location, Constants, Intercom, LoadPage) {
 
-                $scope.form = Constants.FORMS.forms.contact;
-
                 $scope.viewSwitch = {};
+                $scope.openContactForm = false;
+
                 Intercom.on($scope, 'forms', function(e, message) {
-                    console.log("I am in contact control", message);
+                    console.log("This is my form message", message);
                     // we can use a switch statement to cascase the view switch. 
                     // in this case we will stick with one
                     // we reset
@@ -41,67 +41,65 @@
                             break;
 
                     }
+
                 });
 
+                // we will update our form for this context
+                $scope.changeForm = function(portals, activePortal) {
+                    if ($scope.form)
+                        return;
 
-                var closeContact = function() {
-                    $scope.thinking = false;
+                    var form = Constants.FORMS.forms.contact,
+                        labelClasses = ['color', 'white'],
+                        helpTextClasses = ['help-block', 'color', 'white'];
+
+                    form.buttons = {
+                        containerClasses: ['btn-group', 'pad-20'],
+                        elements: [{
+                            value: 'Send Interests',
+                            type: 'submit',
+                            id: 'submit-contact-form',
+                            cssClasses: ['btn', 'btn-info', 'btn-lg'],
+                        }]
+
+                    };
+
+                    var options = [];
+                    // we do not want this to be asy
+                    angular.forEach(portals, function(portal, index) {
+                        //if (index !== 0) 
+                        options.push({
+                            value: portal.portal,
+                            name: portal.title,
+                            selected: (portal.title === activePortal.title) ? true : false
+                        });
+
+                    });
+
+                    angular.forEach(form.elements, function(element) {
+                        element.labelClasses = labelClasses;
+                        element.helpTextClasses = helpTextClasses;
+
+                        element.feedback = {};
+
+                        if (element.id === 'select-multiple')
+                            element.options = options;
+
+                    });
+
+                    $scope.form = form;
+
+                };
+
+                $scope.closeContact = function() {
                     $scope.openContactForm = false;
-                    $scope.confirmed = false;
-                }
-
-                $scope.closeContact = closeContact;
-
-                var validateEmail = function(email) {
-                    var re = /\S+@\S+\.\S+/;
-                    return re.test(email);
-                }
-
-                var checkEmail = function(val, element) {
-
-                    if (element !== 'email' && val)
-                        return true;
-                    else if (element === 'email' && val)
-                    //now we verify the email
-                        return val && validateEmail(val);
-
-                    return false;
-
                 }
 
                 $scope.openContact = function() {
-                    $scope.thinking = false;
-                    $scope.confirmed = false;
                     $scope.openContactForm = true;
                 }
 
-                $scope.validateForm = function(selector, element) {
 
-                    var el = $("#" + selector),
-                        val = el.val();
-                    if (checkEmail(val, element))
-                        el.siblings('.form-control-feedback').addClass('glyphicon-ok');
-                    else
-                        el.siblings('.form-control-feedback').removeClass('glyphicon-ok');
-                }
-
-                $scope.sendContact = function(portal) {
-
-                    //$scope.confirmed = true;
-                    $scope.thinking = true;
-                    var contact = $scope.contact;
-
-                    contact.portal = portal.title;
-                    // memics a restful call
-                    LoadPage.timeout(1000).then(function() {
-                        $scope.confirmed = true;
-                        $scope.thinking = false;
-                    });
-
-                }
-
-                //console.log("IS ACTIVE ", $location.path());
-                //return false;
             },
 
             controllerAs: 'ContactCtl',

@@ -22,11 +22,16 @@
 
             $scope.head = {
                 text: {
-                    content: "This is about us",
-                    color: "white"
+                    content: "We a globaly focus independent digital creative studio",
+                    tag: "We are guernica Softworks",
+                    color:  {
+                     content: "white",
+                     tag: "white"
+                    }
                 },
+                jumbotron: 'noise',
                 image: 'global',
-                curtain: 'noise'
+               // curtain: 'noise'
             }
 
             //$scope.headerImage = "global";
@@ -58,21 +63,21 @@
                     alt: 'guernica Softworks Logo'
                 },
                 body: {
-                    src: 'global',
+                  //  src: 'global',
                     alt: "Na Na"
                 }
             },
             css: {
                 text: {
-                    header: 'white',
+                    header: 'night',
                     lead: 'base',
-                    p: 'white'
+                    p: 'night'
                 }
             },
             video: true,
             order: 1,
             portal: 'gSoft',
-            cssClass: 'night'
+            cssClass: 'white'
         },
 
         {
@@ -96,12 +101,13 @@
                     header: 'night',
                     lead: 'contrast',
                     p: 'night'
-                }
+                },
+                right: true
             },
             video: true,
             order: 1,
             portal: 'custom',
-            cssClass: 'night'
+            cssClass: 'white',
         },
 
         {
@@ -116,20 +122,20 @@
                     alt: 'Consulting Services'
                 },
                 body: {
-                    src: 'consulting'
+               //     src: 'consulting'
                 }
             },
             css: {
                 text: {
-                    header: 'white',
+                    header: 'night',
                     lead: 'red',
-                    p: 'white'
+                    p: 'night'
                 }
             },
             video: true,
             order: 1,
             portal: 'consult',
-            cssClass: 'night'
+            cssClass: 'white'
         },
 
         {
@@ -157,7 +163,7 @@
             video: true,
             order: 1,
             portal: 'design',
-            cssClass: 'night'
+            cssClass: 'white'
         },
 
         {
@@ -172,7 +178,7 @@
                     alt: 'Cloud-base delployment solutions'
                 },
                 body: {
-                    src: 'cloud'
+              //      src: 'cloud'
                 }
             },
             css: {
@@ -185,7 +191,7 @@
             video: true,
             order: 1,
             portal: 'cloud',
-            cssClass: 'night'
+            cssClass: 'white'
         },
 
 
@@ -215,7 +221,7 @@
             video: true,
             order: 1,
             portal: 'brand',
-            cssClass: 'night'
+            cssClass: 'white'
         },
 
         {
@@ -230,7 +236,7 @@
                     alt: 'Search Engine Optimzation Services'
                 },
                 body: {
-                    src: 'seo'
+              //      src: 'seo'
                 }
             },
             css: {
@@ -243,7 +249,7 @@
             video: true,
             order: 1,
             portal: 'seo',
-            cssClass: 'night'
+            cssClass: 'white'
         },
 
         {
@@ -271,7 +277,7 @@
             video: true,
             order: 1,
             portal: 'service',
-            cssClass: 'night'
+            cssClass: 'white'
         },
 
     ];

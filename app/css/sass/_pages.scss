@@ -10,16 +10,44 @@
         .head-image {
 
             .head-content {
-                text-align: center;
-                padding-top: 70px;
+
+            	.nessage {
+            		//text-align: center;
+            	}
+              //  text-align: center;
+              	padding-top: 90px;
+
+              	@include respond-to(less_than_tablet) {
+              		padding-top: 50px;
+              	}
+            //vertical-align: middle;
+                .jumbotron {
+                	//background: $noise;
+                	@include respond-to(less_than_tablet) {
+                		background: transparent;
+                	}
+
+                }
+
+                h1 {
+
+                	line-height: 160%;
+                	font-size: 3.0em;
+                	@include respond-to(less_than_tablet) {
+                		line-height: 100%;
+                		font-size: 2.0em;
+
+              		}
+
+                }
             }
 
 
-              height: 670px;
-              width: 100%;
+            height: 600px;
+            width: 100%;
               //background-size: 100%;
               
-              overflow: hidden !important;
+            overflow: hidden !important;
    //           position: absolute;
      //         top: 0;
        //       left:0;
@@ -29,18 +57,18 @@
               }
 
               @include respond-to(reduced) {
-                height: 290px;
+                height: 300px;
               }
 
               @include respond-to(handhelds) {
-                height: 290px;
+                height: 300px;
               }
 
 
               .head-curtain {
                 position: absolute;
                 width: 100%;
-                height:670px;
+                height:600px;
 
                 @include respond-to(less_than_tablet) {
                 height: 440px;
@@ -59,6 +87,11 @@
               }
               
               
+        }
+
+        .row-back {
+        	min-height: 600px;
+        	margin-bottom: 50px;
         }
 
 

@@ -71,6 +71,13 @@
     &.rust {
         background-color: rgba($rust,0.7);
     }
+    &.noise {
+        background: $noise;
+    }
+
+    &.noise-soft {
+        background: $noise_soft;
+    }
 }
 
 .color {

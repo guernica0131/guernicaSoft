@@ -6,24 +6,36 @@
 		<div class="head-content">
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6">
-						<h1 class="color {{head.text.color}}">{{head.text.content}}</h1>
+					<div class="col-md-4"></div>
+					<div class="col-md-8">
+						
+						<div class="jumbotron background-rgba {{head.jumbotron}}" >
+							<blockquote class="blockquote-reverse">
+								<h1 class="nessage lead color {{head.text.color.content}} text-center">{{head.text.content}}</h1>
+								<h1 class="color {{head.text.color.tag}} text-right"><em>{{head.text.tag}}</em></h1>
+							</blockquote>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<!-- div class="pad-70 color white"></div -->
-	<div class="container" ng-repeat="portal in portals">
-			
-			<div id="{{portal.portal}}" class="row">
-				<div class="col-md-8">
-					<h1 class="color {{portal.css.text.header}}">{{portal.title}}<small class="lead color {{portal.css.text.lead}}"> {{portal.lead}}</small></h1>
-				</div>
+	<div ng-repeat="portal in portals">
+		<div class="row-back">
+			<div class="fill background {{portal.cssClass}}"  style="{{ (portal.content.body.src) ? 'background:url(' + images('BODY',portal.content.body.src) + ') 50% 0 no-repeat fixed;' : ''  }} ">
+				<div class="container">
+					<div class="row featurette">
+						<div class="page-header">
+							<h1 class="color {{portal.css.text.header}}">{{portal.title}}<small class="lead color {{portal.css.text.lead}}"> {{portal.lead}}</small></h1>
+						</div>
+						<div class="col-md-8 text color {{portal.css.text.p}}" ng-class="{'pull-right':portal.css.right}">{{portal.body.text}}</div>
+						<div class="col-md-4 images"><img src="{{images('ROW' , portal.content.row.src)}}" onerror="this.style.display='none'"></img></div>
+					</div>				
+				</div>	
 			</div>
-			<div class="row">
-				<div class="col-md-8 text color {{portal.css.text.p}}" ng-class="{'pull-right':portal.css.right}">{{portal.body.text}}</div>
-				<div class="col-md-4 images"></div>
-			</div>				
+		</div>
 	</div>
 </div>
+
+<!--div class="pad-70"></div-->

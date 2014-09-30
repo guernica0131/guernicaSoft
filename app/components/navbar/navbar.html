@@ -19,7 +19,7 @@
 </div>
 <div class="collapse navbar-collapse" id="nav-head">
   <ul class="nav navbar-nav  navbar-right reduce-gap" ng-show="windowOpened" >
-    <li ng-repeat="button in buttons" class="nav-button background {{button.cssClass}}" ng-click="" ng-class="{selected: isActive(button.url)}">
+    <li ng-repeat="button in buttons" class="nav-button background {{button.cssClass}}" ng-class="{selected: isActive(button.url), lighten:isActive('/clients')}">
       <a ng-href="#{{button.url}}">{{button.name}}</a>
     </li>
   </ul>

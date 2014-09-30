@@ -24,24 +24,18 @@
 
 .nav-button {
     &.selected {
-        //background-color: red;
+
         @include box-shadow(inset -17px -17px 5px -17px rgba($black, 0.7));
+
+        &.lighten {
+            @include box-shadow(inset 18px -15px 5px -17px rgba($gray, 0.7));            
+        }
     }
     a {
         color: white !important;
     }
     &.home {
-        //background: red;
-        //color: $white;
         width: 75px;
-        //font-size: 2em;
-        //font-style: oblique;
-        //text-decoration: none;
-        //background-color: $night;
-        // padding: 0;
-        // margin: 0;
-        // height: 100%;
-   
     }
 }
 

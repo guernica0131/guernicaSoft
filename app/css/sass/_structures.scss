@@ -63,6 +63,13 @@ a {
     }
 }
 
+
+// textarea, input {
+//     &:focus {
+//         border-color: $red;
+//     } 
+// }
+
 .none {
     display: none;
 }
@@ -91,4 +98,7 @@ a {
     &.btn-danger {
         @include button-color($red, white);
     }
+    // &.btn-default {
+    //     @include button-color($white, $night);
+    // }
 }

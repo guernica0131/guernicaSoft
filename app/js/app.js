@@ -6,7 +6,11 @@ angular.module('gSoft', [
     'ngRoute',
     'gSoft.service',
     'gSoft.global',
+    'gSoft.portfolio',
+    'gSoft.about',
     'gSoft.navbar',
+    'gSoft.client',
+    'gSoft.contact',
     'gSoft.footer',
     'gSoft.version',
     'gSoft.version.interpolate-filter'
@@ -21,68 +25,86 @@ config(['$routeProvider', '$locationProvider',
         });
     }
 ])
-    .factory('LoadPage', function($q, $timeout) {
+    .factory('Intercom', function($rootScope) {
+        var sharedService = {};
 
-        var timeout = function(time) {
-            var deferred = $q.defer();
+        sharedService.message = '';
 
-            $timeout(function() {
-                deferred.resolve(['Hello', 'world!']);
-            }, time || 0);
-
-            return deferred.promise;
-        };
-
-        return {
-            timeout: timeout
-        };
-
-    }).factory('ImageLocation', function() {
-
-        var directory = 'images/portals/',
-            resolution = function() {
-                var width = $(window).width();
-                //console.log("My width", width);
-                if (width > 2000)
-                    return 'high';
-                else if (width > 1200)
-                    return 'med';
-                else
-                    return 'low';
-
-            },
-            retrieve = function(request, name, extension) {
-
-                extension = extension || 'jpg';
-
-                console.log("GETTING SIZE", name);
-
-                switch (request) {
-                    case 'BODY':
-                        return directory + resolution() + '/' + name + '-body' + '.' + extension;
-                    case 'BODY_HIGH':
-                        return directory + 'high/' + name + '-body' + '.' + extension;
-                    case 'BODY_MED':
-                        return directory + 'med/' + name + '-body' + '.' + extension;
-                    case 'BODY_LOW':
-                        return directory + 'low/' + name + '-body' + '.' + extension;
-                    case 'THUMBS':
-                        return directory + 'thumbs/' + name + '-thumb' + '.' + extension;
-                    case 'ROW':
-                        return directory + 'rows' + name + '-row' + '.' + extension;
-                    case 'HEAD':
-                        return directory + resolution() + '/' + name + '-head' + '.' + extension;
-                    default:
-                        return directory;
-                }
-
-            }
-
-        return {
-            retrieve: retrieve
+        sharedService.on = function($scope, broadcast, callback) {
+            return $scope.$on(broadcast, callback);
         }
 
+        sharedService.shareMessage = function(msg, broadcast) {
+            this.message = msg;
+            this.broadcast(broadcast);
+        };
+
+        sharedService.broadcast = function(broadcast, args) {
+            $rootScope.$broadcast(broadcast, args);
+        };
+
+        return sharedService;
     })
+
+.factory('LoadPage', function($q, $timeout) {
+
+    var timeout = function(time) {
+        var deferred = $q.defer();
+
+        $timeout(function() {
+            deferred.resolve(['Hello', 'world!']);
+        }, time || 0);
+
+        return deferred.promise;
+    };
+
+    return {
+        timeout: timeout
+    };
+
+}).factory('ImageLocation', function() {
+
+    var directory = 'images/portals/',
+        resolution = function() {
+            var width = $(window).width();
+            //console.log("My width", width);
+            if (width > 2000)
+                return 'high';
+            else if (width > 1200)
+                return 'med';
+            else
+                return 'low';
+
+        },
+        retrieve = function(request, name, extension) {
+
+            extension = extension || 'jpg';
+            switch (request) {
+                case 'BODY':
+                    return directory + resolution() + '/' + name + '-body' + '.' + extension;
+                case 'BODY_HIGH':
+                    return directory + 'high/' + name + '-body' + '.' + extension;
+                case 'BODY_MED':
+                    return directory + 'med/' + name + '-body' + '.' + extension;
+                case 'BODY_LOW':
+                    return directory + 'low/' + name + '-body' + '.' + extension;
+                case 'THUMBS':
+                    return directory + 'thumbs/' + name + '-thumb' + '.' + extension;
+                case 'ROW':
+                    return directory + 'rows' + name + '-row' + '.' + extension;
+                case 'HEAD':
+                    return directory + resolution() + '/' + name + '-head' + '.' + extension;
+                default:
+                    return directory;
+            }
+
+        }
+
+    return {
+        retrieve: retrieve
+    }
+
+})
     .factory('PortalIndex', function($filter) {
 
         var pIndex = function(portals) {
@@ -199,21 +221,15 @@ config(['$routeProvider', '$locationProvider',
         }
     })
 
-.constant('constants', {
-    CONTACT: {
-        url: 'components/contact/contact.html'
-    }
-
-})
 
 
-.controller('gSoftCtrl', ["$scope", "$log", "LoadPage", 'constants',
-    function($scope, $log, LoadPage, constants) {
+.controller('gSoftCtrl', ["$scope", "$log", "LoadPage", 'Constants',
+    function($scope, $log, LoadPage, Constants) {
 
         $scope.$log = $log;
 
         //$log.log(constants.CONTACT.url);
-        $scope.constants = constants;
+        $scope.constants = Constants;
 
         //$scope.hideSpin = true;
         //$scope.greeting = "HI Adam";	
@@ -231,37 +247,308 @@ config(['$routeProvider', '$locationProvider',
 ])
     .controller('windowCtrl', ["$scope", "$window", "LoadPage",
         function($scope, $window, $routeParams, LoadPage, PortalIndex) {
-
-
-            // $(function() {
-
-
-            /*   angular.element($('#scroll-container')).bind("scroll", function() {
-                console.log("Scrolling with angular page body");
-            });
-
-            $('#scroll-container').on("scroll", function() {
-                console.log("This is mine");
-            });
-
-
-
-            // })
-
-            angular.element($window).bind("scroll", function(e) {
-                //$(window).scrollTop()
-                console.log("Scrolling with angular window", e);
-
-            });*/
-
             $(window).resize(function() {
-                // alert(window.innerWidth);
                 var win = this;
-                $scope.$apply(function() {
-                    //do something to update current scope based on the new innerWidth and let angular update the view.
-                    //console.log("Resizing" , $(win).width());
-                });
+                $scope.$apply(function() {});
             })
 
         }
-    ]);
+    ])
+
+
+.constant('Constants', {
+    CONTACT: {
+        url: 'components/contact/contact.html'
+    },
+
+    FORMS: {
+        BROADCAST_CHANGES: false, // activate this if we want all form changes broadcasted
+
+        forms: {
+            contact: {
+                url: 'contacts',
+                baseModel: 'contact',
+                name: 'contactUs',
+                liveChanges: false,
+                buttons: {
+                    containerClasses: ['btn-group', 'pad-40'],
+                    elements: [{
+                        value: 'Clear',
+                        type: 'reset',
+                        id: 'reset-contact-form',
+                        cssClasses: ['btn', 'btn-default', 'input-lg'],
+                    }, {
+                        value: 'Submit',
+                        type: 'submit',
+                        id: 'submit-contact-form',
+                        cssClasses: ['btn', 'btn-primary', 'btn-lg'],
+                    }]
+                },
+                feedback: {
+                    'CONTAINER': {
+                        'GOOD': ["'has-success'"],
+                        'BAD': ["'has-error'"],
+                        'WARNING': ["'has-warning'"]
+                    },
+                    'FEEDBACK': {
+                        'GOOD': ["'glyphicon-ok'"],
+                        'BAD': ["'glyphicon-remove'"],
+                        'WARNING': ["'glyphicon-warning-sign'"]
+                    },
+                    'FEEDBACK_TEXT': {
+                        'GOOD': ["'base'"],
+                        'BAD': ["'red'"],
+                        'WARNING': ["'gold'"]
+                    }   
+
+                    // classes: [{
+                    //     selector: 'ELEMENT',
+                    //     GOOD: 'glyphicon-ok',
+                    //     BAD: 'glyphicon-remove',
+                    //     relation: 'sibling'
+                    // },
+                    // {
+                    //     // selector: '.glyphicon',
+                    //     GOOD: 'has-success',
+                    //     BAD: 'has-error',
+                    //     relation: 'parent'
+                    //     // if parentes we need a selector
+
+                    // }]
+                },
+                elements: [{
+                        id: 'f-name',
+                        containerClasses: ['form-group', 'has-feedback'],
+                        elClasses: ['form-control', 'input-lg'],
+                        labelClasses: ['color', 'night'],
+                        feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        helpTextClasses: ['help-block', 'color'],
+                        el: 'input',
+                        type: 'text',
+                        model: 'fName',
+                        min: 2,
+                        placeholder: 'Please enter your first name',
+                        label: 'First Name',
+                        liveFeedback: true,
+                        required: true,
+                        disabled: false,
+                        feedback: {
+                            // this is our error text
+                            helpText: 'This input is required',
+                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
+                            // we could also have our good text
+                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
+                            goodHelpText: "Nicely done! You have followed the rules.",
+                            // and we have our warning text as well
+                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
+                            warningHelpText: "This is crazy you can't follow simple rules."
+                            // now we have our class options
+                        }
+                    },
+
+                    {
+                        id: 'l-name',
+                        containerClasses: ['form-group', 'has-feedback'],
+                        elClasses: ['form-control', 'input-lg'],
+                        labelClasses: ['color', 'night'],
+                        feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        el: 'input',
+                        type: 'text',
+                        model: 'lName',
+                        liveFeedback: true,
+                        placeholder: 'Please enter your last name',
+                        label: 'Last Name',
+                        min: 2,
+                        required: true,
+                        disabled: false,
+                        feedback: {
+                            // this is our error text
+                            helpText: 'This input is required',
+                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
+                            // we could also have our good text
+                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
+                            goodHelpText: "Nicely done! You have followed the rules.",
+                            // and we have our warning text as well
+                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
+                            warningHelpText: "This is crazy you can't follow simple rules."
+                            // now we have our class options
+                        }
+
+
+                    },
+
+                    {
+                        id: 'email',
+                        containerClasses: ['form-group', 'has-feedback'],
+                        elClasses: ['form-control', 'input-lg'],
+                        labelClasses: ['color', 'night'],
+                        feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        el: 'input',
+                        type: 'email',
+                        model: 'email',
+                        liveFeedback: true,
+                        placeholder: 'Please enter your email address',
+                        label: 'Email address',
+                        required: true,
+                        disabled: false,
+                         feedback: {
+                            // this is our error text
+                            helpText: 'This input is required',
+                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
+                            // we could also have our good text
+                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
+                            goodHelpText: "Nicely done! You have followed the rules.",
+                            // and we have our warning text as well
+                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
+                            warningHelpText: "This is crazy you can't follow simple rules."
+                            // now we have our class options
+                        }
+
+
+                    },
+
+                    {
+                        id: 'select-multiple',
+                        containerClasses: ['form-group', 'has-feedback'],
+                        elClasses: ['form-control', 'input-lg'],
+                        labelClasses: ['color', 'night'],
+                        feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        multiple: true,
+                        readonly: false,
+                        el: 'selectMultiple',
+                        options: [{
+                                value: 'gs',
+                                name: "guernica Softworks the company",
+                                selected: false
+                            }, {
+                                value: 'customeSoft',
+                                name: 'Custom Software Solutions',
+                                selected: false
+                            }, {
+                                value: 'consult',
+                                name: 'ICT Consulting Services',
+                                selected: false
+                            }, {
+                                value: 'graphic',
+                                name: 'Master graphic designers',
+                                selected: false
+                            }, {
+                                value: 'cloud',
+                                name: 'Cloud Deployment Services',
+                                selected: false
+                            }, {
+                                value: 'brandStrategies',
+                                name: 'Brand Strategies',
+                                selected: false
+                            }, {
+                                value: 'servicecontracts',
+                                name: 'Service contracts',
+                                selected: false
+                            }, {
+                                value: 'globalservice',
+                                name: 'Our global focus',
+                                selected: false
+                            }, {
+                                value: 'opensource',
+                                name: 'Opensource customization',
+                                selected: false
+                            }, {
+                                value: 'portfolio',
+                                name: 'Our porfolio',
+                                selected: false
+                            }
+
+                        ],
+                        liveFeedback: true,
+                        model: 'interests',
+                        label: 'Interest categories',
+                        required: false,
+                        disabled: false,
+                         feedback: {
+                            // this is our error text
+                            helpText: 'This input is required',
+                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
+                            // we could also have our good text
+                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
+                            goodHelpText: "Nicely done! You have followed the rules.",
+                            // and we have our warning text as well
+                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
+                            warningHelpText: "This is crazy you can't follow simple rules."
+                            // now we have our class options
+                        }
+
+
+                    },
+
+                    {
+                        id: 'extra-details',
+                        containerClasses: ['form-group', 'has-feedback'],
+                        elClasses: ['form-control', 'input-lg'],
+                        labelClasses: ['color', 'night'],
+                        feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        rows: 3,
+                        cols: 55,
+                        maxlength: 10000,
+                        readonly: false,
+                        el: 'textarea',
+                        model: 'about',
+                        liveFeedback: true,
+                        placeholder: 'Please enter some details of what you are looking for...',
+                        label: 'Tell us more about your needs',
+                        required: false,
+                        disabled: false,
+                         feedback: {
+                            // this is our error text
+                            helpText: 'This input is required',
+                            // helpTextClasses: ['help-block', 'color', 'red'],
+                            errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
+                            // we could also have our good text
+                            // goodHelpTextClasses: ['help-block', 'color', 'green'],
+                            goodHelpText: "Nicely done! You have followed the rules.",
+                            // and we have our warning text as well
+                            // warningHelpTextClasses: ['help-block', 'color', 'gold'],
+                            warningHelpText: "This is crazy you can't follow simple rules."
+                            // now we have our class options
+                        }
+
+                    }
+                ]
+            }
+        },
+
+
+        cssClasses: {
+            forms: {
+
+                contact: [{
+                        selector: '.glyphicon',
+                        OK: 'glyphicon-ok',
+                        BAD: 'glyphicon-remove',
+                        relation: 'sibling'
+                    }, {
+                        // selector: '.glyphicon',
+                        OK: 'has-success',
+                        BAD: 'has-error',
+                        relation: 'parent'
+                        // if parentes we need a selector
+
+                    }
+
+                ],
+
+            }
+        }
+
+
+
+
+
+
+
+    }
+
+})

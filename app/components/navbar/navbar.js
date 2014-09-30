@@ -19,11 +19,6 @@
         		$scope.buttons = buttons;
         		$scope.isActive = function(selected) {
         			return (selected === $location.path());
-
-
-
-        			//console.log("IS ACTIVE ", $location.path());
-        			//return false;
         		}
             },
             controllerAs: 'nav',
@@ -110,7 +105,7 @@
         {
             name: "Client Portal",
             cssClass: "black",
-            url: "/client",
+            url: "/clients",
             tooltip: "This is a portal for existing clients",
             images: {
                 steady: "",

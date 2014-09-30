@@ -3,66 +3,78 @@
 		<a class="btn btn-danger " ng-click="openContact()">Tell me more!</a>
 	</div>
 </div>
+
+<!--div class="contact-container" ng-show="openContactForm">
+	<div class="pad-70"></div>
+	<div class="form-box">
+		<div class="contain-form">
+			<div class="close-btn" ng-click="closeContact()">X</div>
+			<div ng-show="viewSwitch.form">
+				
+				<forms-page></forms-page>
+			</div>
+		</div>
+	</div>
+</div -->
+
 <div class="contact-container none fog" ng-class="{block:openContactForm,in:openContactForm}">
 	<div class="pad-70"></div>
 	<div class="form-box">
 		
 		<div class="contain-form">
-			<div class="close-btn" ng-click="closeContact()">X</div>
-			<div ng-class="{none:confirmed}">
-				<form name="contact form" ng-submit="sendContact(portals[activeIndex])" ng-class="{none:thinking}" auto-complete="on">
-					<h1 class="color white">Tell us a more about your needs</h1>
-					<div class="form-group has-success has-feedback">
-						<label class="color white" for="contact-fname">First Name</label>
-						<input  type="text" class="form-control input-lg" id="contact-fname" placeholder="Your first name" ng-model="contact.fName" ng-keyup="validateForm('contact-fname', 'fName')" ng-change="validateForm('contact-fname', 'lName')" required>
-						<span class="glyphicon form-control-feedback"></span>
-					</div>
-					<div class="form-group has-success has-feedback">
-						<label class="color white" for="contact-lname">Last Name</label>
-						<input type="text" class="form-control input-lg" id="contact-lname" placeholder="Your last name" required ng-model="contact.lName" ng-keyup="validateForm('contact-lname', 'lName')" ng-change="validateForm('contact-lname', 'lName')" required>
-						<span class="glyphicon form-control-feedback"></span>
-					</div>
-
-					<div class="form-group has-success has-feedback">
-						<label class="color white" for="contact-email">Email</label>
-						<input type="email"  class="form-control input-lg" id="contact-email" placeholder="Your email address" ng-model="contact.email" ng-keyup="validateForm('contact-email', 'email')" ng-change="validateForm('contact-email', 'email')" required>
-						<span class="glyphicon form-control-feedback"></span>
-					</div>
-
-					<div class="form-group">
-						<label class="color white" for="contact-interests">What are your interest categories</label>
-						<select id="contact-interests" multiple class="form-control" ng-model="contact.interests">
-							<option ng-repeat="ptls in portals" ng-selected="$index == activeIndex">{{ptls.title}}</option>
-						</select>
-					</div>
-					<div class="form-group">
-						<label class="color white" for="contact-details">Tell us a bit more about your needs</label>
-						<textarea id="contact-details" class="form-control" rows="3" ng-model="contact.details"></textarea>
-					</div>
-					
-					<input type="submit" class="btn btn-info btn-lg" Value="Send Interest"/>
-					<div class="form-accent top"></div>
-					<div class="form-accent bottom"></div>
-					
-					<br/>
-					<h5  style="text-align:left;"><small class="color white">You can trust us with your private information. We will NOT use your personal data for 3rd party marketing purposes. Your information is safe with us.</small></h5>
-				</form>
-			</div>
-			<div class="contact-form-spinner none fog" ng-class="{block:thinking,in:thinking}"><span class="color white">We are processing your request...<i class="fa fa-spinner fa-spin fa-5x color white"></i>
-				<div class="form-accent top"></div>
-				<div class="form-accent bottom"></div>
-			</div>
-			
-			<div class="confirmation none fog" ng-class="{block:confirmed,in:confirmed}">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 class="color white">Thank you, {{contact.fName}}</h1>
-						<p class="lead color white"><small>We appreciate the interests you have in our products and services. A guernica Softworks processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
-					</div>
+				<div class="close-btn" ng-click="closeContact()">X</div>
+				<div ng-class="{none:confirmed}">
+						<h1 class="color white">Tell us a more about your needs</h1>
+						<form name="contact form" ng-submit="sendContact(portals[activeIndex])" ng-class="{none:thinking}" auto-complete="on">
+								
+								<div class="form-group has-success has-feedback">
+										<label class="color white" for="contact-fname">First Name</label>
+										<input  type="text" class="form-control input-lg" id="contact-fname" placeholder="Your first name" ng-model="contact.fName" ng-keyup="validateForm('contact-fname', 'fName')" ng-change="validateForm('contact-fname', 'lName')" required>
+										<span class="glyphicon form-control-feedback"></span>
+								</div>
+								<div class="form-group has-success has-feedback">
+										<label class="color white" for="contact-lname">Last Name</label>
+										<input type="text" class="form-control input-lg" id="contact-lname" placeholder="Your last name" required ng-model="contact.lName" ng-keyup="validateForm('contact-lname', 'lName')" ng-change="validateForm('contact-lname', 'lName')" required>
+										<span class="glyphicon form-control-feedback"></span>
+								</div>
+								<div class="form-group has-success has-feedback">
+										<label class="color white" for="contact-email">Email</label>
+										<input type="email"  class="form-control input-lg" id="contact-email" placeholder="Your email address" ng-model="contact.email" ng-keyup="validateForm('contact-email', 'email')" ng-change="validateForm('contact-email', 'email')" required>
+										<span class="glyphicon form-control-feedback"></span>
+								</div>
+								<div class="form-group">
+										<label class="color white" for="contact-interests">What are your interest categories</label>
+										<select id="contact-interests" multiple class="form-control" ng-model="contact.interests">
+												<option ng-repeat="ptls in portals" ng-selected="$index == activeIndex">{{ptls.title}}</option>
+										</select>
+								</div>
+								<div class="form-group">
+										<label class="color white" for="contact-details">Tell us a bit more about your needs</label>
+										<textarea id="contact-details" class="form-control" rows="3" ng-model="contact.details"></textarea>
+								</div>
+								
+								<input type="submit" class="btn btn-info btn-lg" Value="Send Interest"/>
+								<br/>
+						</form>
+						<h5  style="text-align:left;"><small class="color white">You can trust us with your private information. We will NOT use your personal data for 3rd party marketing purposes. Your information is safe with us.</small></h5>
+						<div class="form-accent top"></div>
+						<div class="form-accent bottom"></div>
 				</div>
-				<div class="form-accent top"></div>
-				<div class="form-accent bottom"></div>
-			</div>
+				<div class="contact-form-spinner none fog" ng-class="{block:thinking,in:thinking}"><span class="color white">We are processing your request...<i class="fa fa-spinner fa-spin fa-5x color white"></i>
+						<div class="form-accent top"></div>
+						<div class="form-accent bottom"></div>
+				</div>
+				
+				<div class="confirmation none fog" ng-class="{block:confirmed,in:confirmed}">
+						<div class="row">
+								<div class="col-md-12">
+										<h1 class="color white">Thank you, {{contact.fName}}</h1>
+										<p class="lead color white"><small>We appreciate the interests you have in our products and services. A guernica Softworks processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
+								</div>
+						</div>
+						<div class="form-accent top"></div>
+						<div class="form-accent bottom"></div>
+				</div>
 		</div>
 		
 	</div>

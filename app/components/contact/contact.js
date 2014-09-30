@@ -11,9 +11,39 @@
         return {
             restrict: 'E',
             templateUrl: 'components/contact/contact.html',
-            controller: function($scope, $location, LoadPage) {
+            controller: function($scope, $location, Constants, Intercom, LoadPage) {
 
-                
+                $scope.form = Constants.FORMS.forms.contact;
+
+                $scope.viewSwitch = {};
+                Intercom.on($scope, 'forms', function(e, message) {
+                    console.log("I am in contact control", message);
+                    // we can use a switch statement to cascase the view switch. 
+                    // in this case we will stick with one
+                    // we reset
+                    $scope.viewSwitch = {};
+
+                    switch (message.verb) {
+
+                        case 'processing':
+                            $scope.viewSwitch[message.verb] = true
+                            break;
+                        case 'error':
+                            $scope.viewSwitch[message.verb] = true
+                            break;
+                        case 'complete':
+                            $scope.viewSwitch[message.verb] = true
+                            break;
+                        default:
+                            $scope.viewSwitch = {
+                                "form": true
+                            };
+                            break;
+
+                    }
+                });
+
+
                 var closeContact = function() {
                     $scope.thinking = false;
                     $scope.openContactForm = false;
@@ -31,10 +61,10 @@
 
                     if (element !== 'email' && val)
                         return true;
-                    else if (element === 'email' && val) 
-                        //now we verify the email
+                    else if (element === 'email' && val)
+                    //now we verify the email
                         return val && validateEmail(val);
-                    
+
                     return false;
 
                 }
@@ -46,17 +76,17 @@
                 }
 
                 $scope.validateForm = function(selector, element) {
-                  
-                    var el =  $("#" + selector),
-                     val = el.val();
-                     if ( checkEmail(val, element) )
-                         el.siblings('.form-control-feedback').addClass('glyphicon-ok');
-                     else
-                         el.siblings('.form-control-feedback').removeClass('glyphicon-ok');
+
+                    var el = $("#" + selector),
+                        val = el.val();
+                    if (checkEmail(val, element))
+                        el.siblings('.form-control-feedback').addClass('glyphicon-ok');
+                    else
+                        el.siblings('.form-control-feedback').removeClass('glyphicon-ok');
                 }
 
                 $scope.sendContact = function(portal) {
-                    
+
                     //$scope.confirmed = true;
                     $scope.thinking = true;
                     var contact = $scope.contact;
@@ -64,8 +94,8 @@
                     contact.portal = portal.title;
                     // memics a restful call
                     LoadPage.timeout(1000).then(function() {
-                      $scope.confirmed = true;
-                      $scope.thinking = false;
+                        $scope.confirmed = true;
+                        $scope.thinking = false;
                     });
 
                 }

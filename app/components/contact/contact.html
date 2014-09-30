@@ -9,29 +9,28 @@
 	<div class="form-box">
 		
 		<div class="contain-form">
-				<div class="close-btn" ng-click="closeContact()">X</div>
-				<div ng-show="viewSwitch.form">
-						<h1 class="color white">Tell us a more about your needs</h1>
+			<div class="close-btn" ng-click="closeContact()">X</div>
+			<div ng-show="viewSwitch.form">
+				<h1 class="color white">Tell us a more about your needs</h1>
 
-						<forms-page ng-init="changeForm(portals, activePortal)"></forms-page>						
+				<forms-page ng-init="changeForm(portals, activePortal)"></forms-page>						
 
-						<h5 ng-show="viewSwitch.form" style="text-align:left;"><small class="color white">You can trust us with your private information. We will NOT use your personal data for 3rd party marketing purposes. Your information is safe with us.</small></h5>
-				 	</div>
-
-
-					<div class="contact-form-spinner" ng-show="viewSwitch.processing"><span class="color white">We are processing your request...<i class="fa fa-spinner fa-spin fa-5x color white"></i></div>
-				
-					<div class="confirmation" ng-show="viewSwitch.complete">
-						<div class="row">
-								<div class="col-md-12">
-										<h1 class="color white">Thank you, {{contact.fName}}</h1>
-										<p class="lead color white"><small>We appreciate the interests you have in our products and services. A guernica Softworks processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
-								</div>
-						</div>
-					</div>
-					<div class="form-accent top"></div>
-					<div class="form-accent bottom"></div>
+				<h5 ng-show="viewSwitch.form" style="text-align:left;"><small class="color white">You can trust us with your private information. We will NOT use your personal data for 3rd party marketing purposes.Your information is safe with us.</small></h5>
 			</div>
-		
+
+
+			<div class="contact-form-spinner" ng-show="viewSwitch.processing"><span class="color white">We are processing your request...<i class="fa fa-spinner fa-spin fa-5x color white"></i></div>
+				
+			<div class="confirmation" ng-show="viewSwitch.complete">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="color white">Thank you, {{contact.fName}}</h1>
+						<p class="lead color white"><small>We appreciate the interests you have in our products and services. A guernica Softworks processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
+					</div>
+				</div>
+			</div>
+			<div class="form-accent top"></div>
+			<div class="form-accent bottom"></div>
+		</div>
 	</div>
 </div>

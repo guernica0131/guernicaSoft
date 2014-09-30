@@ -226,22 +226,16 @@ config(['$routeProvider', '$locationProvider',
 .controller('gSoftCtrl', ["$scope", "$log", "LoadPage", 'Constants',
     function($scope, $log, LoadPage, Constants) {
 
+        // for testing. Revoved in production
         $scope.$log = $log;
+        //$scope.constants = Constants;
 
-        //$log.log(constants.CONTACT.url);
-        $scope.constants = Constants;
-
-        //$scope.hideSpin = true;
-        //$scope.greeting = "HI Adam";	
         LoadPage.timeout(2000).then(function() {
-            //console.log("I promise", control);
             $scope.drawCurtains = true;
             LoadPage.timeout(1000).then(function() {
-                //console.log("Opening window");
                 $scope.windowOpened = true;
             });
-            ///	control.windowOpened();
-            //gSoftAnimations.drawCurtains();
+          
         });
     }
 ])
@@ -478,36 +472,6 @@ config(['$routeProvider', '$locationProvider',
                 ]
             }
         },
-
-
-        // cssClasses: {
-        //     forms: {
-
-        //         contact: [{
-        //                 selector: '.glyphicon',
-        //                 OK: 'glyphicon-ok',
-        //                 BAD: 'glyphicon-remove',
-        //                 relation: 'sibling'
-        //             }, {
-        //                 // selector: '.glyphicon',
-        //                 OK: 'has-success',
-        //                 BAD: 'has-error',
-        //                 relation: 'parent'
-        //                 // if parentes we need a selector
-
-        //             }
-
-        //         ],
-
-        //     }
-        // }
-
-
-
-
-
-
-
     }
 
 })

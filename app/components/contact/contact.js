@@ -17,7 +17,7 @@
                 $scope.openContactForm = false;
 
                 Intercom.on($scope, 'forms', function(e, message) {
-                    console.log("This is my form message", message);
+                    // console.log("This is my form message", message);
                     // we can use a switch statement to cascase the view switch. 
                     // in this case we will stick with one
                     // we reset
@@ -48,8 +48,8 @@
                 $scope.changeForm = function(portals, activePortal) {
                     if ($scope.form)
                         return;
-
-                    var form = Constants.FORMS.forms.contact,
+                    // we copy the form to transform it
+                    var form = angular.copy( Constants.FORMS.forms.contact ),
                         labelClasses = ['color', 'white'],
                         helpTextClasses = ['help-block', 'color', 'white'];
 
@@ -65,7 +65,7 @@
                     };
 
                     var options = [];
-                    // we do not want this to be asy
+                    // we make new element
                     angular.forEach(portals, function(portal, index) {
                         //if (index !== 0) 
                         options.push({
@@ -75,7 +75,7 @@
                         });
 
                     });
-
+                    // we alter the existing
                     angular.forEach(form.elements, function(element) {
                         element.labelClasses = labelClasses;
                         element.helpTextClasses = helpTextClasses;

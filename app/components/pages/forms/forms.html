@@ -1,65 +1,40 @@
-
 <form class="form" name="{{form.name}}" ng-submit="processForm(form)"  role="form" novalidate>
-
-
-
 	<div class="form-elements" ng-repeat="f in form.elements" ng-init="setFeedback({base: form.baseModel, model: f.model, feedback: form.feedback})">
-
 		
-
 		<!-- input types -->
 		<!-- PARENT SELECTOR FOR FEEBACK -->
 		<div class="{{join(f.containerClasses)}}" ng-class="{{ setClasses('CONTAINER', f.model) }}">
 			<!-- LABEL SELECTOR FOR FEEBACK -->
 			<label class="labels {{join(f.labelClasses)}}" for="{{f.id}}" ng-class="{{ setClasses('LABEL', f.model) }}">{{f.label}}</label>
 			
-
 			<!-- ELEMENT SELECTOR FOR FEEBACK -->
-
 			<!-- if we have an element type INPUT -->
 			<input ng-if="f.el == 'input'" name="{{f.name}}" type="{{f.type}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]['data']" ng-readonly="{{f.readonly}}" ng-value="r.value" ng-value="r.value" ng-init="formData[form.baseModel][f.model]['data']=f.value" ng-class="{{ setClasses('INPUT', f.model) }}">
 			<!-- if we have an element type TEXTAREA -->
 			<textarea ng-if="f.el == 'textarea'" name="{{f.name}}" type="{{f.type}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}"  ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]['data']" cols="{{f.cols}}" rows="{{f.rows}}" maxlength="{{f.maxlength}}"  ng-readonly="{{f.readonly}}" ng-init="formData[form.baseModel][f.model]['data']=f.value" ng-class="{{ setClasses('TEXTAREA', f.model) }}"></textarea>
 			<!-- This is for a single select -->
 			<select   ng-if="f.el == 'select'" name="{{f.name}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]['data']"  ng-readonly="{{f.readonly}}" ng-init="formData[form.baseModel][f.model]['data']=f.value" ng-class="{{ setClasses('MULTIPLE', f.model) }}">
- 				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}">{{o.name}}</option>
+				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}">{{o.name}}</option>
 			</select>
 			<!-- @TODO, find a way to dynamically add the mutile to the element and I can remove this line -->
 			<select   ng-if="f.el == 'selectMultiple'" name="{{f.name}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]['data']"  ng-readonly="{{f.readonly}}" ng-init="formData[form.baseModel][f.model]['data']=f.value" ng-class="{{ setClasses('SELECT', f.model) }}" ng-class="{{ setClasses('selectMultiple', f.model) }}" multiple>
- 				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}">{{o.name}}</option>
+				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}">{{o.name}}</option>
 			</select>
-
-
-			<!-- We break out radios -->			
+			<!-- We break out radios -->
 			<!-- radios -->
 			<div ng-if="f.el == 'radio'">
 				<div class="join(f.extraClasses)"  ng-repeat="r in f.radios">
 					<input name="{{f.name}}" type="radio" class="{{ join(f.elClasses) }}" id="{{r.id}}"  ng-disabled="{{f.disabled}}" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]['data']" ng-readonly="{{f.readonly}}" ng-value="r.value" ng-class="{{ setClasses('RADIO', f.model) }}" ng-init="formData[form.baseModel][f.model]['data']=f.value">{{r.content}}</input>
 				</div>
 			</div>
-
-
 			<span class="feeback {{join(f.feedbackClasses)}}" ng-class="{{ setClasses('FEEDBACK', f.model) }}"></span>
 			<!-- FEEDBACK SELECTOR FOR FEEBACK, THIS IS A SINGLE MODEL -->
 			<span class="help-text {{join(f.helpTextClasses)}}" ng-model="formData[form.baseModel][f.model]['text']" ng-class="{{ setClasses('FEEDBACK_TEXT', f.model) }}" ng-init="formData[form.baseModel][f.model]['text']=f.feedback.helpText">{{formData[form.baseModel][f.model]['text']}}</span>
-			
-
-
-
-			<!--span class="error-help-text {{join(f.errorHelpTextClasses, ' ')}}" ng-show="helptext[f.model].error">{{f.errorHelpText}}</span>
-			<span class="good-help-text {{join(f.goodHelpTextClasses, ' ')}}" ng-show="helptext[f.model].good">{{f.goodHelpText}}</span>
-			<span class="help-text {{join(f.helpTextClasses, ' ')}}">{{f.helpText}}</span> <!-- We always show the helptext if it is available --> 
-		
-
 		</div>
-
 	</div>
-
-	<div>
-
-		<!-- BOTTON SELECTOR FOR FEEBACK, THIS IS A SINGLE MODEL, buttons can be set hidden on bad-->
-		<div class="{{join(form.buttons.containerClasses)}}">
-			<input ng-repeat="btn in form.buttons.elements" type="{{btn.type}}" id="{{btn.id}}" class="{{join(btn.cssClasses)}}" value="{{btn.value}}" ng-click="checkButtonResponse(btn, form)"></input>
-		</div>
-
+	
+	<!-- BOTTON SELECTOR FOR FEEBACK, THIS IS A SINGLE MODEL, buttons can be set hidden on bad-->
+	<div class="{{join(form.buttons.containerClasses)}}">
+		<input ng-repeat="btn in form.buttons.elements" type="{{btn.type}}" id="{{btn.id}}" class="{{join(btn.cssClasses)}}" value="{{btn.value}}" ng-click="checkButtonResponse(btn, form)">
+	</div>
 </form>

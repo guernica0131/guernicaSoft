@@ -115,6 +115,7 @@
              var clearClasses = function(form) {
                  // interate the elements
                  angular.forEach(form.elements, function(el, index) {
+                    // 2 will trigger no condition other than the reset options
                      setCSS(2, el);
                  });
 

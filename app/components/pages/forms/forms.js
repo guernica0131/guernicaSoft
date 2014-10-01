@@ -101,7 +101,7 @@
 
                  return deferred.promise;
              };
-
+             // function for running a join operation on arrays
              var join = function(elements, seperator) {
                  if (!seperator)
                      seperator = ' ';
@@ -122,8 +122,8 @@
              };
              // this allows us to clear and individual form element 
              var validateFormElement = function(element, form) {
-                 // if (!element.required)
-                 //      return;
+                 // this closure is where we can ensure inputs
+                 // are valid
                  var validators = (function() {
 
                          var regex = {
@@ -135,7 +135,8 @@
                              password: /^$|\s+/,
                              select: /\S+/ // deplication 1 
                          };
-
+                         // assign string keys for getting the functions
+                         // uses less space than actual functions
                          var keys = {
                              input: {
                                  email: 'getRegex',
@@ -163,7 +164,7 @@
 
                              checkbox: function(content, type) {
                                  //return $_el.is(':checked');
-                                 return 1; // @TODO for now
+                                 return 1; // @TODO replace
                              }
 
                          };
@@ -194,12 +195,12 @@
 
                  // we have an empty element that is required we return 0
                  if ((!content || length < min) && element.required)
-                     return setCSS(0, element); //$_el, form.baseModel, element.model);
+                     return setCSS(0, element);
                  // here we've got an element that isn't complete but isn't required
-                 else if ((!content || length < min) && !element.required)
-                     return setCSS(-1, element); //$_el, form.baseModel, element.model);
+                 else if ((!content || length < min) && !element.required) 
+                     return setCSS(-1, element); // we set warning
 
-
+                 // now we use validators to get the result
                  return setCSS(validators.validate(element, content), element);
 
              };
@@ -210,7 +211,7 @@
              /*
               * Scoped functions
               */
-
+              // we init here
              $scope.setFeedback = function(setup) {
                  // we set our base key for reference
                  if (!$scope.feedback.base)
@@ -237,39 +238,31 @@
 
              $scope.setClasses = function(element, model) {
 
-                 //return "{'glyphicon-ok':good,'glyphicon-remove':bad}";
-
-                 //$scope.feedback
-
-
                  var instructions = $scope.feedback.instructions[element];
-
+                 // if we have no instructions, we return
                  if (!instructions)
                      return;
 
-
+                 // tons of string work for getting the correct classes and modes
                  var g = '.good,',
                      b = '.bad,',
-                     w = '.warning,';
+                     w = '.warning,',
+                    separator = ":feedback." + $scope.feedback.base + "." + model + ".feedback";
 
-                 var separator = ":feedback." + $scope.feedback.base + "." + model + ".feedback";
 
-
-                 // if we have a good array and the length is greater than 0
+                 // our good classes
                  var good = (instructions.GOOD && instructions.GOOD.length > 0) ?
                      (instructions.GOOD.length === 1) ? instructions.GOOD[0] + separator + g : // nested to return 1 or many results
                      join(instructions.GOOD, separator + g) + separator + g : ''; // otherwise we return nothing4
-
+                 // our bad
                  var bad = (instructions.BAD && instructions.BAD.length > 0) ?
                      (instructions.BAD.length === 1) ? instructions.BAD[0] + separator + b : // nested to return 1 or many results
                      join(instructions.BAD, separator + b) + separator + b : ''; // otherwise we return nothing
-
-
+                 // our warnings
                  var warning = (instructions.WARNING && instructions.WARNING.length > 0) ?
                      (instructions.WARNING.length === 1) ? instructions.WARNING[0] + separator + w : // nested to return 1 or many results
                      join(instructions.WARNING, separator + w) + separator + w : ''; // otherwise we return nothing
-
-
+                // we need to chop off training commas
                  if (warning && warning.charAt(warning.length - 1) === ',')
                      warning = warning.slice(0, -1);
                  else if (!warning && bad && bad.charAt(bad.length - 1) === ',')

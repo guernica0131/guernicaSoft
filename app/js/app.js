@@ -223,8 +223,10 @@ config(['$routeProvider', '$locationProvider',
 
 
 
-.controller('gSoftCtrl', ["$scope", "$log", "LoadPage", 'Constants',
-    function($scope, $log, LoadPage, Constants) {
+.controller('gSoftCtrl', ["$scope", "$log", "LoadPage",
+    function($scope, $log, LoadPage) {
+
+        $scope.title = "guernica Softworks";
 
         // for testing. Revoved in production
         $scope.$log = $log;

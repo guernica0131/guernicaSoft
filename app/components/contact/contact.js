@@ -111,36 +111,4 @@
         }
     });
 
-
-
-
-    /*    .controller('ContactCtl', ["$scope",
-        function($scope) {
-            console.log("WOrking the contact");
-
-            var closeContact = function() {
-                console.log("Closing form");
-                $scope.openContactForm = false;
-            }
-
-            $scope.openContact = function() {
-                console.log("Opening form");
-                $scope.openContactForm = true;
-
-            }
-
-            $scope.closeContact = closeContact;
-
-
-
-            $scope.sendContact = function(portal) {
-                console.log("This submits my form");
-            }
-
-
-        }
-    ]);
-
-*/
-
 })()

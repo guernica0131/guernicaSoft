@@ -317,7 +317,7 @@
                      var payload = $scope.formData[form.baseModel];
                      // we now indicate that we are ready to process the form
                      broadcast('processing', "The form data is currently being validated.", payload);
-
+                     // mimics call to webserver
                      LoadPage.timeout(3000).then(function() {
                          broadcast('complete', "The form has processed successfully.", payload);
                      });

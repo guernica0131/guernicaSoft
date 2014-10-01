@@ -17,7 +17,7 @@
                 $scope.openContactForm = false;
 
                 Intercom.on($scope, 'forms', function(e, message) {
-                    // console.log("This is my form message", message);
+                    //console.log("This is my form message", message);
                     // we can use a switch statement to cascase the view switch. 
                     // in this case we will stick with one
                     // we reset
@@ -26,13 +26,16 @@
                     switch (message.verb) {
 
                         case 'processing':
-                            $scope.viewSwitch[message.verb] = true
+                            $scope.viewSwitch[message.verb] = true;
                             break;
                         case 'error':
-                            $scope.viewSwitch[message.verb] = true
+                            $scope.viewSwitch[message.verb] = true;
                             break;
                         case 'complete':
-                            $scope.viewSwitch[message.verb] = true
+                            // a complete gets the payload and we update the name object
+                            if (message.payload && message.payload.fName)
+                                $scope.fName = message.payload.fName;
+                            $scope.viewSwitch[message.verb] = true;
                             break;
                         default:
                             $scope.viewSwitch = {

@@ -39,19 +39,19 @@
                  if (!valid) { // need to test the text, need element
                      $scope.feedback[base][element.model]['feedback'].bad = true;
                      if (element['feedback']['errorHelpText'])
-                         $scope.formData[base][element.model]['text'] = element['feedback']['errorHelpText'];
+                         $scope.feedback[base][element.model]['text'] = element['feedback']['errorHelpText'];
                  } else if (valid === -1) {
                      $scope.feedback[base][element.model]['feedback'].warning = true;
                      if (element['feedback']['warningHelpText'])
-                         $scope.formData[base][element.model]['text'] = element['feedback']['warningHelpText'];
+                         $scope.feedback[base][element.model]['text'] = element['feedback']['warningHelpText'];
                  } else if (valid === 1) {
                      $scope.feedback[base][element.model]['feedback'].good = true;
                      if (element['feedback']['goodHelpText'])
-                         $scope.formData[base][element.model]['text'] = element['feedback']['goodHelpText'];
+                         $scope.feedback[base][element.model]['text'] = element['feedback']['goodHelpText'];
                  } else {
                      // we set the default text
                      if (element['feedback']['helpText'])
-                         $scope.formData[base][element.model]['text'] = element['feedback']['helpText'];
+                         $scope.feedback[base][element.model]['text'] = element['feedback']['helpText'];
 
                  }
 
@@ -142,7 +142,7 @@
                                  text: 'getRegex',
                                  number: 'getRegex',
                                  password: 'getRegex',
-                                 checkbox: 'checkbox',
+                                 checkbox: 'getRegex',
                              },
                              selectMultiple: 'findLength',
                              select: 'getRegex',
@@ -189,7 +189,7 @@
                      })(),
                      base = $scope.feedback.base,
                      min = element.min || 0,
-                     content = ($scope.formData[base][element.model].data) ? $scope.formData[base][element.model].data : '', //$_el.val(),
+                     content = ($scope.formData[base][element.model]) ? $scope.formData[base][element.model] : '', //$_el.val(),
                      length = (content) ? content.length : 0;
 
                  // we have an empty element that is required we return 0
@@ -289,8 +289,7 @@
                  // consider the performace implcations. Disabled for now
                  if (Constants.FORMS.BROADCAST_CHANGES || form.liveChanges)
                      broadcast('change', "There is invalid input in the form.", $scope.formData.contact);
-
-
+                 // if we trigger liveFeedback, we proceed
                  if (element.liveFeedback) {
 
                      try {
@@ -320,14 +319,14 @@
                      if (!isValid) {
                          // here we broadcase that our form is getting intialized
                          return broadcast('invalid', "There is invalid input in the form.");
-
                      }
-                     // we now indicate that we are ready to process the form
-                     broadcast('processing', "The form data is currently being validated.");
-
                      // here we fake a call to a webserver for processing
+                     var payload = $scope.formData[form.baseModel];
+                     // we now indicate that we are ready to process the form
+                     broadcast('processing', "The form data is currently being validated.", payload);
+
                      LoadPage.timeout(3000).then(function() {
-                         broadcast('complete', "The form data is currently being processed.");
+                         broadcast('complete', "The form has processed successfully.", payload);
                      });
 
                  });

@@ -1,19 +1,54 @@
-<!--div class="fill background night"></div-->
 
-<!--div id="home">
-	<video autoplay id="bgvid" loop>
-		<source src="videos/108.m4v" type="video/mp4">
-		
-		Your browser does not support the video tag.
-	</video>
-</div-->
-
-<div class="page-view background white">
-	
-	<div id="scroll-page">
-		<!--div class="pad-70"></div-->
-		  			<!--primary-page></primary-page-->		
-  		<scroll-page></scroll-page>
-		
-	</div>
+<div class="fill background black">
+ <div class="page-view">
+	<div class="pad-70"></div>
+	<div id="client-page">			
+		<div class="container">
+			
+			<div class="login-form background white">
+				<div ng-show="viewSwitch.form">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<div class="page-header">
+								<h1>Already a client?<small> please login...</small></h1>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+							<forms-page></forms-page>
+						</div>
+					</div>
+				</div>
+				<div ng-show="viewSwitch.processing">
+					<div class="row">
+						<div class="col-md-3"></div>
+						<div class="col-md-6">
+							<div class="page-header">
+								<h1>Logging in...<small> please wait</small></h1>
+							</div>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-4"></div>
+						<div class="col-md-4">
+					<!-- If we have a form processing -->
+							<div class="contact-form-spinner"><span class="color contrast">We are processing your request...</span><i class="fa fa-spinner fa-spin fa-5x color blue"></i></div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-3"></div>
+					<div class="col-md-6">
+						<h4 class="color {{message.color}}"><small>{{message.text}}</small></h4>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>		
 </div>
+
+

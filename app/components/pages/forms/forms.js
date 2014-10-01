@@ -1,4 +1,4 @@
- angular.module('gSoft.formsPage', [])
+ angular.module('gSoft.formsPage', ['gSoft.noSpace'])
 
  .directive('formsPage', function() {
      return {
@@ -35,22 +35,24 @@
                  $scope.feedback[base][element.model]['feedback'].good = false;
                  $scope.feedback[base][element.model]['feedback'].warning = false;
 
+                 var feedback = element['feedback'];
+
 
                  if (!valid) { // need to test the text, need element
                      $scope.feedback[base][element.model]['feedback'].bad = true;
-                     if (element['feedback']['errorHelpText'])
+                     if (feedback && feedback['errorHelpText'])
                          $scope.feedback[base][element.model]['text'] = element['feedback']['errorHelpText'];
                  } else if (valid === -1) {
                      $scope.feedback[base][element.model]['feedback'].warning = true;
-                     if (element['feedback']['warningHelpText'])
+                     if (feedback && feedback['warningHelpText'])
                          $scope.feedback[base][element.model]['text'] = element['feedback']['warningHelpText'];
                  } else if (valid === 1) {
                      $scope.feedback[base][element.model]['feedback'].good = true;
-                     if (element['feedback']['goodHelpText'])
+                     if (feedback && feedback['goodHelpText'])
                          $scope.feedback[base][element.model]['text'] = element['feedback']['goodHelpText'];
                  } else {
                      // we set the default text
-                     if (element['feedback']['helpText'])
+                     if (feedback && feedback['helpText'])
                          $scope.feedback[base][element.model]['text'] = element['feedback']['helpText'];
 
                  }
@@ -119,11 +121,13 @@
                      setCSS(2, el);
                  });
 
+                 broadcast('clearing', "The form data has been cleared.");
+
              };
              // this allows us to clear and individual form element 
              var validateFormElement = function(element, form) {
                  // this closure is where we can ensure inputs
-                 // are valid
+                 // are valid @TODO, this is disabled for now
                  var validators = (function() {
 
                          var regex = {
@@ -159,6 +163,7 @@
                              },
 
                              getRegex: function(content, type) {
+                              //  console.log("COntent", content.match(regex[type]));
                                  return (content.match(regex[type]) !== null) ? 1 : 0;
                              },
 
@@ -201,7 +206,8 @@
                      return setCSS(-1, element); // we set warning
 
                  // now we use validators to get the result
-                 return setCSS(validators.validate(element, content), element);
+                 // return setCSS(validators.validate(element, content), element); // need to reconsider
+                    return setCSS((content && length >= min) ? 1 : 0, element); // for now
 
              };
 
@@ -329,6 +335,7 @@
 
                  switch (btn.type) {
                      case 'reset': // for now we only have one case.
+
                          clearClasses(form);
                          break;
                      default:

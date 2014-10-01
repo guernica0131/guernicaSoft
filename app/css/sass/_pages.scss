@@ -5,6 +5,14 @@
     top: 0;
     right: 0;
 
+    #client-page {
+        .login-form {
+            @include border-radius(5px);
+            padding: 20px;
+           // max-width: 500px;
+        }
+    }
+
     #scroll-page {
 
         .head-image {

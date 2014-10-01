@@ -38,6 +38,10 @@
                         break;
                     case 'complete':
                         $scope.viewSwitch[message.verb] = true
+
+                        if (message.payload && message.payload.fName)
+                            $scope.fName = message.payload.fName;
+
                         break;
                     default:
                         $scope.viewSwitch = {

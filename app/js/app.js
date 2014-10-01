@@ -261,6 +261,83 @@ config(['$routeProvider', '$locationProvider',
         BROADCAST_CHANGES: false, // activate this if we want all form changes broadcasted
 
         forms: {
+              login: {
+                url: 'login',
+                baseModel: 'login',
+                name: 'login-form',
+                liveChanges: false, // don't need
+                buttons: {
+                    containerClasses: ['pad-20'],
+                    elements: [{
+                        value: 'Clear',
+                        type: 'reset',
+                        id: 'reset-login-form',
+                        cssClasses: ['btn', 'btn-default', 'btn-lg'],
+                    }, {
+                        value: 'Login',
+                        type: 'submit',
+                        id: 'submit-login-form',
+                        cssClasses: ['btn', 'btn-primary', 'btn-lg'],
+                    }]
+                },
+                feedback: {
+                    'CONTAINER': {
+                        'GOOD': ["'has-success'"],
+                        'BAD': ["dummy","'has-error'"],
+                        'WARNING': ["'has-warning'"]
+                    },
+                    'FEEDBACK': {
+                        'GOOD': ["'glyphicon-ok'"],
+                        'BAD': ["'glyphicon-remove'"],
+                        'WARNING': ["'glyphicon-warning-sign'"]
+                    },
+                    'FEEDBACK_TEXT': {
+                        'GOOD': ["'base'"],
+                        'BAD': ["'red'"],
+                        'WARNING': ["'gold'"]
+                    }   
+                },
+                elements: [{
+                        id: 'username',
+                        containerClasses: ['form-group', 'has-feedback'],
+                        elClasses: ['form-control', 'input-lg'],
+                        labelClasses: ['color', 'night'],
+                        feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        helpTextClasses: ['help-block', 'color'],
+                        el: 'input',
+                        type: 'text',
+                        model: 'username',
+                        min: 6,
+                        placeholder: 'Username',
+                        label: 'Username',
+                        liveFeedback: true,
+                        required: true,
+                        disabled: false,
+                        nospace: true // going to create a directive
+                    },
+
+                    {
+                        id: 'password',
+                        containerClasses: ['form-group', 'has-feedback'],
+                        elClasses: ['form-control', 'input-lg'],
+                        labelClasses: ['color', 'night'],
+                        feedbackClasses: ['glyphicon', 'form-control-feedback'],
+                        helpTextClasses: ['help-block', 'color'],
+                        el: 'input',
+                        type: 'password',
+                        model: 'password',
+                        liveFeedback: true,
+                        placeholder: 'Password',
+                        label: 'Password',
+                        min: 6,
+                        required: true,
+                        disabled: false,
+                        nospace: true // going to create a directive
+                    },
+
+                
+                ]
+            },
             contact: {
                 url: 'contacts',
                 baseModel: 'contact',
@@ -272,7 +349,7 @@ config(['$routeProvider', '$locationProvider',
                         value: 'Clear',
                         type: 'reset',
                         id: 'reset-contact-form',
-                        cssClasses: ['btn', 'btn-default', 'input-lg'],
+                        cssClasses: ['btn', 'btn-default', 'btn-lg'],
                     }, {
                         value: 'Submit',
                         type: 'submit',
@@ -364,6 +441,7 @@ config(['$routeProvider', '$locationProvider',
                         label: 'Email address',
                         required: true,
                         disabled: false,
+                        nospace: true,
                          feedback: {
                             // this is our error text
                             helpText: 'Required',

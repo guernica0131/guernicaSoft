@@ -9,7 +9,7 @@
 			
 			<!-- ELEMENT SELECTOR FOR FEEBACK -->
 			<!-- if we have an element type INPUT -->
-			<input ng-if="f.el == 'input'" name="{{f.name}}" type="{{f.type}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]" ng-readonly="{{f.readonly}}" ng-value="r.value" ng-value="r.value" ng-init="formData[form.baseModel][f.model]=f.value" ng-class="{{ setClasses('INPUT', f.model) }}">
+			<input ng-if="f.el == 'input'" no-space="{{f.nospace}}" name="{{f.name}}" type="{{f.type}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]" ng-readonly="{{f.readonly}}" ng-value="r.value" ng-value="r.value" ng-init="formData[form.baseModel][f.model]=f.value" ng-class="{{ setClasses('INPUT', f.model) }}">
 			<!-- if we have an element type TEXTAREA -->
 			<textarea ng-if="f.el == 'textarea'" name="{{f.name}}" type="{{f.type}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}"  ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]" cols="{{f.cols}}" rows="{{f.rows}}" maxlength="{{f.maxlength}}"  ng-readonly="{{f.readonly}}" ng-init="formData[form.baseModel][f.model]=f.value" ng-class="{{ setClasses('TEXTAREA', f.model) }}"></textarea>
 			<!-- This is for a single select -->

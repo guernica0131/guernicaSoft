@@ -8103,22 +8103,29 @@ a:hover {
   opacity: 1;
 }
 
-/* line 77, ../sass/_structures.scss */
+/* line 70, ../sass/_structures.scss */
+.cover-background {
+  background-repeat: no-repeat !important;
+  background-position: center center !important;
+  background-size: cover !important;
+}
+
+/* line 82, ../sass/_structures.scss */
 .none {
   display: none;
 }
 
-/* line 81, ../sass/_structures.scss */
+/* line 86, ../sass/_structures.scss */
 .block {
   display: block;
 }
 
-/* line 85, ../sass/_structures.scss */
+/* line 90, ../sass/_structures.scss */
 .glyphicon-ok {
   color: #276E55 !important;
 }
 
-/* line 90, ../sass/_structures.scss */
+/* line 95, ../sass/_structures.scss */
 .btn.btn-primary {
   background-color: #061F37;
   border-color: #041729;
@@ -8129,7 +8136,7 @@ a:hover {
   background-color: #041729;
   color: white !important;
 }
-/* line 93, ../sass/_structures.scss */
+/* line 98, ../sass/_structures.scss */
 .btn.btn-success {
   background-color: #276E55;
   border-color: #23634c;
@@ -8140,7 +8147,7 @@ a:hover {
   background-color: #23634c;
   color: white !important;
 }
-/* line 96, ../sass/_structures.scss */
+/* line 101, ../sass/_structures.scss */
 .btn.btn-info {
   background-color: #2B4B6A;
   border-color: #27435f;
@@ -8151,7 +8158,7 @@ a:hover {
   background-color: #27435f;
   color: white !important;
 }
-/* line 99, ../sass/_structures.scss */
+/* line 104, ../sass/_structures.scss */
 .btn.btn-warning {
   background-color: #A4793A;
   border-color: #997136;
@@ -8162,7 +8169,7 @@ a:hover {
   background-color: #997136;
   color: white !important;
 }
-/* line 102, ../sass/_structures.scss */
+/* line 107, ../sass/_structures.scss */
 .btn.btn-danger {
   background-color: #96354D;
   border-color: #8b3147;

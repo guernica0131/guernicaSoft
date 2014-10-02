@@ -67,6 +67,11 @@ a {
     }
 }
 
+.cover-background {
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+    background-size: cover !important;
+}
 
 // textarea, input {
 //     &:focus {

@@ -11,9 +11,9 @@
         return {
             restrict: 'E',
             templateUrl: 'components/pages/primary/page.html',
-            controller: function($scope, $location, ImageLocation) {
+            controller: function($scope, $location) {
             	//console.log("This is the page element");
-              $scope.images = ImageLocation.retrieve;
+              //$scope.images = ImageLocation.retrieve;
             },
             controllerAs: 'pPage',
             scope: true

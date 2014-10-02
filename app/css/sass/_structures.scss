@@ -73,6 +73,14 @@ a {
     background-size: cover !important;
 }
 
+.fixed-row-background {
+    background-repeat: no-repeat !important;
+    background-position: 50% 0 !important;
+//    display: none !important;
+    //background-size: cover !important;
+    background-attachment: fixed  !important;
+}
+
 // textarea, input {
 //     &:focus {
 //         border-color: $red;

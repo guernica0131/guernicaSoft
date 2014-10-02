@@ -63,50 +63,6 @@ config(['$routeProvider', '$locationProvider',
     };
 
 })
-
-// .factory('ImageLocation', function() {
-
-//     var directory = 'images/portals/',
-//         resolution = function() {
-//             var width = $(window).width();
-//             //console.log("My width", width);
-//             if (width > 2000)
-//                 return 'high';
-//             else if (width > 1200)
-//                 return 'med';
-//             else
-//                 return 'low';
-
-//         },
-//         retrieve = function(request, name, extension) {
-
-//             extension = extension || 'jpg';
-//             switch (request) {
-//                 case 'BODY':
-//                     return directory + resolution() + '/' + name + '-body' + '.' + extension;
-//                 case 'BODY_HIGH':
-//                     return directory + 'high/' + name + '-body' + '.' + extension;
-//                 case 'BODY_MED':
-//                     return directory + 'med/' + name + '-body' + '.' + extension;
-//                 case 'BODY_LOW':
-//                     return directory + 'low/' + name + '-body' + '.' + extension;
-//                 case 'THUMBS':
-//                     return directory + 'thumbs/' + name + '-thumb' + '.' + extension;
-//                 case 'ROW':
-//                     return directory + 'rows' + name + '-row' + '.' + extension;
-//                 case 'HEAD':
-//                     return directory + resolution() + '/' + name + '-head' + '.' + extension;
-//                 default:
-//                     return directory;
-//             }
-
-//         }
-
-//     return {
-//         retrieve: retrieve
-//     }
-
-// })
     .factory('PortalIndex', function($filter) {
 
         var pIndex = function(portals) {
@@ -234,21 +190,19 @@ config(['$routeProvider', '$locationProvider',
         $scope.$log = $log;
         //$scope.constants = Constants;
 
+        // there will be an ajax call when this is assigned to a web server
         LoadPage.timeout(2000).then(function() {
             $scope.drawCurtains = true;
             LoadPage.timeout(1000).then(function() {
                 $scope.windowOpened = true;
             });
-          
+
         });
     }
 ])
     .controller('windowCtrl', ["$scope", "$window",
         function($scope, $window) {
-            // $(window).resize(function() {
-            //     var win = this;
-            //     $scope.$apply(function() {});
-            // })
+            // just in case
 
         }
     ])
@@ -263,7 +217,7 @@ config(['$routeProvider', '$locationProvider',
         BROADCAST_CHANGES: false, // activate this if we want all form changes broadcasted
 
         forms: {
-              login: {
+            login: {
                 url: 'login',
                 baseModel: 'login',
                 name: 'login-form',
@@ -285,7 +239,7 @@ config(['$routeProvider', '$locationProvider',
                 feedback: {
                     'CONTAINER': {
                         'GOOD': ["'has-success'"],
-                        'BAD': ["dummy","'has-error'"],
+                        'BAD': ["dummy", "'has-error'"],
                         'WARNING': ["'has-warning'"]
                     },
                     'FEEDBACK': {
@@ -297,7 +251,7 @@ config(['$routeProvider', '$locationProvider',
                         'GOOD': ["'base'"],
                         'BAD': ["'red'"],
                         'WARNING': ["'gold'"]
-                    }   
+                    }
                 },
                 elements: [{
                         id: 'username',
@@ -337,7 +291,7 @@ config(['$routeProvider', '$locationProvider',
                         nospace: true // going to create a directive
                     },
 
-                
+
                 ]
             },
             contact: {
@@ -362,7 +316,7 @@ config(['$routeProvider', '$locationProvider',
                 feedback: {
                     'CONTAINER': {
                         'GOOD': ["'has-success'"],
-                        'BAD': ["dummy","'has-error'"],
+                        'BAD': ["dummy", "'has-error'"],
                         'WARNING': ["'has-warning'"]
                     },
                     'FEEDBACK': {
@@ -374,7 +328,7 @@ config(['$routeProvider', '$locationProvider',
                         'GOOD': ["'base'"],
                         'BAD': ["'red'"],
                         'WARNING': ["'gold'"]
-                    }   
+                    }
                 },
                 elements: [{
                         id: 'f-name',
@@ -444,7 +398,7 @@ config(['$routeProvider', '$locationProvider',
                         required: true,
                         disabled: false,
                         nospace: true,
-                         feedback: {
+                        feedback: {
                             // this is our error text
                             helpText: 'Required',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
@@ -542,7 +496,7 @@ config(['$routeProvider', '$locationProvider',
                         label: 'Tell us more about your needs',
                         required: false,
                         disabled: false,
-                         feedback: {
+                        feedback: {
                             // this is our error text
                             helpText: 'This input is required',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",

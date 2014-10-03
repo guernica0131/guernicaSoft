@@ -42,6 +42,7 @@
         'bower_components/angular-route/angular-route.js',
         'bower_components/angular-resource/angular-resource.js',
         'bower_components/angular-animate/angular-animate.js',
+        'bower_components/angular-socialshare/angular-socialshare.js',
         //'bower_components/angular-ui-router/release/angular-ui-router.js',
         'js/app.js',
         'js/animations.js',
@@ -71,10 +72,10 @@
         angular.bootstrap(document, ['gSoft']);
         });
         </script>
-        <title>{{title}}</title>
+        <title ng-bind-template="{{title}}">Rendering...</title>
         <link rel="stylesheet" href="css/stylesheets/screen.css">
       </head>
-      <body ng-cloak>
+      <body ng-cloak class="background night">
       <!-- Our navbar directive -->
       <nav-bar></nav-bar  ng-controller="navbarCtrl as nav">
       <!-- Creates the entry spinner -->

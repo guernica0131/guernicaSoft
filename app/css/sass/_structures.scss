@@ -1,3 +1,10 @@
+.centered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
 ::-webkit-scrollbar {
     display: none;
 }
@@ -53,6 +60,24 @@ a {
 
 .pad-20 {
     padding-top: 20px;
+}
+
+.overcast {
+
+    @include opacity(1);
+    @include transition(opacity 1500ms ease-in-out);
+    //  display: none;
+    &.out {
+        //display: block;
+        @include opacity(0.0);
+        //  display: block;
+
+        &.hazzy {
+           @include opacity(0.3); 
+        }
+   
+    }
+
 }
 
 .fog {

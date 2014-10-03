@@ -13,16 +13,24 @@
         }
     ])
 
-    .controller('ClientCtrl', ["$scope", "Constants", "Intercom",
-        function($scope, Constants, Intercom) {
+    .controller('ClientCtrl', ["$scope", "Constants", "Intercom", "LoadPage",
+        function($scope, Constants, Intercom, LoadPage) {
 
 
-           
-             /*
+
+            /*
              * We recieve messages from our form controller and this tells us how to process our view
              */
             $scope.viewSwitch = {};
             $scope.message = {};
+
+            $scope.backgroundImage = "login"
+            $scope.loadpage = false;
+            $scope.loadcontainer = false;
+            $scope.fadeinbackground = true;
+
+
+            LoadPage.render($scope, 400, 400 );
 
             Intercom.on($scope, 'forms', function(e, message) {
                 //console.log("I am in contact control", message);
@@ -46,12 +54,12 @@
                         $scope.viewSwitch['form'] = true;
                         // here we would redirect to page
                         // but for testing we will send a fake message to the user
-                        $scope.message.text  = "I'm sorry, but we don't recognize your username and password";
+                        $scope.message.text = "I'm sorry, but we don't recognize your username and password";
                         $scope.message.color = 'red';
 
                         break;
                     case 'clearing':
-                        $scope.message.text  = '';
+                        $scope.message.text = '';
                     default:
                         $scope.viewSwitch = {
                             "form": true
@@ -64,13 +72,13 @@
             });
 
 
-         
+
 
         }
     ]);
 
-    var form 
+    var form
 
-  
+
 
 })();

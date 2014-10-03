@@ -15,11 +15,29 @@
         return {
             restrict: 'E',
             templateUrl: 'components/navbar/navbar.html',
-            controller: function($scope, $location) {
-        		$scope.buttons = buttons;
+            controller: function($scope, $location, Intercom, LoadPage) {
+
+                $scope.navbar = {};
+                $scope.navbar.thinking = false;
+        		
+                Intercom.on($scope, 'thinking', function(e, thoughts) {   
+                    $scope.navbar.thinking = thoughts;
+                });
+
+                $scope.buttons = buttons;
         		$scope.isActive = function(selected) {
         			return (selected === $location.path());
         		}
+
+                $scope.navigating = function(active) {
+                    if (active)
+                        return;
+
+                    $scope.navbar.thinking = true;
+                    LoadPage.timeout(1000).then(function() {
+                        $scope.navbar.thinking = false;
+                    });
+                }
             },
             controllerAs: 'nav',
             scope: true,

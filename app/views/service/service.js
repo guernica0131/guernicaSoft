@@ -35,47 +35,6 @@
             // now we set the portal link into the scope
             pIndex.portalLoader($scope, $routeParams, $location, LoadPage);
 
-            /*
-            $scope.portalLink = pIndex.get($routeParams);
-            // we build the portal paramters
-            pIndex.setIndex($scope.portalLink, $scope);
-            // pageChange is a local function that sets all the appriate params for a page change
-            var pageChanger = function(portal) {
-                    // we the imput is indefined or we are traversing a portal we are already at, we return
-                    if (typeof portal === 'undefined' || portal == pIndex.get($routeParams))
-                        return;
-                    // we activate the spinner in the navbar
-                    angular.element($('#nav-spinner')).removeClass('hidden');
-                    $scope.drawcontent = false;
-                    $routeParams.portal = portal;
-                    // sets the portal as a paramter
-                    $location.search({
-                        portal: portal
-                    })
-                    // set index actually creates the page content
-                    pIndex.setIndex(portal, $scope);
-
-                }
-                // we set the timeout either at 300ms or 3000ms depending on if it is freshly opened
-            var timeout = $scope.windowOpened ? 300 : 3000;
-            // this timeout allows us to mimick restful call
-            LoadPage.timeout(timeout).then(function() {
-                $scope.drawcontent = true;
-            });
-            // this shutsdown the spinner effect in the navbar
-            LoadPage.timeout(timeout * 2).then(function() {
-                angular.element($('#nav-spinner')).addClass('hidden');
-            });
-            // updatePage calls page changer to fill the correct portal
-            $scope.updatePage = function(index) {
-                pageChanger(index);
-            }
-            // surfPortals allows the users to increment or decrement the portals pages
-            $scope.surfPortals = function(position) {
-                var newIndex = pIndex.changePortalIndex(position, $scope.activeIndex);
-                pageChanger(portals[newIndex].portal);
-            }
-*/
         }
     ]);
 

@@ -23,25 +23,25 @@
         form {
             padding-bottom: 25px;
         }
-        .form-accent {
-            &.bottom {
-                background-color: $base;
-                bottom: 0;
-                @include border-radius(0 0 5px 5px);
-            }
+         .form-accent {
+             &.bottom {
+                 background-color: $base;
+        //         bottom: 0;
+        //         @include border-radius(0 0 5px 5px);
+             }
             &.top {
-                background-color: $rust;
-                top: 0;
-                @include border-radius(5px 5px 0 0);
-            }
-            //z-index:  ;
-            position: absolute;
-            width: 100%;
-            height: 10px;
-            left: 0;
-            //padding: 15px;
+                 background-color: $rust;
+        //         top: 0;
+        //         @include border-radius(5px 5px 0 0);
+             }
+        //     //z-index:  ;
+        //     position: absolute;
+        //     width: 100%;
+        //     height: 10px;
+        //     left: 0;
+        //     //padding: 15px;
        
-        }
+         }
         .contact-form-spinner {
             text-align: center;
             padding: 50px 0 50px 0;
@@ -73,3 +73,24 @@
     	}
      */
 }
+
+
+.form-accent {
+            &.bottom {
+                background-color: $night;
+                bottom: 0;
+                @include border-radius(0 0 5px 5px);
+            }
+            &.top {
+                background-color: $blue;
+                top: 0;
+                @include border-radius(5px 5px 0 0);
+            }
+            //z-index:  ;
+            position: absolute;
+            width: 100%;
+            height: 10px;
+            left: 0;
+            //padding: 15px;
+       
+        }

@@ -8,12 +8,12 @@
         function($routeProvider) {
             $routeProvider.when('/about', {
                 templateUrl: 'views/about/about.html',
-                controller: 'GlobalCtrl'
+                controller: 'AboutCtrl'
             });
         }
     ])
 
-    .controller('GlobalCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
+    .controller('AboutCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
         function($scope, $routeParams, $location, LoadPage, PortalIndex) {
             $scope.portals = portals;
             var pIndex = new PortalIndex.i(portals);

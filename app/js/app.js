@@ -13,7 +13,8 @@ angular.module('gSoft', [
     'gSoft.contact',
     'gSoft.footer',
     'gSoft.version',
-    'gSoft.version.interpolate-filter'
+    'gSoft.version.interpolate-filter',
+    'gSoft.ImageFilter'
 
     //'ui.router'
 ]).
@@ -46,24 +47,89 @@ config(['$routeProvider', '$locationProvider',
         return sharedService;
     })
 
-.factory('LoadPage', function($q, $timeout) {
+.factory('LoadPage', function($q, $timeout, $interval, Intercom) {
 
-    var timeout = function(time) {
+    var me = this;
+    var interval;
+
+    var openpage = function($scope, primary, secondary) {
+        me.timeout(primary).then(function() {
+            $scope.loadpage = true;
+            me.timeout(secondary).then(function() {
+                $scope.loadcontainer = true;
+            });
+        });
+    }
+
+    this.stopscroll = function($scope, image) {
+       
+        if (!interval)
+            return;
+
+        $interval.cancel(interval);
+
+            if (image) {
+                $scope.fadeinbackground = false;
+                me.timeout(1550).then(function() {
+                    $scope.backgroundImage = image
+                    $scope.fadeinbackground = true;
+                });
+            }
+            //else 
+            //$interval.cancel(interval);
+    }
+
+    this.scrollbackground = function($scope, time, images, selectors) {
+
+        
+        var i = 0;
+      interval = $interval(function() {
+          $scope.fadeinbackground = false;
+          me.timeout(1550).then(function() {
+
+                if (i >= images.length )
+                    i = 0;
+
+                $scope.backgroundImage = images[i++];
+                
+                $scope.fadeinbackground = true;
+            });
+
+        }, time);
+
+    }
+
+    this.render = function($scope, primary, secondary) {
+        if ($scope.windowOpened)
+            openpage($scope, primary, secondary);
+
+
+        Intercom.on($scope, 'open-windows', function(e, message) {
+            if (message)
+                openpage($scope, primary, secondary);
+        });
+
+    }
+
+    this.timeout = function(time) {
         var deferred = $q.defer();
 
         $timeout(function() {
-            deferred.resolve(['Hello', 'world!']);
+            deferred.resolve();
         }, time || 0);
 
         return deferred.promise;
     };
 
     return {
-        timeout: timeout
+        timeout: this.timeout,
+        render: this.render,
+        scrollbackground: this.scrollbackground,
+        stopscroll : this.stopscroll
     };
 
 })
-    .factory('PortalIndex', function($filter) {
+    .factory('PortalIndex', function($filter, Intercom) {
 
         var pIndex = function(portals) {
             this.activeIndex = 0;
@@ -129,7 +195,7 @@ config(['$routeProvider', '$locationProvider',
             this.portalLoader = function($scope, $routeParams, $location, LoadPage) {
                 // now we set the portal link into the scope
                 var me = this;
-
+                // setting the portal link
                 $scope.portalLink = me.get($routeParams);
                 // we build the portal paramters
                 me.setIndex($scope.portalLink, $scope);
@@ -138,8 +204,9 @@ config(['$routeProvider', '$locationProvider',
                         // we the imput is indefined or we are traversing a portal we are already at, we return
                         if (typeof portal === 'undefined' || portal == me.get($routeParams))
                             return;
-                        // we activate the spinner in the navbar
-                        angular.element($('#nav-spinner')).removeClass('hidden');
+                        // we activate the spinner in the navbar                        
+                        Intercom.broadcast('thinking', true);
+                        // curtains drawn
                         $scope.drawcontent = false;
                         $routeParams.portal = portal;
                         // sets the portal as a paramter
@@ -148,8 +215,7 @@ config(['$routeProvider', '$locationProvider',
                         })
                         // set index actually creates the page content
                         me.setIndex(portal, $scope);
-
-                    }
+                    } // end page changer
                     // we set the timeout either at 300ms or 3000ms depending on if it is freshly opened
                 var timeout = $scope.windowOpened ? 300 : 3000;
                 // this timeout allows us to mimick restful call
@@ -158,7 +224,7 @@ config(['$routeProvider', '$locationProvider',
                 });
                 // this shutsdown the spinner effect in the navbar
                 LoadPage.timeout(timeout * 2).then(function() {
-                    angular.element($('#nav-spinner')).addClass('hidden');
+                    Intercom.broadcast('thinking', false);
                 });
                 // updatePage calls page changer to fill the correct portal
                 $scope.updatePage = function(index) {
@@ -181,8 +247,8 @@ config(['$routeProvider', '$locationProvider',
 
 
 
-.controller('gSoftCtrl', ["$scope", "$log", "LoadPage",
-    function($scope, $log, LoadPage) {
+.controller('gSoftCtrl', ["$scope", "$log", "LoadPage", "Intercom",
+    function($scope, $log, LoadPage, Intercom) {
 
         $scope.title = "guernica Softworks";
 
@@ -195,6 +261,7 @@ config(['$routeProvider', '$locationProvider',
             $scope.drawCurtains = true;
             LoadPage.timeout(1000).then(function() {
                 $scope.windowOpened = true;
+                Intercom.broadcast("open-windows", true);
             });
 
         });
@@ -223,7 +290,7 @@ config(['$routeProvider', '$locationProvider',
                 name: 'login-form',
                 liveChanges: false, // don't need
                 buttons: {
-                    containerClasses: ['pad-20'],
+                    containerClasses: ['btn-group'],
                     elements: [{
                         value: 'Clear',
                         type: 'reset',
@@ -233,7 +300,7 @@ config(['$routeProvider', '$locationProvider',
                         value: 'Login',
                         type: 'submit',
                         id: 'submit-login-form',
-                        cssClasses: ['btn', 'btn-primary', 'btn-lg'],
+                        cssClasses: ['btn', 'btn-danger', 'btn-lg'],
                     }]
                 },
                 feedback: {
@@ -300,7 +367,7 @@ config(['$routeProvider', '$locationProvider',
                 name: 'contactUs',
                 liveChanges: false,
                 buttons: {
-                    containerClasses: ['btn-group', 'pad-40'],
+                    containerClasses: ['btn-group', 'pad-20'],
                     elements: [{
                         value: 'Clear',
                         type: 'reset',
@@ -310,7 +377,7 @@ config(['$routeProvider', '$locationProvider',
                         value: 'Submit',
                         type: 'submit',
                         id: 'submit-contact-form',
-                        cssClasses: ['btn', 'btn-primary', 'btn-lg'],
+                        cssClasses: ['btn', 'btn-danger', 'btn-lg'],
                     }]
                 },
                 feedback: {
@@ -325,7 +392,7 @@ config(['$routeProvider', '$locationProvider',
                         'WARNING': ["'glyphicon-warning-sign'"]
                     },
                     'FEEDBACK_TEXT': {
-                        'GOOD': ["'base'"],
+                        'GOOD': ["'contrast'"],
                         'BAD': ["'red'"],
                         'WARNING': ["'gold'"]
                     }
@@ -348,10 +415,10 @@ config(['$routeProvider', '$locationProvider',
                         disabled: false,
                         feedback: {
                             // this is our error text
-                            helpText: 'Required',
-                            errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            goodHelpText: "Nicely done! You have followed the rules.",
-                            warningHelpText: "This is crazy you can't follow simple rules."
+                            helpText: 'required',
+                            errorHelpText: "This field require at least 2 characters.",
+                            goodHelpText: "Thank you."
+                            // warningHelpText: "This is crazy you can't follow simple rules."
                         }
                     },
 
@@ -373,10 +440,10 @@ config(['$routeProvider', '$locationProvider',
                         disabled: false,
                         feedback: {
                             // this is our error text
-                            helpText: 'Required',
-                            errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            goodHelpText: "Nicely done! You have followed the rules.",
-                            warningHelpText: "This is crazy you can't follow simple rules."
+                            helpText: 'required',
+                            errorHelpText: "This field require at least 2 characters.",
+                            goodHelpText: "Thank you."
+                            //warningHelpText: "This is crazy you can't follow simple rules."
                         }
 
 
@@ -400,10 +467,10 @@ config(['$routeProvider', '$locationProvider',
                         nospace: true,
                         feedback: {
                             // this is our error text
-                            helpText: 'Required',
+                            helpText: 'required',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            goodHelpText: "Nicely done! You have followed the rules.",
-                            warningHelpText: "This is crazy you can't follow simple rules."
+                            goodHelpText: "Thank you."
+                            //warningHelpText: "This is crazy you can't follow simple rules."
                         }
 
 
@@ -469,10 +536,10 @@ config(['$routeProvider', '$locationProvider',
                         disabled: false,
                         feedback: {
                             // this is our error text
-                            helpText: 'This input is required',
+                            helpText: 'optional',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            goodHelpText: "Nicely done! You have followed the rules.",
-                            warningHelpText: "This is crazy you can't follow simple rules."
+                            goodHelpText: "Thank you.",
+                            warningHelpText: "This field is optional but it would help us to know more."
                         }
 
 
@@ -498,10 +565,10 @@ config(['$routeProvider', '$locationProvider',
                         disabled: false,
                         feedback: {
                             // this is our error text
-                            helpText: 'This input is required',
+                            helpText: 'optional',
                             errorHelpText: "This field is required with at least 2 characters before I can submit this form.",
-                            goodHelpText: "Nicely done! You have followed the rules.",
-                            warningHelpText: "This is crazy you can't follow simple rules."
+                            goodHelpText: "Thank you.",
+                            warningHelpText: "This field is optional but it would help us to know more."
                         }
 
                     }

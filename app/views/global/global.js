@@ -15,30 +15,30 @@
 
     .controller('GlobalCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
         function($scope, $routeParams, $location, LoadPage, PortalIndex) {
+
             $scope.portals = portals;
             var pIndex = new PortalIndex.i(portals);
             // now we set the portal link into the scope
             pIndex.portalLoader($scope, $routeParams, $location, LoadPage);
 
             $scope.head = {
+                template: 'bold-list',
+                texts: ['we are', 'guernica Softworks'],
                 text: {
                     content: "We a globaly focus independent digital creative studio",
                     tag: "We are guernica Softworks",
-                    color:  {
-                     content: "white",
-                     tag: "white"
+                    color: {
+                        content: "rust",
+                        tag: "white"
                     }
                 },
-                jumbotron: 'noise',
-                image: 'global',
-               // curtain: 'noise'
+                //jumbotron: 'noise',
+                image: 'kids'
+                // curtain: 'noise'
             }
 
             //$scope.headerImage = "global";
 
-            $('.page-view').on("scroll", function(e) {
-                console.log("Hey getting my scroll on", e);
-            });
 
         }
     ]);
@@ -47,59 +47,66 @@
     var portals = [
 
         {
-            title: 'guernica Softworks',
-            lead: 'digital artisans',
+            
+            template: 'bold-list',
+            row: {
+                pull: 'pull-right'
+            },
+            // title: 'guernica Softworks',
+            // lead: 'digital artisans',
+            texts: ['we', 'are' , 'digital', 'artisans'],
+
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
-            content: {
 
-                row: {
-                    src: ''
-                },
+            content: {
 
                 thumbnail: {
                     src: 'logo',
                     alt: 'guernica Softworks Logo'
                 },
                 body: {
-                  //  src: 'global',
+                    //  src: 'global',
                     alt: "Na Na"
                 }
             },
             css: {
+                row: ['white'],
                 text: {
                     header: 'night',
                     lead: 'base',
-                    p: 'night'
+                    p: 'night',
+                    template: 'white',
+                    classs: ['']
                 }
             },
-            video: true,
             order: 1,
             portal: 'gSoft',
-            cssClass: 'white'
+            cssClass: 'black'
         },
 
         {
-            title: 'Custom Software',
-            lead: 'software desgined for you',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            template: 'bold-list',
+            texts: ['we are' , 'Global'],
+            row: {
+                display: "page",
+                pull: 'centered'
+
             },
             content: {
-                thumbnail: {
-                    src: 'custom',
-                    alt: 'Custom Software Solutions'
-                },
                 body: {
-                    src: 'custom',
+                    cssClass: 'fixed-row-background',
+                    src: 'driver',
                     alt: "Na Na"
                 }
             },
             css: {
+                row: ['white', 'text-massive'],
                 text: {
                     header: 'night',
                     lead: 'contrast',
+                    template: 'white',
                     p: 'night'
                 },
                 right: true
@@ -117,12 +124,13 @@
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
             content: {
+
                 thumbnail: {
                     src: 'consulting',
                     alt: 'Consulting Services'
                 },
                 body: {
-               //     src: 'consulting'
+                    //     src: 'consulting'
                 }
             },
             css: {
@@ -144,12 +152,18 @@
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
+            row: {
+                display: "page"
+
+            },
             content: {
+
                 thumbnail: {
                     src: 'graphic',
                     alt: 'Graphic Design solutions'
                 },
                 body: {
+                    cssClass: 'fixed-row-background',
                     src: 'design'
                 }
             },
@@ -173,12 +187,14 @@
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
             content: {
+
                 thumbnail: {
                     src: 'cloud',
                     alt: 'Cloud-base delployment solutions'
                 },
                 body: {
-              //      src: 'cloud'
+
+                    //      src: 'cloud'
                 }
             },
             css: {
@@ -202,12 +218,18 @@
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
+            row: {
+                display: "page"
+
+            },
             content: {
+
                 thumbnail: {
                     src: 'brand',
                     alt: 'Brand Strategy Solutions'
                 },
                 body: {
+                    cssClass: 'fixed-row-background',
                     src: 'brand-dark'
                 }
             },
@@ -236,7 +258,7 @@
                     alt: 'Search Engine Optimzation Services'
                 },
                 body: {
-              //      src: 'seo'
+                    //      src: 'seo'
                 }
             },
             css: {
@@ -258,12 +280,18 @@
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
+            row: {
+                display: "page"
+
+            },
             content: {
+
                 thumbnail: {
                     src: 'service',
                     alt: 'Service Agreement Contracts'
                 },
                 body: {
+                    cssClass: 'fixed-row-background',
                     src: 'service'
                 }
             },

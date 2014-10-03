@@ -1,0 +1,22 @@
+
+<div ng-if="portal.template == 'bold-list'">
+
+	<div class="row {{portal.row.pull}}">
+		<!--iv class="col-md-4" ng-if="portal.row.pull == 'pull-center'"></div-->
+		<div class="col-md-12" ><!--ng-class="{col-md-8: portal.row.pull == 'pull-center'}"-->
+			<ul class="list-unstyled">
+				<li class="bold-list text-huge color {{portal.css.row.join(' ')}}" ng-repeat="text in portal.texts">{{text}}</li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<div ng-if="portal.template == 'featurette'">
+	<div class="row featurette">
+		<div class="page-header">
+			<h1 class="color {{portal.css.text.header}}">{{portal.title}}<small class="lead color {{portal.css.text.lead}}"> {{portal.lead}}</small></h1>
+		</div>
+		<div class="col-md-8 text color {{portal.css.text.p}}" ng-class="{'pull-right':portal.css.right}">{{portal.body.text}}</div>
+		<div class="col-md-4 images"><img image-src='{"request": "BODY", "name": "{{portal.content.row.src}}"}'> onerror="this.style.display='none'"></img></div> <!-- src="{{images('ROW' , portal.content.row.src)}}"  -->
+	</div>
+</div>

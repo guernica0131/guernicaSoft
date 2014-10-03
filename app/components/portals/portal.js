@@ -1,5 +1,5 @@
 (function() {
-    angular.module('gSoft.portal', ['gSoft.ImageFilter'])
+    angular.module('gSoft.portal', [])
 
     .directive('portals', function() {
         return {

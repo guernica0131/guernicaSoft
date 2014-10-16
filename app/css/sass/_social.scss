@@ -1,0 +1,52 @@
+.social-btn {
+
+	@include border-radius(50%);
+	width: 65px;
+	height:65px;
+	background-color: $white;
+	cursor: pointer;
+	padding: 5px;
+	position: relative;
+
+	.contents {
+		 position: absolute;
+    	top: 28%;
+    	left: 50%;
+    	height: 30%;
+    	width: 50%;
+    	margin: -15% 0 0 -25%;
+	}
+	//padding-top: 10px;
+	//vertical-align: middle;
+	//@include vertical-align;
+
+	&.facebook {
+		.facebookButton {
+			display: none;
+		}
+		color: #3B5998;
+
+		border: 3px solid #3B5998;
+	}
+
+	&.twitter {
+		color: #55ACEE;
+
+		border: 3px solid #55ACEE;
+
+
+
+		.twitter-tweet-button  {
+			display: none;
+			//border-color:transparent;
+		}
+	}
+
+}
+
+.social-pad  {
+	@include border-radius(5px);
+	padding: 10px;
+	padding-top:15px;
+}
+

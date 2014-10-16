@@ -1,3 +1,9 @@
+.break-out {
+    .contact-container {
+         position: fixed;
+    }    
+}
+
 .contact-container {
     left: 0;
     top: 0;
@@ -5,6 +11,7 @@
     height: 100%;
     position: absolute;
     background-color: rgba($night, 0.7);
+    //background-image: $noise;
     z-index: 10;
     //	text-align: center;
     padding-bottom: 40px;
@@ -42,31 +49,14 @@
         //     //padding: 15px;
        
          }
-        .contact-form-spinner {
-            text-align: center;
-            padding: 50px 0 50px 0;
-            i {
-                font-size: 10em;
-            }
-        }
-        .close-btn {
-            cursor: pointer;
-            width: 40px;
-            height: 60px;
-            z-index: 3;
-            //border: 1px solid $red;
-            //@include border-radius(5px);
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            color: $red;
-            font-size: 3em;
-            //background-color: green;
-            &:hover {
-                //	border-color: adjust-lightness($red, 3);
-                color: adjust-lightness($red, 7);
-            }
-        }
+        // .contact-form-spinner {
+        //     text-align: center;
+        //     padding: 50px 0 50px 0;
+        //     i {
+        //         font-size: 10em;
+        //     }
+        // }
+        
     }
     	/* #interests {
     		width: 200px;

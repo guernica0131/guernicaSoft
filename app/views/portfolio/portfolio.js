@@ -38,77 +38,20 @@
     var portals = [
 
         {
-            title: 'guernica Softworks',
-            lead: 'digital artisans',
+            title: 'The World Bank',
+            lead: 'East Aftrican Tourist Visa',
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
             content: {
 
                 thumbnail: {
-                    src: 'logo',
-                    alt: 'guernica Softworks Logo'
+                    src: 'wb',
+                    alt: 'World Bank'
                 },
                 body: {
-                    src: 'global',
+                    src: 'eab',
                     alt: "Na Na"
-                }
-            },
-            css: {
-                text: {
-                    header: 'white',
-                    lead: 'base',
-                    p: 'white'
-                }
-            },
-            video: true,
-            order: 1,
-            portal: 'gSoft',
-            cssClass: 'night'
-        },
-
-        {
-            title: 'Custom Software',
-            lead: 'software desgined for you',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
-            content: {
-                thumbnail: {
-                    src: 'custom',
-                    alt: 'Custom Software Solutions'
-                },
-                body: {
-                    src: 'custom',
-                    alt: "Na Na"
-                }
-            },
-            css: {
-                text: {
-                    header: 'night',
-                    lead: 'contrast',
-                    p: 'night'
-                }
-            },
-            video: true,
-            order: 1,
-            portal: 'custom',
-            cssClass: 'night'
-        },
-
-        {
-            title: 'ICT Consulting',
-            lead: 'your personal tech gurus',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
-            content: {
-                thumbnail: {
-                    src: 'consulting',
-                    alt: 'Consulting Services'
-                },
-                body: {
-                    src: 'consulting'
                 }
             },
             css: {
@@ -118,25 +61,110 @@
                     p: 'white'
                 }
             },
-            video: true,
+            video: false,
+            order: 1,
+            portal: 'wb',
+            cssClass: 'night'
+        },
+
+        {
+            title: 'Ms Marsha\'s Kids',
+            lead: 'a voice for special needs',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'marsha',
+                    alt: 'Ms Marsha'
+                },
+                body: {
+                    src: 'marsha',
+                    alt: "Na Na"
+                }
+            },
+            css: {
+                text: {
+                    header: 'white',
+                    lead: 'blue',
+                    p: 'white'
+                }
+            },
+            video: false,
+            order: 1,
+            portal: 'ms-marsha',
+            cssClass: 'night'
+        },
+
+        {
+            title: 'Java Island',
+            lead: 'the road to...',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'java',
+                    alt: 'Java Island'
+                },
+                body: {
+                    src: 'java'
+                }
+            },
+            css: {
+                text: {
+                    header: 'white',
+                    lead: 'red',
+                    p: 'white'
+                }
+            },
+            video: false,
             order: 1,
             portal: 'consult',
             cssClass: 'night'
         },
 
+         {
+            title: 'Nike Community',
+            lead: 'We\'re better together',
+            body: {
+                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+            },
+            content: {
+                thumbnail: {
+                    src: 'together',
+                    alt: 'Nike community'
+                },
+                body: {
+                    src: 'community'
+                }
+            },
+            css: {
+                text: {
+                    header: 'night',
+                    lead: 'contrast',
+                    p: 'night'
+                }
+            },
+            video: false,
+            order: 1,
+            portal: 'seo',
+            cssClass: 'night'
+        },
+
         {
-            title: 'Graphic Design',
+            title: 'Subspace',
             lead: 'relevant designs',
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
             content: {
                 thumbnail: {
-                    src: 'graphic',
-                    alt: 'Graphic Design solutions'
+                    src: 'subspace',
+                    alt: 'Subspace continuum'
                 },
                 body: {
-                    src: 'design'
+                    src: 'subspace'
                 }
             },
             css: {
@@ -146,55 +174,55 @@
                     p: 'white'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
-            portal: 'design',
+            portal: 'continuum',
             cssClass: 'night'
         },
 
         {
-            title: 'Cloud Deployment',
-            lead: 'scalable, secure, rubust, everywhere, always',
+            title: 'eCoursity',
+            lead: 'learning market',
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
             content: {
                 thumbnail: {
-                    src: 'cloud',
-                    alt: 'Cloud-base delployment solutions'
+                    src: 'ecoursity',
+                    alt: 'eCoursity eLearning marketplace'
                 },
                 body: {
-                    src: 'cloud'
+                    src: 'ecoursity'
                 }
             },
             css: {
                 text: {
-                    header: 'night',
-                    lead: 'contrast',
-                    p: 'night'
+                    header: 'white',
+                    lead: 'white',
+                    p: 'white'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
-            portal: 'cloud',
+            portal: 'ecoursity',
             cssClass: 'night'
         },
 
 
 
         {
-            title: 'Brand Strategies',
+            title: 'House of fools gaming',
             lead: 'finding voice for your ideas',
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
             content: {
                 thumbnail: {
-                    src: 'brand',
-                    alt: 'Brand Strategy Solutions'
+                    src: 'hf',
+                    alt: 'House of fools gaming clan'
                 },
                 body: {
-                    src: 'brand-dark'
+                    src: 'bg'
                 }
             },
             css: {
@@ -204,53 +232,30 @@
                     p: 'white'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
             portal: 'brand',
             cssClass: 'night'
         },
 
-        {
-            title: 'Search Engine Optimizations',
-            lead: 'connecting you are yours',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
-            content: {
-                thumbnail: {
-                    src: 'seo',
-                    alt: 'Search Engine Optimzation Services'
-                },
-                body: {
-                    src: 'seo'
-                }
-            },
-            css: {
-                text: {
-                    header: 'night',
-                    lead: 'contrast',
-                    p: 'night'
-                }
-            },
-            video: true,
-            order: 1,
-            portal: 'seo',
-            cssClass: 'night'
-        },
+       
 
         {
-            title: 'Service Contracts',
+            title: 'Brickstr',
             lead: 'forever available, forever up-to-date',
             body: {
                 text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
             },
             content: {
                 thumbnail: {
-                    src: 'service',
+                    src: 'brick',
                     alt: 'Service Agreement Contracts'
                 },
                 body: {
-                    src: 'service'
+                  //  src: 'service'
+                },
+                video: {
+                    srs: ''
                 }
             },
             css: {

@@ -8,56 +8,7 @@
 
 
 
-    .factory('ImageLocation', function() {
-
-        var directory = 'images/portals/',
-            resolution = function() {
-                var width = $(window).width();
-                //console.log("My width", width);
-                if (width > 2000)
-                    return 'high';
-                else if (width > 1200)
-                    return 'med';
-                else
-                    return 'low';
-
-            },
-            retrieve = function(params) {
-                var name = params.name,
-                    request = params.request,
-                    extension = params.extension;
-
-                if (!name)
-                    return;
-
-                extension = extension || 'jpg';
-
-                switch (request) {
-                    case 'BODY':
-                        return directory + resolution() + '/' + name + '-body' + '.' + extension;
-                    case 'BODY_HIGH':
-                        return directory + 'high/' + name + '-body' + '.' + extension;
-                    case 'BODY_MED':
-                        return directory + 'med/' + name + '-body' + '.' + extension;
-                    case 'BODY_LOW':
-                        return directory + 'low/' + name + '-body' + '.' + extension;
-                    case 'THUMBS':
-                        return directory + 'thumbs/' + name + '-thumb' + '.' + extension;
-                    case 'ROW':
-                        return directory +  resolution() + '/' + name + '-row' + '.' + extension;
-                    case 'HEAD':
-                        return directory + resolution() + '/' + name + '-head' + '.' + extension;
-                    default:
-                        return directory;
-                }
-
-            }
-
-        return {
-            retrieve: retrieve
-        }
-
-    })
+    
 
     .directive('imageSrc', function(ImageLocation) {
         return {

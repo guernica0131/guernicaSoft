@@ -1,25 +1,23 @@
-
-
 <div class="fill fog cover-background" ng-class="{in:loadpage}" image-background='{"request": "BODY", "name": "{{backgroundImage}}"}'>
- <div class="fill background night overcast hazzy" ng-class="{out:fadeinbackground}" ></div>
- <div class="page-view fog" ng-class="{in:loadcontainer}"> 
-	<div class="pad-70"></div>
-	<div id="client-page">			
-		<div class="container">
-			
-			<div class="login-form background white">
-				<div ng-show="viewSwitch.form">
-					<div class="row">
-						<!--div class="col-md-3"></div-->
-						<div class="col-md-12">
-							<div class="page-header">
-								<h1>Already a client?<small> please login...</small></h1>
+	<div class="fill background night overcast hazzy" ng-class="{out:fadeinbackground}" ></div>
+	<div class="page-view fog" ng-class="{in:loadcontainer}">
+		<div class="pad-70"></div>
+		<div id="client-page">
+			<div class="container">
+				
+				<div class="login-form background white">
+					<div ng-show="viewSwitch.form">
+						<div class="row">
+							<!--div class="col-md-3"></div-->
+							<div class="col-md-12">
+								<div class="page-header">
+									<h1>Already a client?<small> please login...</small></h1>
+								</div>
 							</div>
 						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-2"></div>
-						<div class="col-md-8">
+						<div class="row">
+							<div class="col-md-2"></div>
+							<div class="col-md-8">
 							<forms-page></forms-page>
 						</div>
 					</div>
@@ -34,26 +32,26 @@
 						</div>
 					</div>
 					<div class="row">
-						<!--div class="col-md-4"></div-->
 						<div class="col-md-12">
-					<!-- If we have a form processing -->
-							<div class="contact-form-spinner"><span class="color contrast">We are processing your request...</span><i class="fa fa-spinner fa-spin fa-5x color blue"></i></div>
+							<div ng-include src="'partials/spinner.html'" ng-init="color = 'night'"></div>
 						</div>
-					</div>
+						<!--div class="col-md-4"></div-->
+						<!--div class="col-md-12">
+							<div class="contact-form-spinner"><span class="color contrast">We are processing your request...</span><i class="fa fa-spinner fa-spin fa-5x color blue"></i></div>
+					</div-->
 				</div>
-				<div class="row">
-					<!--div class="col-md-3"></div-->
-					<div class="col-md-12">
-						<h4 class="color {{message.color}}"><small>{{message.text}}</small></h4>
-					</div>
-				</div>
-				<div class="form-accent top"></div>
-				<div class="form-accent bottom"></div>
 			</div>
-			<div class="pad-70"></div>
+			<div class="row">
+				<!--div class="col-md-3"></div-->
+				<div class="col-md-12">
+					<h4 class="color {{message.color}}"><small>{{message.text}}</small></h4>
+				</div>
+			</div>
+			<div class="form-accent top"></div>
+			<div class="form-accent bottom"></div>
 		</div>
-		</div>
-	</div>		
+		<div class="pad-70"></div>
+	</div>
 </div>
-
-
+</div>
+</div>

@@ -13,17 +13,19 @@
   <span class="icon-bar"></span>
   </button>
   <div class="brand-img">
-    <a href="#/" class="navbar-brand nav-button home"></a>
+    <a href="/#" class="navbar-brand nav-button home"></a>
   </div>
 </div>
 <ul class="nav navbar-nav">
-  <li id="nav-spinner" class="nav-button" ng-show="navbar.thinking"><i class="fa fa-spinner fa-spin fa-2x color white"></i>
+  <li id="nav-spinner" class="nav-button" ng-show="navbar.thinking"> 
+    <!--i class="fa fa-spinner fa-spin fa-2x color white"></i-->
+     <div ng-include src="'partials/spinner.html'" ng-init="small = true"></div>
   </li>
 </ul>
 <div class="collapse navbar-collapse" id="nav-head">
   <ul class="nav navbar-nav  navbar-right reduce-gap" ng-show="windowOpened" >
     <li ng-repeat="button in buttons" class="nav-button background {{button.cssClass}}" ng-class="{selected: isActive(button.url), lighten:isActive('/clients')}">
-      <a ng-href="#{{button.url}}" ng-click="navigating(isActive(button.url))">{{button.name}}</a>
+      <a ng-href="/#{{button.url}}" ng-click="navigating(isActive(button.url))">{{button.name}}</a>
     </li>
   </ul>
 </div>

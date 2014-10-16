@@ -1,3 +1,21 @@
+// @import url(http://fonts.googleapis.com/css?family=Droid+Sans);
+
+// @import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300);
+
+// @import url(http://fonts.googleapis.com/css?family=Oswald);
+
+// @import url(http://fonts.googleapis.com/css?family=Oswald);
+
+body {
+    //font-family: 'Open Sans Condensed', sans-serif;
+    //font-family: 'Oswald', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    //font-family: 'Droid Sans', sans-serif;
+    // font-family: 'Oswald', sans-serif;
+}
+
 .centered {
     float: none;
     margin-left: auto;
@@ -63,21 +81,17 @@ a {
 }
 
 .overcast {
-
     @include opacity(1);
     @include transition(opacity 1500ms ease-in-out);
     //  display: none;
     &.out {
         //display: block;
-        @include opacity(0.0);
+        @include opacity(0);
         //  display: block;
-
         &.hazzy {
-           @include opacity(0.3); 
+            @include opacity(0.3);
         }
-   
     }
-
 }
 
 .fog {
@@ -101,9 +115,37 @@ a {
 .fixed-row-background {
     background-repeat: no-repeat !important;
     background-position: 50% 0 !important;
-//    display: none !important;
+    //    display: none !important;
     //background-size: cover !important;
     background-attachment: fixed  !important;
+}
+
+.close-btn {
+    cursor: pointer;
+    width: 40px;
+    height: 60px;
+    z-index: 3;
+    //border: 1px solid $red;
+    //@include border-radius(5px);
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    color: $red;
+    font-size: 3em;
+    //background-color: green;
+    &:hover {
+        //  border-color: adjust-lightness($red, 3);
+        color: adjust-lightness($red, 7);
+    }
+
+    &.tile {
+        //top: 50px;
+        color: $white;
+         &:hover {
+        //  border-color: adjust-lightness($red, 3);
+        color: adjust-lightness($night, 7);
+    }
+    }
 }
 
 // textarea, input {

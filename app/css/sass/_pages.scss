@@ -1,30 +1,21 @@
 .push-to-bottom {
-    margin-top: 600px;
-     @include respond-to(less_than_tablet) {
-    
-
-    }
+    margin-top: 500px;
+    // position: absolute;
+    //bottom: 300px;
+    //bottom: 100px;
+    // vertical-align: bottom;
+    @include respond-to(less_than_tablet) {}
 }
+
 .text-huge {
     font-size: 400%;
-
-    @include respond-to(less_than_tablet) {
-    
-
-    }
+    @include respond-to(less_than_tablet) {}
 }
 
 .text-massive {
-      font-size: 600%;
-
-    @include respond-to(less_than_tablet) {
-    
-
-    }
+    font-size: 600%;
+    @include respond-to(less_than_tablet) {}
 }
-
-
-
 
 .page-view {
     background: transparent;
@@ -43,74 +34,83 @@
     }
     #client-page {}
     #scroll-page {
-        .head-image {
-            .head-content {
-                .nessage {
-                    //text-align: center;
-               
-                }
-                //  text-align: center;
-                padding-top: 90px;
-                @include respond-to(less_than_tablet) {
-                    padding-top: 50px;
-                }
-
-                //vertical-align: middle;
-                .jumbotron {
-                    //background: $noise;
-                    @include respond-to(less_than_tablet) {
-                        background: transparent;
-                    }
-                }
-                h1 {
-                    line-height: 160%;
-                    font-size: 3.0em;
-                    @include respond-to(less_than_tablet) {
-                        line-height: 100%;
-                        font-size: 2.0em;
-                    }
-                }
-            }
-            height: 1000px;
+        .impress {
             width: 100%;
-            //background-size: 100%;
-            //overflow: hidden !important;
-            @include respond-to(less_than_tablet) {
-                height: 600px;
-            }
+            min-height: 800px;
+            margin-left: -15px;
+            // pinterest
+            a[class^="PIN_"] {
+                 -webkit-transition: opacity 300ms ease-in-out !important;
+                -o-transition: opacity 300ms ease-in-out !important;
+                transition: opacity 300ms ease-in-out !important;
+                //display: none !important;
+                opacity: 0;
+                right: -10px !important;
+                top: 10px !important;
+                position: absolute;
+                @include respond-to(less_than_tablet) {
+                   opacity: 1;
+                }
 
-            @include respond-to(reduced) {
-                height: 600px;
+            }
+            // pinterest HOVER
+            &:hover {
+                a[class^="PIN_"] {
+                    //display: block !important;
+                    cursor: pointer !important;
+                    opacity: 1 !important;
+                }
             }
 
             @include respond-to(handhelds) {
-                height: 400px;
+                min-height: 200px;
             }
 
-            .head-curtain {
-                position: absolute;
-                width: 100%;
-                height: 600px;
-                @include respond-to(less_than_tablet) {
-                    height: 440px;
-                }
+            @include respond-to(less_than_tablet) {
+                min-height: 300px;
+            }
 
-                @include respond-to(reduced) {
-                    height: 290px;
-                }
+            @include respond-to(medium-screens) {
+                min-height: 400px;
+            }
 
-                @include respond-to(handhelds) {
-                    height: 290px;
+            @include respond-to(narrow-screens) {
+                min-height: 600px;
+            }
+
+            .lazy {
+                background-color: $night;
+            }
+            //opacity: 0;
+            .lazy-image {
+                @include transition(opacity 600ms linear);
+                @include opacity(0);
+                &.in {
+                    @include opacity(1);
                 }
             }
         }
         .row-back {
-            
-            margin-bottom: 50px;
-            min-height: 300px;
-
+            // margin-bottom: 50px;
+            min-height: 400px;
+            overflow: hidden;
             &.page {
                 min-height: 800px;
+            }
+            &.header {
+                min-height: 850px;
+            }
+            &.tiles {
+                // @include respond-to(handhelds) {
+                //    min-height: 700px;
+                // }
+                // @include respond-to(reduced) {
+                //     min-height: 650px;
+                // }
+                // @include respond-to(tablet) {
+                //     min-height: 550px;
+                // }
+           
             }
         }
     }
@@ -139,7 +139,7 @@
                     margin-top: 40px;
                     margin-bottom: 40px;
                     padding: 10px;
-                    @include respond-to(mobile) {
+                    @include respond-to(handhelds) {
                         padding: 3px;
                     }
 
@@ -227,3 +227,65 @@
         }
     }
 }
+
+//.head-image {
+//     .head-content {
+//         .nessage {
+//             //text-align: center;
+
+//         }
+//         //  text-align: center;
+//         padding-top: 90px;
+//         @include respond-to(less_than_tablet) {
+//             padding-top: 50px;
+//         }
+
+//         //vertical-align: middle;
+//         .jumbotron {
+//             //background: $noise;
+//             @include respond-to(less_than_tablet) {
+//                 background: transparent;
+//             }
+//         }
+//         h1 {
+//             line-height: 160%;
+//             font-size: 3.0em;
+//             @include respond-to(less_than_tablet) {
+//                 line-height: 100%;
+//                 font-size: 2.0em;
+//             }
+//         }
+//     }
+//     height: 1000px;
+//     width: 100%;
+//     //background-size: 100%;
+//     //overflow: hidden !important;
+//     @include respond-to(less_than_tablet) {
+//         height: 600px;
+//     }
+
+//     @include respond-to(reduced) {
+//         height: 600px;
+//     }
+
+//     @include respond-to(handhelds) {
+//         height: 400px;
+//     }
+
+//     .head-curtain {
+//         position: absolute;
+//         width: 100%;
+//         height: 600px;
+//         @include respond-to(less_than_tablet) {
+//             height: 440px;
+//         }
+
+//         @include respond-to(reduced) {
+//             height: 290px;
+//         }
+
+//         @include respond-to(handhelds) {
+//             height: 290px;
+//         }
+//     }
+// }

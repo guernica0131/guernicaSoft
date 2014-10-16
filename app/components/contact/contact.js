@@ -69,12 +69,15 @@
 
                     var options = [];
                     // we make new element
+                    
+
                     angular.forEach(portals, function(portal, index) {
-                        //if (index !== 0) 
+   
+                    if (portal.title)
                         options.push({
                             value: portal.portal,
                             name: portal.title,
-                            selected: (portal.title === activePortal.title) ? true : false
+                            selected: (portal && portal.title && portal.title === activePortal.title) ? true : false
                         });
 
                     });
@@ -85,7 +88,7 @@
 
                         element.feedback = {};
 
-                        if (element.id === 'select-multiple')
+                        if (element.id === 'select-multiple' && options.length)
                             element.options = options;
 
                     });

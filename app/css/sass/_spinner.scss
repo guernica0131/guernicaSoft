@@ -1,3 +1,220 @@
+@include keyframes(spinner1){
+  from {
+    @include transform(rotate(0deg));
+  } to {
+    @include transform(rotate(360deg));
+  }
+}
+@include keyframes(spinner2){
+  from {
+    @include transform(rotate(0deg));
+  } to {
+    @include transform(rotate(-360deg));
+  }
+}
+
+.big-spinner {
+    font-size: 10em;
+}
+
+
+.spinner-box {
+  position: relative;
+  width: 34px;
+  height: 34px;
+  top: 50%; left: 50%;
+  margin-left: -17px; margin-top: -17px;
+  @include border-radius(5px);
+
+  padding: 20px;
+
+  &.fix {
+    position: fixed;
+  }
+
+  &:after, &:before {
+    position: fixed;
+    content: "";
+    border: 2px solid $base;
+    width: 32px;
+    height: 32px;
+  }
+  &:after {
+    @include animation(spinner1 2.5s linear infinite);
+    border-color: $blue;
+  }
+  &:before {
+    width: 44px;
+    height: 44px;
+    margin-left: -6.5px;  margin-top: -6.5px;
+    @include animation(spinner2 2.5s linear infinite);
+  }
+}
+
+// SPIN
+
+
+///*
+.spin-contain {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &.fix {
+        position:fixed;
+        @include vertical-align;
+    }
+    //width: 100%;
+    //height: 150px;
+
+}
+
+// Here is where the magic happens
+
+$offset: 187;
+$time: 1.4s;
+
+@mixin spin-rotator {
+ 0% {
+        @include transform(rotate(0deg));
+        //transform: rotate(0deg);
+    }
+    100% {
+        @include transform(rotate(270deg));
+        //transform: rotate(270deg);
+    }
+}
+
+@keyframes rotator {
+    @include spin-rotator;
+}
+
+@-webkit-keyframes rotator {
+    @include spin-rotator;
+}
+
+
+@-moz-keyframes rotator {
+    @include spin-rotator;
+}
+
+
+@-o-keyframes rotator {
+    @include spin-rotator;
+}
+
+@mixin spin-colors {
+    0% {
+       // stroke: #4285F4;
+       stroke: $white;
+    }
+    25% {
+      //  stroke: #DE3E35;
+      stroke: $red;
+    }
+    50% {
+      //  stroke: #F7C223;
+
+      stroke: $base;
+    }
+    75% {
+      //  stroke: #1B9A59;
+      stroke: $gold;
+    }
+    100% {
+      //  stroke: #4285F4;
+      stroke: $blue;
+    }
+}
+
+@keyframes colors {
+    @include spin-colors;
+}
+
+
+@-webkit-keyframes colors {
+    @include spin-colors;
+}
+
+
+ @-moz-keyframes colors {
+    @include spin-colors;
+}
+
+
+@-o-keyframes colors {
+    @include spin-colors;
+}
+
+
+@mixin spin-dash {
+    0% {
+        stroke-dashoffset: $offset;
+    }
+    50% {
+        stroke-dashoffset: $offset / 4;
+        //transform: rotate(135deg);
+        @include transform(rotate(135deg));
+    }
+    100% {
+        stroke-dashoffset: $offset;
+        @include transform(rotate(450deg));
+        //transform: rotate(450deg);
+    }
+}
+
+@keyframes dash {
+    @include spin-dash;
+}
+
+
+@-webkit-keyframes dash {
+    @include spin-dash;
+}
+
+
+@-moz-keyframes dash {
+    @include spin-dash;
+}
+
+
+@-o-keyframes dash {
+    @include spin-dash;
+}
+
+
+.spinner-micro {
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    padding-top: 20px;
+
+
+    &.small {
+        padding: 0;
+        width: 35px;
+        height: 35px;
+    }
+    //animation: rotator $time linear infinite;
+    @include animation(rotator $time linear infinite);
+}
+
+
+.spin-path {
+    stroke-dasharray: $offset;
+    stroke-dashoffset: 0;
+    //transform-origin: center;
+    @include transform-origin(center);
+    //animation: dash $time ease-in-out infinite, colors $time * 4 ease-in-out infinite;
+    @include animation(dash $time ease-in-out infinite, colors $time * 4 ease-in-out infinite);
+}//*/
+
+
+
+
+
+
+// main spinner
 .spin-contents-parent {
     position: fixed;
     //height: 100%;
@@ -6,6 +223,8 @@
     z-index: 100000;
     @include vertical-align;
 }
+
+.spin-contents-parent-relative {}
 
 .load-slogan {
     //background: red;
@@ -19,25 +238,24 @@
 }
 
 .spinner {
-    // position:absolute;
     width: 4em;
     height: 4em;
     background: $contrast;
-    //#a1a2a1;
-    //border-radius:50%;
     @include border-radius(50%);
     margin: 5em auto;
     border: .3em solid transparent;
     @include animation(glow 1s ease infinite);
-    //-webkit-animation:glow 1s ease infinite;
-    //-moz-animation:glow 1s ease infinite;
-    //-o-animation:glow 1s ease infinite;
-    //animation:glow 1s ease infinite;
+    &.small {
+        width: 1em;
+        height: 1em;
+        margin: 10px 0 0 5px;
+        @include animation(glow-small 1s ease infinite);
+    }
 }
 
 @mixin spinGlow {
     0% {
-        box-shadow: 0 0 0 0.4em $rust, 0 0 0 0.1em #a1a2a1;
+        @include box-shadow(0 0 0 0.4em $rust, 0 0 0 0.1em #a1a2a1);
         -webkit-transform: rotate(360deg);
         -moz-transform: rotate(360deg);
         -o-transform: rotate(360deg);
@@ -46,26 +264,57 @@
     50% {
         border-top-color: $base;
     }
+}
+
+@mixin spin-big {
+    @include spinGlow;
     100% {
-        box-shadow: 0 0 0 0.4em $blue, 0 0 0 3.6em transparent;
+        @include box-shadow(0 0 0 0.4em $blue, 0 0 0 3.6em transparent);
     }
 }
 
-@-webkit-keyframes glow {
+@mixin spin-small {
     @include spinGlow;
+    100% {
+        @include box-shadow(0 0 0 0.4em $blue, 0 0 0 1.2em transparent);
+    }
+}
+
+@-webkit-keyframes glow-small {
+    @include spin-small;
+}
+
+
+@-moz-keyframes glow-small {
+    @include spin-small;
+}
+
+
+@-o-keyframes glow-small {
+    @include spin-small;
+}
+
+
+@keyframes glow-small {
+    @include spin-small;
+}
+
+
+@-webkit-keyframes glow {
+    @include spin-big;
 }
 
 
 @-moz-keyframes glow {
-    @include spinGlow;
+    @include spin-big;
 }
 
 
 @-o-keyframes glow {
-    @include spinGlow;
+    @include spin-big;
 }
 
 
 @keyframes glow {
-    @include spinGlow;
+    @include spin-big;
 }

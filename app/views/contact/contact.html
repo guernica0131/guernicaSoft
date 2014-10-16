@@ -1,38 +1,38 @@
 <!--div class="fill background night"></div -->
 <!--div id="home">
 	<video autoplay id="bgvid" loop>
-						<source src="videos/108.m4v" type="video/mp4">
-						
-						Your browser does not support the video tag.
+							<source src="videos/108.m4v" type="video/mp4">
+							
+							Your browser does not support the video tag.
 	</video>
 </div-->
 <div class="fill cover-background fadebackground fog" ng-class="{in:loadpage}" image-background='{"request": "BODY", "name": "{{backgroundImage}}"}'>
 <div class="fill background night overcast hazzy" ng-class="{out:fadeinbackground}" ></div>
 <div class="page-view fog" ng-class="{in:loadcontainer}">
-	<div class="pad-70"></div>	
+	<div class="pad-70"></div>
 	<div id="form-page">
 		<!--div class="pad-70"></div-->
 		<!--primary-page></primary-page-->
 		<div class="container">
 			<div class="login-form background white">
-			<div ng-show="viewSwitch.form">
-				<div class="row">
-					<!--div class="col-md-3"></div-->
-					<div class="col-md-12">
-						<div class="page-header">
-							<h1>We want to hear from you</h1><!--h1><small> tell us more...</small></h1-->
+				<div ng-show="viewSwitch.form">
+					<div class="row">
+						<!--div class="col-md-3"></div-->
+						<div class="col-md-12">
+							<div class="page-header">
+								<h1>We want to hear from you</h1><!--h1><small> tell us more...</small></h1-->
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="row">
-					<!--div class="col-md-3"></div-->
-					
-					<div class="col-md-12">
+					<div class="row">
+						<!--div class="col-md-3"></div-->
+						
+						<div class="col-md-12">
 						<forms-page></forms-page>
 					</div>
 				</div>
 			</div>
-			<!-- If we have a form command -->
+			<!-- If we have a form command  processing -->
 			<div ng-show="viewSwitch.processing">
 				<div class="row">
 					<!--div class="col-md-3"></div-->
@@ -43,10 +43,8 @@
 					</div>
 				</div>
 				<div class="row">
-					<!--div class="col-md-3"></div-->
 					<div class="col-md-12">
-					<!-- If we have a form processing -->
-						<div class="contact-form-spinner"><span class="color contrast">We are processing your request...</span><i class="fa fa-spinner fa-spin fa-5x color blue"></i></div>
+						<div ng-include src="'partials/spinner.html'" ng-init="color = 'night'"></div>
 					</div>
 				</div>
 			</div>
@@ -60,7 +58,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="row">	
+				<div class="row">
 					<div class="col-md-12">
 						<!-- If we have a form processing -->
 						<div class="confirmation">
@@ -75,10 +73,7 @@
 			<div class="form-accent bottom"></div>
 		</div>
 		<div class="pad-70"></div>
-		</div>
 	</div>
-
 </div>
-
-
+</div>
 </div>

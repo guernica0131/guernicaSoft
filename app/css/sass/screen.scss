@@ -6,6 +6,8 @@
 //@import "compass/reset";
 //@import "bootstrap-compass";
 @import "bootstrap";
+//@import "font-awesome-sass";
+//@import "font-awesome/font-awesome.scss";
 @import "compass/css3";
 
 //@import "font-awesome-compess";
@@ -34,5 +36,9 @@
 
 @import "contact";
 
-@import "angular-socialshare";
+//@import "angular-socialshare";
+
+@import "social";
+
+@import "tiles";
 

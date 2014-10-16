@@ -1,34 +1,10 @@
-<div class="fog" ng-class="{in:drawcontent}">
-	<!-- header image for the page -->
-	<!--div class="pad-70 color white"></div-->
-	<!-- style="background: url( {{  images('HEAD', head.image) }} ) 50% 0 no-repeat fixed ;" -->
-	<div class="head-image fixed-row-background" image-background='{"request": "HEAD", "name": "{{head.image}}"}'>
-		<div class="head-curtain background-rgba {{head.curtain}}"></div>
-		<div class="head-content">
-			<div class="container-fluid">
-				<div class="row pull-left">
-					<!--div class="col-md-4"></div-->
-					<div class="col-md-12">
-						
-						<div ng-if="head.template == 'bold-list'">
-							<ul class="list-unstyled push-to-bottom">
-								<li class="bold-list text-huge color {{head.text.color.content}}" ng-repeat="text in head.texts">{{text}}</li>
-							</ul>
-						</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
-<!-- div class="pad-70 color white"></div -->
-<div ng-repeat="portal in portals">
-	<div class="row-back  {{portal.row.display}}">
-		<div class="fill background {{portal.cssClass}}  {{portal.content.body.cssClass}}"  image-background='{"request": "ROW", "name": "{{portal.content.body.src}}"}'>
-			<div class="container-fluid">
+<div id="scroll-page">
+	<div class="fog" ng-class="{in:drawcontent}">
+		<div ng-repeat="portal in portals">
+			<!-- Here we set any background our color class -->
+			<div class="row-back  {{portal.row.display}} background {{portal.cssClass}} {{portal.row.image.cssClass}}" image-background='{"request": "ROW", "name": "{{portal.row.image.src}}"}'>
 				<div ng-include="'partials/row-templates.html'"></div>
 			</div>
 		</div>
 	</div>
 </div>
-</div>
-<!--div class="pad-70"></div-->

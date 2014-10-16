@@ -2,7 +2,7 @@
 
     'use strict';
 
-    angular.module('gSoft.global', ['ngRoute', 'gSoft.scrollPage'])
+    angular.module('gSoft.global', ['ngRoute', 'gSoft.scrollPage', 'gSoft.tiles'])
 
     .config(['$routeProvider',
         function($routeProvider) {
@@ -18,28 +18,11 @@
 
             $scope.portals = portals;
             var pIndex = new PortalIndex.i(portals);
+
+            //$scope.sprite = 'rustic';
             // now we set the portal link into the scope
             pIndex.portalLoader($scope, $routeParams, $location, LoadPage);
-
-            $scope.head = {
-                template: 'bold-list',
-                texts: ['we are', 'guernica Softworks'],
-                text: {
-                    content: "We a globaly focus independent digital creative studio",
-                    tag: "We are guernica Softworks",
-                    color: {
-                        content: "rust",
-                        tag: "white"
-                    }
-                },
-                //jumbotron: 'noise',
-                image: 'kids'
-                // curtain: 'noise'
-            }
-
-            //$scope.headerImage = "global";
-
-
+       
         }
     ]);
 
@@ -47,59 +30,55 @@
     var portals = [
 
         {
-            
             template: 'bold-list',
             row: {
-                pull: 'pull-right'
+                display: "header",
+                pull: 'pull-left',
+                image: {
+                    cssClass: 'fixed-row-background',
+                    src: 'kids',
+                }
+
+            },
+            textRows: ['we are', 'guernica Softworks'],
+            css: {
+                parent: ['push-to-bottom'],
+                row: ['white', 'text-massive'],
+            },
+
+        },
+
+        {
+
+            template: 'bold-list',
+            row: {
+                pull: 'pull-right',
+                // image: {
+                //     src: 'artisans'
+                // }
             },
             // title: 'guernica Softworks',
             // lead: 'digital artisans',
-            texts: ['we', 'are' , 'digital', 'artisans'],
+            textRows: ['we', 'are', 'digital', 'artisans'],
 
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
-
-            content: {
-
-                thumbnail: {
-                    src: 'logo',
-                    alt: 'guernica Softworks Logo'
-                },
-                body: {
-                    //  src: 'global',
-                    alt: "Na Na"
-                }
-            },
             css: {
                 row: ['white'],
-                text: {
-                    header: 'night',
-                    lead: 'base',
-                    p: 'night',
-                    template: 'white',
-                    classs: ['']
-                }
             },
-            order: 1,
             portal: 'gSoft',
             cssClass: 'black'
         },
 
         {
             template: 'bold-list',
-            texts: ['we are' , 'Global'],
+            textRows: ['and', 'we are', 'global'],
             row: {
                 display: "page",
-                pull: 'centered'
-
-            },
-            content: {
-                body: {
+                pull: 'centered',
+                image: {
                     cssClass: 'fixed-row-background',
                     src: 'driver',
-                    alt: "Na Na"
                 }
+
             },
             css: {
                 row: ['white', 'text-massive'],
@@ -111,203 +90,147 @@
                 },
                 right: true
             },
-            video: true,
-            order: 1,
             portal: 'custom',
             cssClass: 'white',
         },
 
-        {
-            title: 'ICT Consulting',
-            lead: 'your personal tech gurus',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
-            content: {
+           {
 
-                thumbnail: {
-                    src: 'consulting',
-                    alt: 'Consulting Services'
-                },
-                body: {
-                    //     src: 'consulting'
-                }
-            },
-            css: {
-                text: {
-                    header: 'night',
-                    lead: 'red',
-                    p: 'night'
-                }
-            },
-            video: true,
-            order: 1,
-            portal: 'consult',
-            cssClass: 'white'
-        },
-
-        {
-            title: 'Graphic Design',
-            lead: 'relevant designs',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
+            template: 'bold-list',
             row: {
-                display: "page"
-
+                pull: 'pull-left',
             },
-            content: {
+            textRows: ['this', 'is' , 'our', 'story'],
 
-                thumbnail: {
-                    src: 'graphic',
-                    alt: 'Graphic Design solutions'
-                },
-                body: {
-                    cssClass: 'fixed-row-background',
-                    src: 'design'
-                }
-            },
             css: {
-                text: {
-                    header: 'white',
-                    lead: 'night',
-                    p: 'white'
-                }
+                row: ['white'],
             },
-            video: true,
-            order: 1,
-            portal: 'design',
-            cssClass: 'white'
+            portal: 'gSoft',
+            cssClass: 'contrast'
         },
 
-        {
-            title: 'Cloud Deployment',
-            lead: 'scalable, secure, rubust, everywhere, always',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
-            content: {
+          {
 
-                thumbnail: {
-                    src: 'cloud',
-                    alt: 'Cloud-base delployment solutions'
-                },
-                body: {
-
-                    //      src: 'cloud'
-                }
-            },
-            css: {
-                text: {
-                    header: 'night',
-                    lead: 'contrast',
-                    p: 'night'
-                }
-            },
-            video: true,
-            order: 1,
-            portal: 'cloud',
-            cssClass: 'white'
-        },
-
-
-
-        {
-            title: 'Brand Strategies',
-            lead: 'finding voice for your ideas',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
+            template: 'bold-list-tiles',
             row: {
-                display: "page"
-
+                display: "tiles",
+                pull: 'pull-right'
             },
-            content: {
+            textRows: ['this', 'is' , 'our', 'passion'],
 
-                thumbnail: {
-                    src: 'brand',
-                    alt: 'Brand Strategy Solutions'
-                },
-                body: {
-                    cssClass: 'fixed-row-background',
-                    src: 'brand-dark'
-                }
-            },
             css: {
-                text: {
-                    header: 'white',
-                    lead: 'base',
-                    p: 'white'
-                }
+                row: ['white'],
             },
-            video: true,
-            order: 1,
-            portal: 'brand',
-            cssClass: 'white'
+            portal: 'gSoft',
+            cssClass: 'night',
+            tiles: [
+
+                {
+
+                    title: "What we do?",
+                    story: "We deliver products that focuses on the needs of communites you intend to serve. Count on guernica Softworks to get the job done in a contextually sensitive format",
+                    color: 'red',
+                    teaser: "Click to read more...",
+                    id: 'tile0'
+
+                },
+
+                {
+
+                    title: "Where are we?",
+                    story: "We have offices in Washington, DC and Islamabad, Pakistan. However, we can be deploy anywhere you need us. We've had work in the USA, Pakistan, Kenya, Rwanda, Uganda, Ethopia, Cambodia, Thailand, and more. We are truely international.",
+                    color: 'blue',
+                    teaser: "Click to find were's gSoft",
+                    id: 'tile1'
+
+                },
+
+                {
+
+                    title: "What's in our global lineup?",
+                    story: "We focus on enterprise-class web applications, applications that are custom designed to meet your project's need. Whether it is a system for collecting participant data or a system for conducting field surveys, we can do it for you",
+                    color: 'base',
+                    teaser: "Uncover the perfect solution",
+                    id: 'tile2'
+
+                },
+
+
+                {
+
+                    title: "What we do?",
+                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    color: 'rust',
+                    teaser: "Click to read more...",
+                    id: 'tile3'
+
+                },
+
+                {
+
+                    title: "What we do?",
+                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    color: 'gold',
+                    teaser: "Click to read more...",
+                    id: 'tile4'
+
+                },
+
+                {
+
+                    title: "What we do?",
+                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    color: 'gray',
+                    teaser: "Click to read more...",
+                    id: 'tile5'
+
+                },
+
+                  {
+
+                    title: "What we do?",
+                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    color: 'contrast',
+                    teaser: "Click to read more...",
+                    id: 'tile6',
+                    
+
+                },
+
+                   {
+
+                    title: "What we do?",
+                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    color: 'black',
+                    teaser: "Click to read more...",
+                    id: 'tile7'
+
+                },
+
+
+            ]
+
         },
 
-        {
-            title: 'Search Engine Optimizations',
-            lead: 'connecting you are yours',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
-            content: {
-                thumbnail: {
-                    src: 'seo',
-                    alt: 'Search Engine Optimzation Services'
-                },
-                body: {
-                    //      src: 'seo'
-                }
-            },
-            css: {
-                text: {
-                    header: 'night',
-                    lead: 'contrast',
-                    p: 'night'
-                }
-            },
-            video: true,
-            order: 1,
-            portal: 'seo',
-            cssClass: 'white'
-        },
+         {
 
-        {
-            title: 'Service Contracts',
-            lead: 'forever available, forever up-to-date',
-            body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
-            },
+            template: 'bold-list-finale',
             row: {
-                display: "page"
-
+                pull: 'pull-left'
             },
-            content: {
+            textRows: ['want', 'to' , 'learn', 'more?'],
 
-                thumbnail: {
-                    src: 'service',
-                    alt: 'Service Agreement Contracts'
-                },
-                body: {
-                    cssClass: 'fixed-row-background',
-                    src: 'service'
-                }
-            },
             css: {
-                text: {
-                    header: 'night',
-                    lead: 'contrast',
-                    p: 'night'
-                }
+                row: ['white'],
             },
-            video: true,
-            order: 1,
-            portal: 'service',
-            cssClass: 'white'
+            conclude: "If you are interest in guernica Softworks global, please send us your information by clicking the 'Tell us more!' button. Also, share us on Facebook, twitter, or google plus.",
+            closer:'<br/><br/><br/><br/><br/><h4>Original photography by gSoft contributer, Meredith McCormac. Visit her full <a href="#/gallery">gallery</a></h4>',
+            portal: 'gSoft',
+            cssClass: 'base'
         },
 
+     
+      
     ];
 
 

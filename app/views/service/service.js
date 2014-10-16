@@ -65,9 +65,10 @@
                     p: 'white'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
             portal: 'gSoft',
+            overlay: true,
             cssClass: 'night'
         },
 
@@ -94,9 +95,10 @@
                     p: 'night'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
             portal: 'custom',
+           // overlay: true,
             cssClass: 'night'
         },
 
@@ -122,7 +124,7 @@
                     p: 'white'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
             portal: 'consult',
             cssClass: 'night'
@@ -150,9 +152,10 @@
                     p: 'white'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
             portal: 'design',
+            overlay: true,
             cssClass: 'night'
         },
 
@@ -178,8 +181,9 @@
                     p: 'night'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
+             //overlay: true,
             portal: 'cloud',
             cssClass: 'night'
         },
@@ -208,8 +212,9 @@
                     p: 'white'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
+             overlay: true,
             portal: 'brand',
             cssClass: 'night'
         },
@@ -236,9 +241,10 @@
                     p: 'night'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
             portal: 'seo',
+
             cssClass: 'night'
         },
 
@@ -264,8 +270,9 @@
                     p: 'night'
                 }
             },
-            video: true,
+            video: false,
             order: 1,
+            
             portal: 'service',
             cssClass: 'night'
         },

@@ -14,38 +14,94 @@ angular.module('gSoft', [
     'gSoft.footer',
     'gSoft.version',
     'gSoft.version.interpolate-filter',
-    'gSoft.ImageFilter'
+    'gSoft.ImageFilter',
+    'gSoft.social'
 
     //'ui.router'
 ]).
 config(['$routeProvider', '$locationProvider',
     function($routeProvider, $locationProvider) {
         //$locationProvider.html5Mode(true);
+        //$locationProvider.html5Mode(true).hashPrefix('!');
+
         $routeProvider.otherwise({
             redirectTo: '/'
         });
     }
 ])
-    .factory('Intercom', function($rootScope) {
-        var sharedService = {};
+.factory('ImageLocation', function() {
 
-        sharedService.message = '';
+        var directory = 'images/portals/',
+            resolution = function() {
+                var width = $(window).width();
+                //console.log("My width", width);
+                if (width > 2000)
+                    return 'high';
+                else if (width > 1200)
+                    return 'med';
+                else
+                    return 'low';
 
-        sharedService.on = function($scope, broadcast, callback) {
-            return $scope.$on(broadcast, callback);
+            },
+            retrieve = function(params) {
+                var name = params.name,
+                    request = params.request,
+                    extension = params.extension;
+
+                if (!name)
+                    return;
+
+                extension = extension || 'jpg';
+
+                switch (request) {
+                    case 'BODY':
+                        return directory + resolution() + '/' + name + '-body' + '.' + extension;
+                    case 'BODY_HIGH':
+                        return directory + 'high/' + name + '-body' + '.' + extension;
+                    case 'BODY_MED':
+                        return directory + 'med/' + name + '-body' + '.' + extension;
+                    case 'BODY_LOW':
+                        return directory + 'low/' + name + '-body' + '.' + extension;
+                    case 'THUMBS':
+                        return directory + 'thumbs/' + name + '-thumb' + '.' + extension;
+                    case 'ROW':
+                        return directory + resolution() + '/' + name + '-row' + '.' + extension;
+                    case 'HEAD':
+                        return directory + resolution() + '/' + name + '-head' + '.' + extension;
+                    case 'CUT':
+                        return directory + 'thumbs/' + name + '-cut' + '.' + extension;
+                    default:
+                        return directory;
+                }
+
+            }
+
+        return {
+            retrieve: retrieve
         }
 
-        sharedService.shareMessage = function(msg, broadcast) {
-            this.message = msg;
-            this.broadcast(broadcast);
-        };
-
-        sharedService.broadcast = function(broadcast, args) {
-            $rootScope.$broadcast(broadcast, args);
-        };
-
-        return sharedService;
     })
+
+.factory('Intercom', function($rootScope) {
+    var sharedService = {};
+
+    sharedService.message = '';
+
+    sharedService.on = function($scope, broadcast, callback) {
+        return $scope.$on(broadcast, callback);
+    }
+
+    sharedService.shareMessage = function(msg, broadcast) {
+        this.message = msg;
+        this.broadcast(broadcast);
+    };
+
+    sharedService.broadcast = function(broadcast, args) {
+        $rootScope.$broadcast(broadcast, args);
+    };
+
+    return sharedService;
+})
 
 .factory('LoadPage', function($q, $timeout, $interval, Intercom) {
 
@@ -62,36 +118,36 @@ config(['$routeProvider', '$locationProvider',
     }
 
     this.stopscroll = function($scope, image) {
-       
+
         if (!interval)
             return;
 
         $interval.cancel(interval);
 
-            if (image) {
-                $scope.fadeinbackground = false;
-                me.timeout(1550).then(function() {
-                    $scope.backgroundImage = image
-                    $scope.fadeinbackground = true;
-                });
-            }
-            //else 
-            //$interval.cancel(interval);
+        if (image) {
+            $scope.fadeinbackground = false;
+            me.timeout(1550).then(function() {
+                $scope.backgroundImage = image
+                $scope.fadeinbackground = true;
+            });
+        }
+        //else 
+        //$interval.cancel(interval);
     }
 
     this.scrollbackground = function($scope, time, images, selectors) {
 
-        
-        var i = 0;
-      interval = $interval(function() {
-          $scope.fadeinbackground = false;
-          me.timeout(1550).then(function() {
 
-                if (i >= images.length )
+        var i = 0;
+        interval = $interval(function() {
+            $scope.fadeinbackground = false;
+            me.timeout(1550).then(function() {
+
+                if (i >= images.length)
                     i = 0;
 
                 $scope.backgroundImage = images[i++];
-                
+
                 $scope.fadeinbackground = true;
             });
 
@@ -125,7 +181,7 @@ config(['$routeProvider', '$locationProvider',
         timeout: this.timeout,
         render: this.render,
         scrollbackground: this.scrollbackground,
-        stopscroll : this.stopscroll
+        stopscroll: this.stopscroll
     };
 
 })
@@ -247,14 +303,23 @@ config(['$routeProvider', '$locationProvider',
 
 
 
-.controller('gSoftCtrl', ["$scope", "$log", "LoadPage", "Intercom",
-    function($scope, $log, LoadPage, Intercom) {
+.controller('gSoftCtrl', ["$scope", "$log", "$sce", "$location", "LoadPage", "Intercom",
+    function($scope, $log, $sce, $location, LoadPage, Intercom) {
 
         $scope.title = "guernica Softworks";
 
         // for testing. Revoved in production
         $scope.$log = $log;
         //$scope.constants = Constants;
+        $scope.trust = function(html) {
+            return $sce.trustAsHtml(html);
+        }
+
+        $scope.getAddress = function() {
+            var tweet = "Checkout guernicaSoftworks @ " + $location.absUrl();
+
+            return address;
+        }
 
         // there will be an ajax call when this is assigned to a web server
         LoadPage.timeout(2000).then(function() {

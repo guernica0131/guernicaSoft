@@ -13,10 +13,10 @@
         }
     ])
 
-    .controller('ClientCtrl', ["$scope", "Constants", "Intercom", "LoadPage",
-        function($scope, Constants, Intercom, LoadPage) {
+    .controller('ClientCtrl', ["$scope", "Constants", "Intercom", "LoadPage", "Title",
+        function($scope, Constants, Intercom, LoadPage, Title) {
 
-
+            Title.set("Already a client? guernica Softwork's client login");
 
             /*
              * We recieve messages from our form controller and this tells us how to process our view

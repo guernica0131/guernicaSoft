@@ -7,19 +7,23 @@
     .config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.when('/global', {
-                templateUrl: 'views/global/global.html',
+                templateUrl: 'partials/story.html',//'views/global/global.html',
                 controller: 'GlobalCtrl'
             });
         }
     ])
 
-    .controller('GlobalCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
-        function($scope, $routeParams, $location, LoadPage, PortalIndex) {
+    .controller('GlobalCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex", "Title",
+        function($scope, $routeParams, $location, LoadPage, PortalIndex, Title) {
+
+            Title.set("guernica Softwork's global footprint");
 
             $scope.portals = portals;
             var pIndex = new PortalIndex.i(portals);
 
-            //$scope.sprite = 'rustic';
+            $scope.sprite = 'it';
+
+            $scope.bgColor = 'night';
             // now we set the portal link into the scope
             pIndex.portalLoader($scope, $routeParams, $location, LoadPage);
        
@@ -127,30 +131,33 @@
 
                 {
 
-                    title: "What we do?",
-                    story: "We deliver products that focuses on the needs of communites you intend to serve. Count on guernica Softworks to get the job done in a contextually sensitive format",
+                    title: "Context",
+                    story: "We deliver products that focus on the needs of communites that you intend to serve. Count on guernica Softworks to get the job done in a contextually sensitive format",
                     color: 'red',
-                    teaser: "Click to read more...",
+                    teaser: "How do we opperate?",
+                    tcolor: 'white',
                     id: 'tile0'
 
                 },
 
                 {
 
-                    title: "Where are we?",
-                    story: "We have offices in Washington, DC and Islamabad, Pakistan. However, we can be deploy anywhere you need us. We've had work in the USA, Pakistan, Kenya, Rwanda, Uganda, Ethopia, Cambodia, Thailand, and more. We are truely international.",
+                    title: "Location",
+                    story: "We have offices in Washington, DC and Islamabad, Pakistan. However, we can be deploy anywhere you need us. Our work spans the USA, Pakistan, Kenya, Rwanda, Uganda, Ethopia, Cambodia, Thailand, and more. We are truely international.",
                     color: 'blue',
-                    teaser: "Click to find were's gSoft",
+                    teaser: "Where's gSoft?",
+                    tcolor: 'white',
                     id: 'tile1'
 
                 },
 
                 {
 
-                    title: "What's in our global lineup?",
-                    story: "We focus on enterprise-class web applications, applications that are custom designed to meet your project's need. Whether it is a system for collecting participant data or a system for conducting field surveys, we can do it for you",
+                    title: "Lineup",
+                    story: "We focus on enterprise-class web applications, applications that are custom designed to meet your project's need. Whether it is a system for collecting participant data or a solution for conducting field surveys, we can do it and do it specifacally for you",
                     color: 'base',
-                    teaser: "Uncover the perfect solution",
+                    teaser: "Want to find the perfect solution?",
+                    tcolor: 'white',
                     id: 'tile2'
 
                 },
@@ -158,40 +165,44 @@
 
                 {
 
-                    title: "What we do?",
-                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    title: "Process",
+                    story: "You're technological needs cannot be solved without a comprehesive understanding of both your project's requirements and a clear evaluation of context in which you plan to deploy. Our production specialists work to thoroughly uncover the unique technological requirements that your team needs to get the job done. In short, we strive to understand, you.",
                     color: 'rust',
-                    teaser: "Click to read more...",
+                    teaser: "How do we do it?",
+                    tcolor: 'white',
                     id: 'tile3'
 
                 },
 
                 {
 
-                    title: "What we do?",
-                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    title: "Commitment",
+                    story: "Our production team is dedicated to provide world-class standards for your IT needs. As a client, you'll work with a producer who is focused on bringing your vision to realiity. We show fast and show often and YOU will become a crucial part of the development of your IT solution.",
                     color: 'gold',
-                    teaser: "Click to read more...",
+                    teaser: "What do you get?",
+                    tcolor: 'white',
                     id: 'tile4'
 
                 },
 
                 {
 
-                    title: "What we do?",
-                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    title: "Robust",
+                    story: "Our solutions are designed to the highest enteprise standards. All of our products are back-by a functional gaurantee. In other words, what we say we can deliver, we deliver.",
                     color: 'gray',
-                    teaser: "Click to read more...",
+                    teaser: "What's our gaurantee?",
+                    tcolor: 'white',
                     id: 'tile5'
 
                 },
 
                   {
 
-                    title: "What we do?",
-                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    title: "Production",
+                    story: "Availability and durability of an IT solution is a measures success for any project. Production systems must work and work as intended. Before any system goes live it is throughly tested in production-mocked envirnments. Whether you expect ten users or ten-thousand, we're committed to ensuring that your solution is always on and always ready.",
                     color: 'contrast',
-                    teaser: "Click to read more...",
+                    teaser: "How we measure success?",
+                    tcolor: 'white',
                     id: 'tile6',
                     
 
@@ -199,10 +210,11 @@
 
                    {
 
-                    title: "What we do?",
-                    story: "Curabitur blandit mollis lacus. Duis leo. Nunc nulla. Fusce neque.. Sed magna purus, fermentum eu, tincidunt eu, varius ut, felis. Phasellus a est. Phasellus consectetuer vestibulum elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos hymenaeos. Maecenas ullamcorper, dui et placerat feugiat, eros pede varius nisi, condimentum viverra felis nunc et lorem.",
+                    title: "Mobile",
+                    story: "The reign of the desktop is over. It is a mobile world and we are committed to delivering solutions that align to this paradigm. Our APIs (Application Protocol Interface) are perfectly suited for both mobile and SMS integration. Whether your users connect via the advanced 4G networks of South Korea or they opperate in rural Ethiopia in SMS only regions, we have the right solution.",
                     color: 'black',
-                    teaser: "Click to read more...",
+                    teaser: "Why it's important?",
+                    tcolor: 'white',
                     id: 'tile7'
 
                 },

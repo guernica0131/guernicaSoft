@@ -15,7 +15,9 @@ angular.module('gSoft', [
     'gSoft.version',
     'gSoft.version.interpolate-filter',
     'gSoft.ImageFilter',
-    'gSoft.social'
+    'gSoft.social',
+    'gSoft.collection',
+    'gSoft.contributers'
 
     //'ui.router'
 ]).
@@ -29,7 +31,19 @@ config(['$routeProvider', '$locationProvider',
         });
     }
 ])
-.factory('ImageLocation', function() {
+    .factory('Title', function($rootScope) {
+        
+        var set = function(message) {
+            $rootScope.title = message;
+        }
+
+        return {
+            set : set
+        }
+
+    })
+
+    .factory('ImageLocation', function() {
 
         var directory = 'images/portals/',
             resolution = function() {
@@ -306,7 +320,7 @@ config(['$routeProvider', '$locationProvider',
 .controller('gSoftCtrl', ["$scope", "$log", "$sce", "$location", "LoadPage", "Intercom",
     function($scope, $log, $sce, $location, LoadPage, Intercom) {
 
-        $scope.title = "guernica Softworks";
+        
 
         // for testing. Revoved in production
         $scope.$log = $log;
@@ -427,7 +441,8 @@ config(['$routeProvider', '$locationProvider',
                 ]
             },
             contact: {
-                url: 'contacts',
+                url: 'http://localhost:1337/contact',
+                method: 'post',
                 baseModel: 'contact',
                 name: 'contactUs',
                 liveChanges: false,
@@ -552,11 +567,11 @@ config(['$routeProvider', '$locationProvider',
                         readonly: false,
                         el: 'selectMultiple',
                         options: [{
-                                value: 'gs',
+                                value: 'gSoft',
                                 name: "guernica Softworks the company",
                                 selected: false
                             }, {
-                                value: 'customeSoft',
+                                value: 'custom',
                                 name: 'Custom Software Solutions',
                                 selected: false
                             }, {
@@ -564,7 +579,7 @@ config(['$routeProvider', '$locationProvider',
                                 name: 'ICT Consulting Services',
                                 selected: false
                             }, {
-                                value: 'graphic',
+                                value: 'design',
                                 name: 'Master graphic designers',
                                 selected: false
                             }, {
@@ -572,11 +587,15 @@ config(['$routeProvider', '$locationProvider',
                                 name: 'Cloud Deployment Services',
                                 selected: false
                             }, {
-                                value: 'brandStrategies',
+                                value: 'brand',
                                 name: 'Brand Strategies',
                                 selected: false
                             }, {
-                                value: 'servicecontracts',
+                                value: 'seo',
+                                name: 'Search Engine Optimization',
+                                selected: false
+                            }, {
+                                value: 'service',
                                 name: 'Service contracts',
                                 selected: false
                             }, {

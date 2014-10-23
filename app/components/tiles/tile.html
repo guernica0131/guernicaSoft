@@ -7,7 +7,7 @@
         <div class="tile-container background {{tile.color}}" ng-class="{spread:spread, overwhelm: viewSwitch[tile.id]}" ng-click="revealTile(tile.id)" >
           
           <div class="blinder" style="background: {{teaseTile(tile.id)}}">
-            <h5 class="lead color night">{{tile.teaser}}</h5>
+            <h5 class="title lead color {{tile.tcolor}}">{{tile.teaser}}</h5>
           </div>
 
           <div class="tile-body">

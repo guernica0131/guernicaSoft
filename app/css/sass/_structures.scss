@@ -16,6 +16,15 @@ h1, h2, h3, h4, h5, h6 {
     // font-family: 'Oswald', sans-serif;
 }
 
+::selection {
+  background: $red; /* WebKit/Blink Browsers */
+  color: $white;
+}
+::-moz-selection {
+  background: $red; /* Gecko Browsers */
+  color: $white;
+}
+
 .centered {
     float: none;
     margin-left: auto;
@@ -78,6 +87,10 @@ a {
 
 .pad-20 {
     padding-top: 20px;
+}
+
+.pad-5 {
+    padding-top: 5px;
 }
 
 .overcast {

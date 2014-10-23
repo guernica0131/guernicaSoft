@@ -1,4 +1,4 @@
-<div ng-if="portal.template == 'classy-row'" in-view="fadein($event, portal.id)">
+<div ng-if="portal.template == 'classy-row'" >
 	<div class="container-fluid">
 		<div class="row featurette">
 			<!--div class="col-md-1"></div-->
@@ -16,7 +16,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="pad-20"></div>
+		<div class="pad-20" in-view="fadein($event, portal.id)"></div>
 		<div class="row">
 			<div class="col-md-8">
 				<p class="lead color night">{{portal.description}}</p>
@@ -26,6 +26,11 @@
 		<hr />
 	</div>
 </div>
+
+<div ng-if="portal.template == 'pad-70'">
+	<div class="pad-70"></div>
+</div>
+
 <div ng-if="portal.template == 'bold-list'">
 	<div class="container-fluid">
 		<div class="row {{portal.row.pull}} ">
@@ -48,7 +53,10 @@
 			<div class="col-md-8">
 				<h3 class="color white">{{portal.conclude}}</h3>
 				<social></social>
-				<contact class="break-out"></contact>
+				<div class="col-md-2">
+					<div class="pad-5 visible-sm visible-xs"></div>
+					<contact class="break-out" ng-init-"color = 'gold'"></contact>
+				</div>
 				<div ng-bind-html="trust(portal.closer)"></div>
 			</div>
 		</div>
@@ -76,7 +84,7 @@
 				<h1 class="color {{portal.css.text.header}}">{{portal.title}}<small class="lead color {{portal.css.text.lead}}"> {{portal.lead}}</small></h1>
 			</div>
 			<div class="col-md-8 text color {{portal.css.text.p}}" ng-class="{'pull-right':portal.css.right}">{{portal.body.text}}</div>
-			<div class="col-md-4 images"><img image-src='{"request": "BODY", "name": "{{portal.row.image.src}}"}'> onerror="this.style.display='none'"></img></div>
+			<div class="col-md-4 images"><img  nopin = "nopin" image-src='{"request": "BODY", "name": "{{portal.row.image.src}}"}'> onerror="this.style.display='none'"></img></div>
 		</div>
 	</div>
 </div>

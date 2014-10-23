@@ -10,7 +10,7 @@
     .config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.when('/', {
-                templateUrl: 'views/service/service.html',
+                templateUrl: 'partials/tiled.html',//'views/service/service.html',
                 controller: 'ServiceCtrl'
             });
         }
@@ -26,8 +26,9 @@
 
     //.controller("ServiceCtrl", [function() {}])
     // our ServiceCtrl
-    .controller('ServiceCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
-        function($scope, $routeParams, $location, LoadPage, PortalIndex) {
+    .controller('ServiceCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex", "Title",
+        function($scope, $routeParams, $location, LoadPage, PortalIndex, Title) {
+            Title.set("guernica Softworks");
             //we push our portals into the scope
             $scope.portals = portals;
             // we create a PortalIndex Instance
@@ -45,7 +46,7 @@
             title: 'guernica Softworks',
             lead: 'digital artisans',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text: "We are guernica Softworks, a boutique, independent software studio of digital artisans. We're engineering and design specialist who love building meaningful and impactful technological experiences our clients.",
             },
             content: {
 
@@ -61,7 +62,7 @@
             css: {
                 text: {
                     header: 'white',
-                    lead: 'base',
+                    lead: 'red',
                     p: 'white'
                 }
             },
@@ -76,7 +77,7 @@
             title: 'Custom Software',
             lead: 'software desgined for you',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna. Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text: "We do not believe in one size fits all solutions. Our software products are custom-designed for your unique business and/or project needs. We work closely with our clients to custom taylor products specifilly for you.", 
             },
             content: {
                 thumbnail: {
@@ -106,7 +107,7 @@
             title: 'ICT Consulting',
             lead: 'your personal tech gurus',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text: "Everyone needs a techie and we're among the best. Whether you are looking for an ICT consultant for your development project or an enterprise specialist for your cloud-based deployments, we are ready to assist.",
             },
             content: {
                 thumbnail: {
@@ -134,7 +135,7 @@
             title: 'Graphic Design',
             lead: 'relevant designs',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text: "Design is our DNA. All gSoft products begin with a comprehessive design campaign, a campaign that is contextually sensitive to your intended audience. We work closely with our clients to select concepts that trigger the most relevant and targeted responses.",
             },
             content: {
                 thumbnail: {
@@ -148,7 +149,7 @@
             css: {
                 text: {
                     header: 'white',
-                    lead: 'night',
+                    lead: 'gold',
                     p: 'white'
                 }
             },
@@ -163,7 +164,7 @@
             title: 'Cloud Deployment',
             lead: 'scalable, secure, rubust, everywhere, always',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text: "It's a cloud-based world and we are your experts. Trusted by many of the largest top-tier companies, we deploy products and strategize solutions using the most reliable, scalable, secure, and cost-effective cloud providers. When you work with guernica Softworks, you work with the best.",
             },
             content: {
                 thumbnail: {
@@ -178,7 +179,7 @@
                 text: {
                     header: 'night',
                     lead: 'contrast',
-                    p: 'night'
+                    p: 'black'
                 }
             },
             video: false,
@@ -194,7 +195,7 @@
             title: 'Brand Strategies',
             lead: 'finding voice for your ideas',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text:"Your brand is a story and it's our job to tell it. From the ground up, we can help bring your vision to life. From your first logo or your initial webpage to a massive advertising campaign, gSoft can help you find your voice." ,
             },
             content: {
                 thumbnail: {
@@ -220,10 +221,10 @@
         },
 
         {
-            title: 'Search Engine Optimizations',
+            title: 'S.E.O',//'Search Engine Optimizations',
             lead: 'connecting you are yours',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text: "Your site is only successful if it connects with its intended audience. At guernica Softworks, our engineers are specialists in Search Engine Optimzation. We know the best practices for not only gettig hits, but also keeping the hits coming.",
             },
             content: {
                 thumbnail: {
@@ -252,7 +253,7 @@
             title: 'Service Contracts',
             lead: 'forever available, forever up-to-date',
             body: {
-                text: 'Fusce a quam. Nam adipiscing. Vivamus aliquet elit ac nisl. Curabitur a felis in nunc fringilla tristique. Phasellus consectetuer vestibulum elit. Quisque libero metus, condimentum nec, tempor a, commodo mollis, magna.',
+                text: "Do you have an open source project that needs maintenance or a custom solution that needs updating? The guernica Softworks development team can help. We offer many great solutions for hosting, updating, managing, modernizing, and extending both open and proprietary software solutions.",
             },
             content: {
                 thumbnail: {

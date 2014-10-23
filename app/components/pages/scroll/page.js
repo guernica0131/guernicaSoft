@@ -9,7 +9,7 @@
              $scope.fadein = function(e, id) {
 
                  if (!$scope.impress[id])
-                     LoadPage.timeout(1000).then(function() {
+                     LoadPage.timeout(300).then(function() {
                          $scope.impress[id] = true;
                      });
 

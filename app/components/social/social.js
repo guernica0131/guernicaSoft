@@ -40,7 +40,7 @@
         .run([
             '$rootScope',
             function($rootScope) {
-                $rootScope.facebookAppId = '[FacebookAppId]';
+                $rootScope.facebookAppId = '832979723420474';
             }
         ])
 
@@ -65,13 +65,14 @@
             return {
                 restrict: 'A',
                 link: function(scope, element, attrs) {
+
                     if (!$window.FB) {
                         // Load Facebook SDK
                         $.getScript('//connect.facebook.net/en_US/sdk.js', function() {
                             $window.FB.init({
                                 appId: $rootScope.facebookAppId,
                                 xfbml: true,
-                                version: 'v2.0'
+                                version: 'v2.1'
                             });
                             renderLikeButton();
                         });
@@ -201,7 +202,7 @@
                         return;
                     } else {
                         scope.pinItUrl = $location.absUrl();
-                        console.log(ImageLocation.retrieve({name: scope.pinItImage, request: 'BODY'}) );
+                        // console.log(ImageLocation.retrieve({name: scope.pinItImage, request: 'BODY'}) );
 
                         element.html('<a href="//www.pinterest.com/pin/create/button/?url=' + scope.pinItUrl + '&media=' + ImageLocation.retrieve({name: scope.pinItImage, request: 'BODY'}) + '&description=' + scope.pinIt + '" data-pin-do="buttonPin" data-pin-config="beside"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_rect_gray_20.png" alt="" /></a>');
                         $window.parsePins(element.parent()[0]);

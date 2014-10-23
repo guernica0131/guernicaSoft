@@ -2,38 +2,41 @@
 
     'use strict';
 
-    angular.module('gSoft.about', ['angular-inview', 'gSoft.scrollPage'])
+    angular.module('gSoft.contributers', ['angular-inview', 'gSoft.scrollPage'])
 
     .config(['$routeProvider',
         function($routeProvider) {
-            $routeProvider.when('/about', {
+            $routeProvider.when('/contributers', {
                 templateUrl: 'partials/story.html',//'views/about/about.html',
-                controller: 'AboutCtrl'
+                controller: 'ContributerCtrl'
             });
         }
     ])
 
-    .controller('AboutCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex", "Title",
+    .controller('ContributerCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex", "Title",
         function($scope, $routeParams, $location, LoadPage, PortalIndex, Title) {
              
-            Title.set("About guernica Softworks");
-
+       
             $scope.portals = portals;
             var pIndex = new PortalIndex.i(portals);
 
             //$scope.sprite = 'rustic';
             // now we set the portal link into the scope
             pIndex.portalLoader($scope, $routeParams, $location, LoadPage);
+
+
+            Title.set("guernica Softworks contributers");
+
+
        
-        console.log($scope.activePortal);
         }
     ]);
 
-    // change to a REST Call
+   // change to a REST Call
     var portals = [
 
         {
-        portal: 'about',
+        portal: 'meredith',
         rows: [
           {
           //  id: 'row0',
@@ -94,7 +97,6 @@
      }
       
     ];
-
 
 
 })();

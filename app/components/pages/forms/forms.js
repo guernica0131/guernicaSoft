@@ -1,10 +1,18 @@
  angular.module('gSoft.formsPage', ['gSoft.noSpace'])
 
+.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        $httpProvider.defaults.withCredentials = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        $httpProvider.defaults.headers.common["Accept"] = "application/json";
+        $httpProvider.defaults.headers.common["Content-Type"] = "application/json";
+    }])
+
  .directive('formsPage', function() {
      return {
          restrict: 'E',
          templateUrl: 'components/pages/forms/forms.html', // remove loadpage once on webserver
-         controller: function($scope, $q, Constants, Intercom, LoadPage) {
+         controller: function($scope, $q, $http, Constants, Intercom, LoadPage) {
 
              $scope.formData = {};
              $scope.feedback = {};
@@ -117,7 +125,7 @@
              var clearClasses = function(form) {
                  // interate the elements
                  angular.forEach(form.elements, function(el, index) {
-                    // 2 will trigger no condition other than the reset options
+                     // 2 will trigger no condition other than the reset options
                      setCSS(2, el);
                  });
 
@@ -163,7 +171,7 @@
                              },
 
                              getRegex: function(content, type) {
-                              //  console.log("COntent", content.match(regex[type]));
+                                 //  console.log("COntent", content.match(regex[type]));
                                  return (content.match(regex[type]) !== null) ? 1 : 0;
                              },
 
@@ -202,12 +210,12 @@
                  if ((!content || length < min) && element.required)
                      return setCSS(0, element);
                  // here we've got an element that isn't complete but isn't required
-                 else if ((!content || length < min) && !element.required) 
+                 else if ((!content || length < min) && !element.required)
                      return setCSS(-1, element); // we set warning
 
                  // now we use validators to get the result
                  // return setCSS(validators.validate(element, content), element); // need to reconsider
-                    return setCSS((content && length >= min) ? 1 : 0, element); // for now
+                 return setCSS((content && length >= min) ? 1 : 0, element); // for now
 
              };
 
@@ -217,7 +225,7 @@
              /*
               * Scoped functions
               */
-              // we init here
+             // we init here
              $scope.setFeedback = function(setup) {
                  // we set our base key for reference
                  if (!$scope.feedback.base)
@@ -253,7 +261,7 @@
                  var g = '.good,',
                      b = '.bad,',
                      w = '.warning,',
-                    separator = ":feedback." + $scope.feedback.base + "." + model + ".feedback";
+                     separator = ":feedback." + $scope.feedback.base + "." + model + ".feedback";
 
 
                  // our good classes
@@ -268,7 +276,7 @@
                  var warning = (instructions.WARNING && instructions.WARNING.length > 0) ?
                      (instructions.WARNING.length === 1) ? instructions.WARNING[0] + separator + w : // nested to return 1 or many results
                      join(instructions.WARNING, separator + w) + separator + w : ''; // otherwise we return nothing
-                // we need to chop off training commas
+                 // we need to chop off training commas
                  if (warning && warning.charAt(warning.length - 1) === ',')
                      warning = warning.slice(0, -1);
                  else if (!warning && bad && bad.charAt(bad.length - 1) === ',')
@@ -281,6 +289,19 @@
              // join turns an array of opbjects into classes. We use the 
              // seperator for potential future functionality
              $scope.join = join;
+             // @TODO update for single select
+             $scope.setDefaultSelect = function(models, value, selected) {
+                
+                if (!selected)
+                    return;
+
+
+                if (!$scope.formData[models.base][models.model])
+                    $scope.formData[models.base][models.model] = [];
+
+                
+                $scope.formData[models.base][models.model].push(value);               
+             };
              /*
               * @TODO implement for live validation
               */
@@ -320,13 +341,34 @@
                          return broadcast('invalid', "There is invalid input in the form.");
                      }
                      // here we fake a call to a webserver for processing
-                     var payload = $scope.formData[form.baseModel];
+                     var payload = $scope.formData[form.baseModel],
+                     method = form.method || 'post';
                      // we now indicate that we are ready to process the form
                      broadcast('processing', "The form data is currently being validated.", payload);
                      // mimics call to webserver
                      LoadPage.timeout(3000).then(function() {
                          broadcast('complete', "The form has processed successfully.", payload);
                      });
+                  
+                     $http[method](form.url, payload)
+                         .success(function(data, status, headers, config) {
+                             // this callback will be called asynchronously
+                            // when the response is available
+                            console.log("Hey I just got data", data);
+
+                            payload.response = data;
+                            broadcast('complete', "The form has processed successfully.", payload);
+
+                         })
+                         .error(function(data, status, headers, config) {
+                            // called asynchronously if an error occurs
+                            // or server returns response with an error status.
+                            console.log("Hey I just got an error", data);
+                            payload.response = data;
+                            broadcast('error', "There was an error processing this form.", payload);
+
+                         });
+
 
                  });
              };

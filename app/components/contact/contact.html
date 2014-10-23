@@ -20,7 +20,7 @@
 
 
 			<div class="contact-form-spinner" ng-show="viewSwitch.processing">
-				 <div ng-include src="'partials/spinner.html'" ng-init="spinColor = 'white'"></div>
+				 <div ng-include src="'partials/spinner.html'" ng-init="spinColor = 'white'; color = 'gold'"></div>
 			<!--span class="color white">We are processing your request...
 				<i class="fa fa-spinner fa-spin fa-5x color white"></i-->
 			</div>
@@ -30,6 +30,14 @@
 					<div class="col-md-12">
 						<h1 class="color white">Thank you, {{fName}}</h1>
 						<p class="lead color white"><small>We appreciate the interests you have in our products and services. A guernica Softworks processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
+					</div>
+				</div>
+			</div>
+			<div class="confirmation" ng-show="viewSwitch.error">
+				<div class="row">
+					<div class="col-md-12">
+						<h1 class="color white">I'm sorry, {{fName}}</h1>
+						<p class="lead color white"><small>I've encountered some type of problem. Please try your request later. We are deeply sorry for any inconvenience.<br/><br/>Sincerely,<br/>The gS team</small></p>
 					</div>
 				</div>
 			</div>

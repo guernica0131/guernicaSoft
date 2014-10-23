@@ -1,19 +1,7 @@
 <div id="primary-page">
 	<div class="view-container fog" ng-class="{in:drawcontent}">
-		<div class="content-container cover-background" image-background='{"request": "BODY", "name": "{{activePortal.content.body.src}}"}'>  <!--style="background: url({{ images('BODY', activePortal.content.body.src)}} ) no-repeat center center /cover; "-->
-			<!--div ng-if="activePortal.video" >
-			<div  class="video-roll">
-				<video autoplay class="bgvid" loop>
-					<source src="videos/brickstr_bg.mp4" type="video/mp4">
-		
-					Your browser does not support the video tag.
-				</video>
-				<div class="overlay"></div>
-			</div>
-			</div-->
-
+		<div class="content-container cover-background" image-background='{"request": "BODY", "name": "{{activePortal.content.body.src}}"}'> 
 			<div ng-if="activePortal.overlay" class="overlay"></div>
-
 
 			<div class="page-body">
 				<div class="page-body-wrapper raise">
@@ -21,9 +9,10 @@
 						<div class="pad-70"></div>
 						<div class="container">
 							<div class="row">
-								<div class="col-md-8">
+								<div class="col-sm-8 col-md-8">
 									<h1 class="color {{activePortal.css.text.header}}">{{activePortal.title}} <small class="lead  color {{activePortal.css.text.lead}}">{{activePortal.lead}}</small></h1>
-									<p class="color {{activePortal.css.text.p}}">{{trust(activePortal.body.text)}}</p>
+									<!--h4 class="color {{activePortal.css.text.p}}">{{trust(activePortal.body.text)}}</h4-->
+									<h4 class="color {{activePortal.css.text.p}}"><span ng-bind-html="trust(activePortal.body.text)"></span></h4>
 								</div>
 								<!--social ng-init="color = 'transparent'"></social-->
 							</div>

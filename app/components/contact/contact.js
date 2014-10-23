@@ -23,18 +23,20 @@
                     // we reset
                     $scope.viewSwitch = {};
 
+                     if (message.payload && message.payload.fName)
+                                $scope.fName = message.payload.fName;
+
                     switch (message.verb) {
 
                         case 'processing':
                             $scope.viewSwitch[message.verb] = true;
                             break;
                         case 'error':
+
                             $scope.viewSwitch[message.verb] = true;
                             break;
                         case 'complete':
                             // a complete gets the payload and we update the name object
-                            if (message.payload && message.payload.fName)
-                                $scope.fName = message.payload.fName;
                             $scope.viewSwitch[message.verb] = true;
                             break;
                         default:
@@ -92,6 +94,8 @@
                             element.options = options;
 
                     });
+
+                    
 
                     $scope.form = form;
 

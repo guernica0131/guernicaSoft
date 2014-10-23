@@ -10,7 +10,7 @@
     .config(['$routeProvider',
         function($routeProvider) {
             $routeProvider.when('/portfolio', {
-                templateUrl: 'views/portfolio/portfolio.html',
+                templateUrl: 'partials/tiled.html',//'views/portfolio/portfolio.html',
                 controller: 'PortfolioCtrl'
             });
         }
@@ -23,8 +23,9 @@
 
         }
     ])
-    .controller('PortfolioCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex",
-        function($scope, $routeParams, $location, LoadPage, PortalIndex) {
+    .controller('PortfolioCtrl', ["$scope", "$routeParams", "$location", "LoadPage", "PortalIndex", "Title",
+        function($scope, $routeParams, $location, LoadPage, PortalIndex, Title) {
+            Title.set("The guernica Softwork's portfolio");
             //we push our portals into the scope
             $scope.portals = portals;
             // we create a PortalIndex Instance

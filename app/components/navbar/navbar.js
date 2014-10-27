@@ -37,6 +37,11 @@
                     LoadPage.timeout(1000).then(function() {
                         $scope.navbar.thinking = false;
                     });
+                    
+                    LoadPage.timeout(1000).then(function() {
+                        $scope.navbar.thinking = false;
+                    });
+
                 }
             },
             controllerAs: 'nav',

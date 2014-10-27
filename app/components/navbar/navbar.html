@@ -13,7 +13,7 @@
   <span class="icon-bar"></span>
   </button>
   <div class="brand-img">
-    <a href="/#" class="navbar-brand nav-button home"></a>
+    <a href="/#" ng-click="navigating(false);obscure(false)" class="navbar-brand nav-button home"></a>
   </div>
 </div>
 <ul class="nav navbar-nav">
@@ -25,7 +25,7 @@
 <div class="collapse navbar-collapse" id="nav-head">
   <ul class="nav navbar-nav  navbar-right reduce-gap" ng-show="windowOpened" >
     <li ng-repeat="button in buttons" class="nav-button background {{button.cssClass}}" ng-class="{selected: isActive(button.url), lighten:isActive('/clients')}">
-      <a ng-href="/#{{button.url}}" ng-click="navigating(isActive(button.url))">{{button.name}}</a>
+      <a ng-href="/#{{button.url}}" ng-click="navigating(isActive(button.url));obscure(isActive(button.url))">{{button.name}}</a>
     </li>
   </ul>
 </div>

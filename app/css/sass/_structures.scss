@@ -180,21 +180,21 @@ a {
 }
 
 .btn {
-    &.btn-primary {
-        @include button-color($contrast, white);
-    }
-    &.btn-success {
-        @include button-color($base, white);
-    }
-    &.btn-info {
-        @include button-color($blue, white);
-    }
-    &.btn-warning {
-        @include button-color($gold, white);
-    }
-    &.btn-danger {
-        @include button-color($red, white);
-    }
+    // &.btn-primary {
+    //     @include button-color($contrast, white);
+    // }
+    // &.btn-success {
+    //     @include button-color($base, white);
+    // }
+    // &.btn-info {
+    //     @include button-color($blue, white);
+    // }
+    // &.btn-warning {
+    //     @include button-color($gold, white);
+    // }
+    // &.btn-danger {
+    //     @include button-color($red, white);
+    // }
     // &.btn-default {
     //     @include button-color($white, $night);
     // }

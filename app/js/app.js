@@ -97,8 +97,8 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 
 })
 
-.factory("Models", ["$location", "$filter", "$rootScope", "$q", "Intercom",
-    function($location, $filter, $rootScope, $q, Intercom) {
+.factory("Models", ["$location", "$filter", "$rootScope", "$q", "Intercom", "LoadPage",
+    function($location, $filter, $rootScope, $q, Intercom, LoadPage) {
 
         var names = ['forms', 'portals'],
             models,
@@ -108,11 +108,14 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
         var set = function(objects) {
             models = objects;
             active = true;
-            Intercom.broadcast('models-loaded');
+            LoadPage.timeout(200).then(function() {
+                Intercom.broadcast('models-loaded');
+            });
+            
         };
 
         var validPromise = function(filtered) {
-            return (filtered.length !== 0);
+            return (filtered && filtered.length !== 0);
         };
 
         var getRoute = function(type) {
@@ -157,15 +160,15 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 
             //type
             var deferred = $q.defer(),
-                filter = function() {
+                filter = (function(type) {
                     var objects = models[type];
                     return $filter('orderBy')($filter('filter')(objects, {
                         identity: identity
                     }, true), 'order', false);
 
-                },
+                }),
                 send = function() {
-                    var filtered = filter();
+                    var filtered = filter(type);
                     (validPromise(filtered)) ? deferred.resolve(filtered) : deferred.reject({
                         error: 'No portals found for route'
                     });
@@ -561,16 +564,6 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
             alert("There was an issue conntecting to the API. Please try again later");
         });
 
-
-        // there will be an ajax call when this is assigned to a web server
-        // LoadPage.timeout(2000).then(function() {
-        //     $scope.drawCurtains = true;
-        //     LoadPage.timeout(1000).then(function() {
-        //         $scope.windowOpened = true;
-        //         Intercom.broadcast("open-windows", true);
-        //     });
-
-        // });
     }
 ])
     .controller('windowCtrl', ["$scope", "Router",
@@ -779,9 +772,6 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
             $scope.viewSwitch = {};
 
             Intercom.on($scope, 'forms', function(e, message) {
-                //console.log("I am in contact control", message);
-                //  $scope.viewSwitch['form'] = true;   
-
                 // we can use a switch statement to cascase the view switch. 
                 // in this case we will stick with one
                 // we reset

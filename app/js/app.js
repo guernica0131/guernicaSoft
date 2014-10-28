@@ -539,11 +539,16 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
             if (active)
                 return;
             $scope.unobscurred = false;
-            LoadPage.timeout(700).then(function() {
+            
+            LoadPage.timeout(1000).then(function() {
                 $scope.unobscurred = true;
             });
 
         };
+
+        $scope.$on('onRepeatLast', function(scope, element, attrs){
+            console.log("Where am I");
+        });
 
         $scope.getAddress = function() {
             var tweet = "Checkout guernicaSoftworks @ " + $location.absUrl();
@@ -651,6 +656,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 
 .controller('GlobalCtrl', ["$scope", "Title", "Router",
     function($scope, Title, Router) {
+        $scope.bgColor = 'night';
         Title.set("guernica Softworks' global focus");
         Router.pull($scope);
     }
@@ -658,6 +664,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 
 .controller('AboutCtrl', ["$scope", "Title", "Router",
     function($scope, Title, Router) {
+        $scope.bgColor = 'white';
         Title.set("About guernica Softworks");
         Router.pull($scope);
     }

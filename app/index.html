@@ -42,7 +42,7 @@
 
       <!--script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script-->
 
-
+      <meta name="viewport" content="width=device-width, initial-scale=1">
       
       <script>
       // include angular loader, which allows the files to load in any order
@@ -113,7 +113,7 @@
       <!-- Creates the entry spinner -->
       <div ng-include src="'partials/page-load.html'"></div>
       <!-- ng-view with window the window controller -->
-      <div ng-view class="fog" ng-class="{'view-frame-open':windowOpened , 'view-frame-closed':!drawCurtains, in:unobscurred}" ng-controller="windowCtrl"></div>
+      <div ng-view class="deep-fog" ng-class="{'view-frame-open':windowOpened , 'view-frame-closed':!drawCurtains, in:unobscurred}" ng-controller="windowCtrl"></div>
       <!-- Our footer directive -->
       <foot-bar></foot-bar>
 

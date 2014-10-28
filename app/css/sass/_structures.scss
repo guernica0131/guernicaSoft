@@ -119,6 +119,19 @@ a {
     }
 }
 
+.deep-fog {
+    @include opacity(0);
+    @include transition(opacity 500ms linear);
+    //  display: none;
+    &.in {
+        //display: block;
+        @include opacity(1);
+        //  display: block;
+   
+    }
+}
+
+
 .cover-background {
     background-repeat: no-repeat !important;
     background-position: center center !important;

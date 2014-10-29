@@ -830,7 +830,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
     ])
 
 .constant('Constants', {
-    API: 'http://ec2-54-164-250-197.compute-1.amazonaws.com/',
+    API: 'https://api.guernicaSoftworks.com/',
     CONTACT: {
         url: 'components/contact/contact.html'
     },

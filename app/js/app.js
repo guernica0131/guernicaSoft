@@ -573,7 +573,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 ])
     .controller('windowCtrl', ["$scope", "Router",
         function($scope, Router) {
-
+            //
             //Router.pull($scope);
         }
     ])

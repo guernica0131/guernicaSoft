@@ -1,11 +1,11 @@
 <ul class="portals">
-	<li class="portal out" ng-repeat="p in portals" ng-class="{active: $index == activeIndex}" ng-click="updatePage(p.portal)"> 
+	<li class="portal out" ng-repeat="p in portals" ng-class="{active: $index == activeIndex}" ng-click="updatePage($index)"> 
 		
 		<div class="portal-container">
 			<div class="portal-frame fog" ng-class="{'in':windowOpened}">
-				<div class="portal-text background-rgba {{p.cssClass}}"><p class="">{{p.title}}</p></div>
+				<div class="portal-text background-rgba {{p.css.cssClass}}"><p class="">{{p.title}}</p></div>
 				<div class="p-block" >
-					<img class="img-responsive" image-src='{"request": "THUMBS", "name": "{{p.content.thumbnail.src}}"}'  alt="{{p.content.thumbnail.alt}}"></img>
+					<img  nopin = "nopin" class="img-responsive" image-src='{"request": "THUMBS", "name": "{{p.content.thumbnail.src}}"}'  alt="{{p.content.thumbnail.alt}}"></img>
 				</div>
 			</div>
 		</div>

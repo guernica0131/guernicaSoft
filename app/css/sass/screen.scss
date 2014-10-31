@@ -4,10 +4,18 @@
  * <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css" /> */
 
 //@import "compass/reset";
-//@import "bootstrap-compass";
+//@import "bootstrap-sass";
 @import "bootstrap";
+//@import "font-awesome-sass";
+//@import "font-awesome/font-awesome.scss";
+//@import "bootstrap";
+//@import "bootstrap-theme";
+
 @import "compass/css3";
 
+//@import "bootstrap/bootstrap";
+
+@import "font-awesome";
 //@import "font-awesome-compess";
 //@import "font-awesome";
 @import "mixins";
@@ -33,4 +41,10 @@
 @import "portal";
 
 @import "contact";
+
+//@import "angular-socialshare";
+
+@import "social";
+
+@import "tiles";
 

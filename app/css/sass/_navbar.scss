@@ -41,6 +41,9 @@
 
 #nav-spinner {
     //margin-top: 5px;
+    position: absolute;
+    top: 5px;
+    left: 70px;
 }
 
 .curtain {
@@ -62,7 +65,7 @@
         // 	height: 100%;			
         // }
         border: none;
-        &.curtain-top {
+        &.curtain-top, &.curtain-bottom {
             background-color: $night;
             //background: -webkit-linear-gradient($contrast,$night); /* For Safari 5.1 to 6.0
             //background: -o-linear-gradient($contrast, $night); /* For Opera 11.1 to 12.0

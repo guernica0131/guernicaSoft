@@ -13,12 +13,12 @@
 			<!-- if we have an element type TEXTAREA -->
 			<textarea ng-if="f.el == 'textarea'" name="{{f.name}}" type="{{f.type}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}"  ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]" cols="{{f.cols}}" rows="{{f.rows}}" maxlength="{{f.maxlength}}"  ng-readonly="{{f.readonly}}" ng-init="formData[form.baseModel][f.model]=f.value" ng-class="{{ setClasses('TEXTAREA', f.model) }}"></textarea>
 			<!-- This is for a single select -->
-			<select   ng-if="f.el == 'select'" name="{{f.name}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]"  ng-readonly="{{f.readonly}}" ng-init="formData[form.baseModel][f.model]=f.value" ng-class="{{ setClasses('MULTIPLE', f.model) }}">
-				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}">{{o.name}}</option>
+			<select   ng-if="f.el == 'select'" name="{{f.name}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]"  ng-readonly="{{f.readonly}}" ng-class="{{ setClasses('MULTIPLE', f.model) }}">
+				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}" ng-init="setDefaultSelect(formData[form.baseModel][f.model], o.value, o.selected)" >{{o.name}}</option>
 			</select>
 			<!-- @TODO, find a way to dynamically add the mutile to the element and I can remove this line -->
-			<select   ng-if="f.el == 'selectMultiple'" name="{{f.name}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]"  ng-readonly="{{f.readonly}}" ng-init="formData[form.baseModel][f.model]=f.value" ng-class="{{ setClasses('SELECT', f.model) }}" ng-class="{{ setClasses('selectMultiple', f.model) }}" multiple>
-				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}">{{o.name}}</option>
+			<select   ng-if="f.el == 'selectMultiple'" name="{{f.name}}" class="{{ join(f.elClasses) }}" id="{{f.id}}" placeholder="{{f.placeholder}}" ng-disabled="{{f.disabled}}" ng-keyup="validate(f, form)" ng-change="checkChange(f, form)" required="{{f.required}}" ng-model="formData[form.baseModel][f.model]"  ng-readonly="{{f.readonly}}" ng-class="{{ setClasses('SELECT', f.model) }}" ng-class="{{ setClasses('selectMultiple', f.model) }}" multiple>
+				<option ng-repeat="o in f.options" value="{{o.value}}" ng-selected="{{o.selected}}" ng-disabled="{{o.disabled}}" ng-init="setDefaultSelect({base: form.baseModel, model: f.model}, o.value, o.selected)">{{o.name}}</option>
 			</select>
 			<!-- We break out radios -->
 			<!-- radios -->

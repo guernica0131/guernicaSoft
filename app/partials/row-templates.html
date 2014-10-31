@@ -1,0 +1,91 @@
+<div ng-if="portal.template == 'classy-row'" >
+	<div class="container-fluid">
+		<div class="row featurette">
+			<!--div class="col-md-1"></div-->
+			<div class="col-md-6">
+				<h1 class="color night">{{portal.title}}</h1>
+			</div>
+		</div>
+		<div class="pad-40"></div>
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div class="impress">
+					<div class="fill lazy"></div>
+					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.image" pin-type="'ROW'" ng-class="{in: impress[portal.id]}" image-background='{"request": "ROW", "name": "{{portal.image}}"}'></div>
+				</div>
+			</div>
+		</div>
+		<div class="pad-20" in-view="fadein($event, portal.id)"></div>
+		<div class="row">
+			<div class="col-md-8">
+				<p class="lead color night">{{portal.description}}</p>
+			</div>
+		</div>
+		<div class="pad-70"></div>
+		<hr />
+	</div>
+</div>
+
+<div ng-if="portal.template == 'pad-70'">
+	<div class="pad-70"></div>
+</div>
+
+<div ng-if="portal.template == 'bold-list'">
+	<div class="container-fluid">
+		<div class="row {{portal.row.pull}} ">
+			<div class="col-md-12" >
+				<div class="{{portal.css.parent.join(' ')}}">
+					<div ng-include src="'partials/text-row.html'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div ng-if="portal.template == 'bold-list-finale'">
+	<div class="container-fluid">
+		<div class="row {{portal.row.pull}} ">		
+			<div class="col-md-2">
+				<div class="{{portal.css.parent.join(' ')}}">
+					<div ng-include src="'partials/text-row.html'"></div>
+				</div>
+			</div>
+			<div class="col-md-8">
+				<h3 class="color white">{{portal.conclude}}</h3>
+				<social></social>
+				<div class="col-md-2">
+					<div class="pad-5 visible-sm visible-xs"></div>
+					<contact class="break-out" ng-init-"color = 'gold'"></contact>
+				</div>
+				<div ng-bind-html="trust(portal.closer)"></div>
+			</div>
+		</div>
+	</div>
+	<div class="pad-70"></div>
+</div>
+<div ng-if="portal.template == 'bold-list-tiles'">
+	<div class="container-fluid">
+		<div class="row ">
+			<div class="col-md-10">
+				<tiles tiles="portal.tiles" sprite="portal.css.tiles.sprite"></tiles>
+			</div>
+			<div class="col-md-2 {{portal.row.pull}} hidden-xs hidden-sm" >
+				<div class="{{portal.css.parent.join(' ')}}">
+					<div ng-include src="'partials/text-row.html'"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div ng-if="portal.template == 'featurette'">
+	<div class="container-fluid">
+		<div class="row featurette">
+			<div class="page-header">
+				<h1 class="color {{portal.css.text.header}}">{{portal.title}}<small class="lead color {{portal.css.text.lead}}"> {{portal.lead}}</small></h1>
+			</div>
+			<div class="col-md-8 text color {{portal.css.text.p}}" ng-class="{'pull-right':portal.css.right}">{{portal.body.text}}</div>
+			<div class="col-md-4 images"><img  nopin = "nopin" image-src='{"request": "BODY", "name": "{{portal.row.image.src}}"}'> onerror="this.style.display='none'"></img></div>
+		</div>
+	</div>
+</div>

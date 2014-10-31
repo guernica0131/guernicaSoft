@@ -1,112 +1,165 @@
+.push-to-bottom {
+    margin-top: 500px;
+    // position: absolute;
+    //bottom: 300px;
+    //bottom: 100px;
+    // vertical-align: bottom;
+    @include respond-to(medium-screens) {
+        margin-top: 400px;
+    }
+
+    @include respond-to(tablet) {
+        margin-top: 250px;
+    }
+
+    @include respond-to(reduced) {
+        margin-top: 150px;
+    }
+
+    @include respond-to(handhelds) {
+        margin-top: 70px;
+    }
+}
+
+.text-huge {
+    font-size: 400%;
+    @include respond-to(less_than_tablet) {font-size: 200%;}
+}
+
+.text-massive {
+    font-size: 600%;
+    @include respond-to(less_than_tablet) {font-size: 200%;}
+}
+
 .page-view {
     background: transparent;
     height: 100%;
     left: 0;
     top: 0;
     right: 0;
-
-    #client-page {
-        .login-form {
-            @include border-radius(5px);
-            padding: 20px;
-           // max-width: 500px;
-        }
+    .login-form {
+        @include border-radius(5px);
+        padding: 0 20px 20px 20px;
+        position: relative;
+        padding-bottom: 30px;
+        max-width: 600px;
+        //margin-top: -30px;
+   
     }
-
+    #client-page {}
     #scroll-page {
-
-        .head-image {
-
-            .head-content {
-
-            	.nessage {
-            		//text-align: center;
-            	}
-              //  text-align: center;
-              	padding-top: 90px;
-
-              	@include respond-to(less_than_tablet) {
-              		padding-top: 50px;
-              	}
-            //vertical-align: middle;
-                .jumbotron {
-                	//background: $noise;
-                	@include respond-to(less_than_tablet) {
-                		background: transparent;
-                	}
-
+        .impress {
+            width: 100%;
+            min-height: 800px;
+            margin-left: -15px;
+            // pinterest
+            a[class^="PIN_"] {
+                -webkit-transition: opacity 300ms ease-in-out !important;
+                -o-transition: opacity 300ms ease-in-out !important;
+                transition: opacity 300ms ease-in-out !important;
+                //display: none !important;
+                opacity: 0;
+                right: -10px !important;
+                top: 10px !important;
+                position: absolute;
+                @include respond-to(less_than_tablet) {
+                    opacity: 1;
                 }
-
-                h1 {
-
-                	line-height: 160%;
-                	font-size: 3.0em;
-                	@include respond-to(less_than_tablet) {
-                		line-height: 100%;
-                		font-size: 2.0em;
-
-              		}
-
+            }
+            // pinterest HOVER
+            &:hover {
+                a[class^="PIN_"] {
+                    //display: block !important;
+                    cursor: pointer !important;
+                    opacity: 1 !important;
                 }
+            }
+            @include respond-to(handhelds) {
+                min-height: 200px;
+            }
+
+            @include respond-to(less_than_tablet) {
+                min-height: 300px;
+            }
+
+            @include respond-to(medium-screens) {
+                min-height: 400px;
+            }
+
+            @include respond-to(narrow-screens) {
+                min-height: 600px;
+            }
+
+            .lazy {
+                background-color: $night;
+            }
+            //opacity: 0;
+            .lazy-image {
+                @include transition(opacity 600ms linear);
+                @include opacity(0);
+                &.in {
+                    @include opacity(1);
+                }
+            }
+        }
+        .row-back {
+            // margin-bottom: 50px;
+            min-height: 400px;
+            overflow: hidden;
+
+            @include respond-to(less_than_tablet) {
+               min-height: 300px;
             }
 
 
-            height: 600px;
-            width: 100%;
-              //background-size: 100%;
-              
-            overflow: hidden !important;
-   //           position: absolute;
-     //         top: 0;
-       //       left:0;
-              @include respond-to(less_than_tablet) {
-                height: 440px;
+            &.page {
+                min-height: 800px;
+                height: auto;
+                @include respond-to(narrow-screens) {
+                    min-height: 600px;
+                }
 
-              }
+                @include respond-to(medium-screens) {
+                    min-height: 600px;
+                }
 
-              @include respond-to(reduced) {
-                height: 300px;
-              }
+                @include respond-to(tablet) {
+                    min-height: 500px;
+                }
 
-              @include respond-to(handhelds) {
-                height: 300px;
-              }
+                @include respond-to(reduced) {
+                    min-height: 400px;
+                }
 
+                @include respond-to(handhelds) {
+                    min-height: 300px;
+                }
+            }
+            &.header {
+                min-height: 850px;
+                height: auto;
+                @include respond-to(medium-screens) {
+                    min-height: 650px;
+                }
 
-              .head-curtain {
-                position: absolute;
-                width: 100%;
-                height:600px;
+                @include respond-to(tablet) {
+                    min-height: 550px;
+                }
 
-                @include respond-to(less_than_tablet) {
-                height: 440px;
+                @include respond-to(reduced) {
+                    min-height: 450px;
+                }
 
-               }
-
-              @include respond-to(reduced) {
-                height: 290px;
-              }
-
-              @include respond-to(handhelds) {
-                height: 290px;
-              }
-
-              
-              }
-              
-              
+                @include respond-to(handhelds) {
+                    min-height: 350px;
+                }
+            }
+            &.tiles {}
+            &.constrict {
+                min-height: 0 !important;
+            }
         }
-
-        .row-back {
-        	min-height: 600px;
-        	margin-bottom: 50px;
-        }
-
-
-
     }
-
-
     #primary-page {
         .view-container {
             height: 100%;
@@ -132,12 +185,23 @@
                     margin-top: 40px;
                     margin-bottom: 40px;
                     padding: 10px;
-                    @include respond-to(mobile) {
-                        padding: 3px;
+                    @include respond-to(handhelds) {
+                      //  padding: 3px;
                     }
-
-                    .nav-parents {
+                    display: block;
+                    .parent-wrapper {
                         display: inline-block;
+
+                        .left {
+                            width: 20%;
+                        }
+
+                        .right {
+                            width: 80%;
+                        }
+                    .nav-parents {
+                        display: block;
+                        //display: block;
                         position: relative;
                         @include respond-to(handhelds) {
                             padding: 0;
@@ -147,19 +211,19 @@
                             padding: 0;
                         }
 
+                        // @include respond-to(less_than_tablet) {
+                        //     padding: 0;
+                        // }
                         text-align: center;
                         &.top-parent {
-                            //	background: red;
-                       
+                           //   background: red;
+                            //width: 18%;
                         }
                         &.middle-parent {
-                            //	background: green;
-                       
+      
                         }
                         &.bottom-parent {
-                            //	background: blue;
-                       
-                        }
+                                    }
                         .nav-ctl {
                             color: $gray;
                             cursor: pointer;
@@ -168,6 +232,14 @@
                                 @include transition(color 300ms ease);
                                 @include respond-to(mobile) {
                                     font-size: 4em;
+                                }
+
+                                @include respond-to(handhelds) {
+                                    font-size: 3.5em;
+                                }
+
+                                @include respond-to(reduced) {
+                                    font-size: 3.5em;
                                 }
 
                                 color: rgba($white, 0.5);
@@ -193,6 +265,8 @@
                             &.no-show {
                                 display: none;
                             }
+                        }
+
                         }
                     }
                 }
@@ -220,3 +294,65 @@
         }
     }
 }
+
+//.head-image {
+//     .head-content {
+//         .nessage {
+//             //text-align: center;
+
+//         }
+//         //  text-align: center;
+//         padding-top: 90px;
+//         @include respond-to(less_than_tablet) {
+//             padding-top: 50px;
+//         }
+
+//         //vertical-align: middle;
+//         .jumbotron {
+//             //background: $noise;
+//             @include respond-to(less_than_tablet) {
+//                 background: transparent;
+//             }
+//         }
+//         h1 {
+//             line-height: 160%;
+//             font-size: 3.0em;
+//             @include respond-to(less_than_tablet) {
+//                 line-height: 100%;
+//                 font-size: 2.0em;
+//             }
+//         }
+//     }
+//     height: 1000px;
+//     width: 100%;
+//     //background-size: 100%;
+//     //overflow: hidden !important;
+//     @include respond-to(less_than_tablet) {
+//         height: 600px;
+//     }
+
+//     @include respond-to(reduced) {
+//         height: 600px;
+//     }
+
+//     @include respond-to(handhelds) {
+//         height: 400px;
+//     }
+
+//     .head-curtain {
+//         position: absolute;
+//         width: 100%;
+//         height: 600px;
+//         @include respond-to(less_than_tablet) {
+//             height: 440px;
+//         }
+
+//         @include respond-to(reduced) {
+//             height: 290px;
+//         }
+
+//         @include respond-to(handhelds) {
+//             height: 290px;
+//         }
+//     }
+// }

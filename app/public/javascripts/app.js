@@ -735,6 +735,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 .controller('ClientCtrl', ["$scope", "Constants", "Intercom", "LoadPage", "Models", "Router", "Title",
     function($scope, Constants, Intercom, LoadPage, Models, Router, Title) {
 
+        Title.set("guernica Softworks clients");
 
         Router.pull($scope, true);
 
@@ -804,6 +805,8 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 ])
     .controller('ContactCtrl', ["$scope", "Constants", "Intercom", "LoadPage", "$rootScope", "Models", "Router", "Title",
         function($scope, Constants, Intercom, LoadPage, $rootScope, Models, Router, Title) {
+
+            Title.set("Contact guernica Softworks");
 
             Router.pull($scope, true);
 

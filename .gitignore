@@ -9,3 +9,6 @@ tmp
 .sass-cache/*
 config.yml
 config-laptop.yml
+app/config.yml
+/config.yml
+

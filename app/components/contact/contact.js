@@ -17,6 +17,30 @@
                     $scope.viewSwitch = {};
                     $scope.openContactForm = false;
 
+<<<<<<< HEAD
+=======
+                     if (message.payload && message.payload.fName)
+                                $scope.fName = message.payload.fName;
+
+                    switch (message.verb) {
+
+                        case 'processing':
+                            $scope.viewSwitch[message.verb] = true;
+                            break;
+                        case 'error':
+
+                            $scope.viewSwitch[message.verb] = true;
+                            break;
+                        case 'complete':
+                            // a complete gets the payload and we update the name object
+                            $scope.viewSwitch[message.verb] = true;
+                            break;
+                        default:
+                            $scope.viewSwitch = {
+                                "form": true
+                            };
+                            break;
+>>>>>>> 77758a33b8687512e1c3431dacb3b7dc4a1f2a4d
 
                     var run = function(form) {
                         //console.log("Running", $scope.activePortal);
@@ -116,8 +140,14 @@
 
                     });
 
+<<<<<<< HEAD
                     // we will update our form for this context
                     $scope.changeForm = function() {
+=======
+                    
+
+                    $scope.form = form;
+>>>>>>> 77758a33b8687512e1c3431dacb3b7dc4a1f2a4d
 
 
 

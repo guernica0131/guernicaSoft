@@ -7,3 +7,5 @@ tmp
 .idea
 .sass-cache
 .sass-cache/*
+config.yml
+config-laptop.yml

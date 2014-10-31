@@ -140,7 +140,8 @@ a {
 
 .fixed-row-background {
     background-repeat: no-repeat !important;
-    background-position: 50% 0 !important;
+    background-position: center center !important;
+    background-size: cover !important;
     //    display: none !important;
     //background-size: cover !important;
     background-attachment: fixed  !important;
@@ -193,22 +194,22 @@ a {
 }
 
 .btn {
-    // &.btn-primary {
-    //     @include button-color($contrast, white);
-    // }
-    // &.btn-success {
-    //     @include button-color($base, white);
-    // }
-    // &.btn-info {
-    //     @include button-color($blue, white);
-    // }
-    // &.btn-warning {
-    //     @include button-color($gold, white);
-    // }
-    // &.btn-danger {
-    //     @include button-color($red, white);
-    // }
-    // &.btn-default {
-    //     @include button-color($white, $night);
-    // }
+    &.btn-primary {
+        @include button-color($contrast, white);
+    }
+    &.btn-success {
+        @include button-color($base, white);
+    }
+    &.btn-info {
+        @include button-color($blue, white);
+    }
+    &.btn-warning {
+        @include button-color($gold, white);
+    }
+    &.btn-danger {
+        @include button-color($red, white);
+    }
+    &.btn-default {
+        @include button-color($white, $night);
+    }
 }

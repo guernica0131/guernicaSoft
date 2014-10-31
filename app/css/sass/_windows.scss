@@ -15,7 +15,8 @@
 }
 
  .overlay {
-        background: url('../../images/video-overlay.png');
+        //background: url('../../images/video-overlay.png');
+        background: rgba($night, 0.4);
         height: 100%;
         width: 100%;
         top: 0;

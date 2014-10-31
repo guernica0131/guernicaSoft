@@ -12,7 +12,7 @@
 				
 				<div class="impress">
 					<div class="fill lazy"></div>
-					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.image" ng-class="{in: impress[portal.id]}" image-background='{"request": "ROW", "name": "{{portal.image}}"}'></div>
+					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.image" pin-type="'ROW'" ng-class="{in: impress[portal.id]}" image-background='{"request": "ROW", "name": "{{portal.image}}"}'></div>
 				</div>
 			</div>
 		</div>
@@ -61,6 +61,7 @@
 			</div>
 		</div>
 	</div>
+	<div class="pad-70"></div>
 </div>
 <div ng-if="portal.template == 'bold-list-tiles'">
 	<div class="container-fluid">

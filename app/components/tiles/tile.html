@@ -12,15 +12,16 @@
           <div class="tile-body">
 
             <div class="tile-face">
-              <h4 class="lead color white">{{tile.title}}</h4>
+              <h3 class="lead color white">{{tile.title}}</h3>
             </div>
             <div class="tile-content" ng-show="viewSwitch[tile.id]">
-              <div class="pad-40"></div>
+              
               <!--div class="close-btn tile" ng-click="closeTile(tile.id)">X</div-->
                 <div class="container">
                   <div class="row fog" ng-class="{in: renderText}" >
-                    <div class="col-md-10">
-                      <h3 class="color white">{{tile.story}}</h3>
+                     <div class="col-md-2"></div>
+                    <div class="col-md-8">
+                      <p class="color white">{{tile.story}}</p>
                       <h6 class="color white text-right">Tap tile to close...</h6>
                     </div>
                   </div>

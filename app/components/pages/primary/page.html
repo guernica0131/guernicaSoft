@@ -10,29 +10,37 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-8 col-md-8">
-									<h1 class="color {{activePortal.css.text.header}}">{{activePortal.title}} <small class="lead  color {{activePortal.css.text.lead}}">{{activePortal.lead}}</small></h1>
-									<h4 class="color {{activePortal.css.text.p}}">{{trust(activePortal.body.text)}}</h4>
+									<h1 class="color {{activePortal.css.text.header}}">{{activePortal.title}} <span class="lead  color {{activePortal.css.text.lead}}">{{activePortal.body.lead}}</span></h1>
+									<h4 class="color {{activePortal.css.text.p}}" ng-bind-html="trust(activePortal.body.text)"></h4>
 								</div>
 								<!--social ng-init="color = 'transparent'"></social-->
 							</div>
 							<!-- insert the contact form -->
-							<contact></contact> 
+							<contact ng-hide="noContact"></contact> 
 							
 							<div class="row">
-								<div class="col-md-1 pull-left hidden-sm hidden-md hidden-lg">
+								<div class="col-md-2 pull-left hidden-sm hidden-md hidden-lg">
 									<div class="nav-elements">
+										
+
+										<div class="parent-wrapper left">
 										<div class="nav-parents top-parent">
 											<div class="nav-ctl nav-arrow nav-up color {{activePortal.css.text.nav}}" ng-click="surfPortals('up')"><i class="fa fa-chevron-circle-up"></i></div>
-										</div>
-										<div class="nav-parents middle-parent">
-											<ul class="nav-ctl-parent nav-ctl">
-												<!-- need to check here too -->
-												<li class="nav-links-indicators color {{activePortal.css.text.nav}}" ng-repeat="ports in portals" ng-class="{emphasis:activeIndex==$index}" ng-click="updatePage(ports.portal)">{{ports.title}}</li>
-											</ul>
 										</div>
 										<div class="nav-parents bottom-parent">
 											<div class="nav-ctl nav-arrow nav-down color {{activePortal.css.text.nav}}" ng-click="surfPortals('down')"><i class="fa fa-chevron-circle-down"></i></div>
 										</div>
+										</div>
+										
+										<div class="parent-wrapper right">
+										<div class="nav-parents middle-parent">
+											<ul class="nav-ctl-parent nav-ctl">
+												<!-- need to check here too -->
+												<li class="nav-links-indicators color {{activePortal.css.text.nav}}" ng-repeat="ports in portals" ng-class="{emphasis:activeIndex==$index}" ng-click="updatePage($index)">{{ports.title}}</li>
+											</ul>
+										</div>
+										</div>
+										
 									</div>
 								</div>
 							</div>

@@ -1,0 +1,17 @@
+stylesheets:
+  application: 'screen'
+javascripts:
+  application:
+    - 'jquery,angular-loader,angular,angular-route,angular-animate,angular-inview,bootstrap,app,animations,polyfill'
+    - 'components/navbar/navbar'
+    - 'components/footer/footer'
+    - 'components/contact/contact'
+    - 'components/pages/primary/page'
+    - 'components/pages/simple/simple'
+    - 'components/pages/scroll/page'
+    - 'components/portals/portal'
+    - 'components/pages/forms/forms'
+    - 'components/attributes/nospace'
+    - 'components/attributes/imagefilter'
+    - 'components/tiles/tile'
+    - 'components/social/social'

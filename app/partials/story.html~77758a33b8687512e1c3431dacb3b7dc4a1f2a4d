@@ -1,0 +1,12 @@
+<!--div class="fill background night"></div-->
+
+<!--div id="home">
+	<video autoplay id="bgvid" loop>
+		<source src="videos/108.m4v" type="video/mp4">
+		
+		Your browser does not support the video tag.
+	</video>
+</div-->
+<div class="page-view background {{bgColor}}" ng-init="bgColor = bgColor || 'white'">
+  	<scroll-page ng-init="portals = activePortal.rows"></scroll-page>
+</div>

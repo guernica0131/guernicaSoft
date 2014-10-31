@@ -40,7 +40,7 @@
         .run([
             '$rootScope',
             function($rootScope) {
-                $rootScope.facebookAppId = '832979723420474';
+                $rootScope.facebookAppId = '[FacebookAppId]';
             }
         ])
 
@@ -65,14 +65,13 @@
             return {
                 restrict: 'A',
                 link: function(scope, element, attrs) {
-
                     if (!$window.FB) {
                         // Load Facebook SDK
                         $.getScript('//connect.facebook.net/en_US/sdk.js', function() {
                             $window.FB.init({
                                 appId: $rootScope.facebookAppId,
                                 xfbml: true,
-                                version: 'v2.1'
+                                version: 'v2.0'
                             });
                             renderLikeButton();
                         });

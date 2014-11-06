@@ -1,7 +1,136 @@
+<div ng-if="portal.template == 'portfolio-title-row'">
+	<div class="title-topper">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-5 pull-left">
+					<h1>{{portal.title}}</h1>
+				</div>
+				<div class="col-md-6 pull-right">
+					<h1 class="lead text-right">{{portal.description}}</h1>
+				</div>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+<div ng-if="portal.template == 'portfolio-row'" >
+	<div class="container-fluid">
+		<div in-view="fadein($event, portal.id)"></div>
+		<div class="row">
+			<div class="col-md-12">
+				
+				<div class="impress">
+					<div class="fill lazy"></div>
+					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.image" pin-type="'PORT'" ng-class="{in: impress[portal.id]}" image-background='{"request": "PORT", "name": "{{portal.image}}"}'>
+						<div class="image-describe">
+							<div class="col-md-6 title">
+								<h1 class="color white">{{portal.title}}</h1>
+							</div>
+							<div class="col-md-8 description">
+								<p class="lead color white">{{portal.description}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
+
+<div ng-if="portal.template == 'portfolio-row-split-left'" >
+	<div class="container-fluid">
+		<div in-view="fadein($event, portal.left.id)"></div>
+		<div class="row">
+			<div class="col-md-8">
+				
+				<div class="impress">
+					<div class="fill lazy"></div>
+					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.left.image" pin-type="'PORT'" ng-class="{in: impress[portal.left.id]}" image-background='{"request": "PORT", "name": "{{portal.left.image}}"}'>
+						<div class="image-describe">
+							<div class="col-md-6 title">
+								<h1 class="color white">{{portal.left.title}}</h1>
+							</div>
+							<div class="col-md-8 description">
+								<p class="lead color white">{{portal.left.description}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div in-view="fadein($event, portal.right.id)"></div>
+			<div class="col-md-4">
+				
+				<div class="impress">
+					<div class="fill lazy"></div>
+					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.left.image" pin-type="'PORT'" ng-class="{in: impress[portal.right.id]}" image-background='{"request": "PORT", "name": "{{portal.right.image}}"}'>
+						<div class="image-describe">
+							<div class="col-md-6 title">
+								<h1 class="color white">{{portal.right.title}}</h1>
+							</div>
+							<div class="col-md-8 description">
+								<p class="lead color white">{{portal.right.description}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+<div ng-if="portal.template == 'portfolio-row-split-right'" >
+	<div class="container-fluid">
+		<div in-view="fadein($event, portal.left.id)"></div>
+		<div class="row">
+			<div class="col-md-4">
+				
+				<div class="impress">
+					<div class="fill lazy"></div>
+					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.image" pin-type="'PORT'" ng-class="{in: impress[portal.left.id]}" image-background='{"request": "PORT", "name": "{{portal.left.image}}"}'>
+						<div class="image-describe">
+							<div class="col-md-6 title">
+								<h1 class="color white">{{portal.left.title}}</h1>
+							</div>
+							<div class="col-md-8 description">
+								<p class="lead color white">{{portal.left.description}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div in-view="fadein($event, portal.right.id)"></div>
+			<div class="col-md-8">
+				
+				<div class="impress">
+					<div class="fill lazy"></div>
+					<div class="fill lazy-image cover-background" pin="portal.pin" pin-it="portal.title" pin-it-image="portal.image" pin-type="'PORT'" ng-class="{in: impress[portal.right.id]}" image-background='{"request": "PORT", "name": "{{portal.right.image}}"}'>
+						<div class="image-describe">
+							<div class="col-md-6 title">
+								<h1 class="color white">{{portal.right.title}}</h1>
+							</div>
+							<div class="col-md-8 description">
+								<p class="lead color white">{{portal.right.description}}</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>
+
+
+
 <div ng-if="portal.template == 'classy-row'" >
 	<div class="container-fluid">
 		<div class="row featurette">
-			<!--div class="col-md-1"></div-->
 			<div class="col-md-6">
 				<h1 class="color night">{{portal.title}}</h1>
 			</div>
@@ -16,7 +145,8 @@
 				</div>
 			</div>
 		</div>
-		<div class="pad-20" in-view="fadein($event, portal.id)"></div>
+		<div in-view="fadein($event, portal.id)"></div>
+		<div class="pad-20"></div>
 		<div class="row">
 			<div class="col-md-8">
 				<p class="lead color night">{{portal.description}}</p>

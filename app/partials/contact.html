@@ -1,90 +1,76 @@
-<!--div class="fill background night"></div -->
-<!--div id="home">
-	<video autoplay id="bgvid" loop>
-							<source src="videos/108.m4v" type="video/mp4">
-							
-							Your browser does not support the video tag.
-	</video>
-</div-->
-
 <div class="fill cover-background fadebackground fog" ng-class="{in:loadpage}" image-background='{"request": "BODY", "name": "{{backgroundImage}}"}'>
-<div class="fill background night overcast hazzy" ng-class="{out:fadeinbackground}" ></div>
-<div class="page-view fog" ng-class="{in:loadcontainer}">
-	<div class="pad-70"></div>
-	<div id="form-page">
-		<!--div class="pad-70"></div-->
-		<!--primary-page></primary-page-->
-		<div class="container">
-			<div class="login-form background white">
-				<div ng-show="viewSwitch.form">
+	<div class="fill background night overcast hazzy" ng-class="{out:fadeinbackground}" ></div>
+	<div class="page-view fog" ng-class="{in:loadcontainer}">
+		<div class="pad-70"></div>
+		<div id="form-page">
+			<div class="container">
+				<div class="login-form background white">
+					<div ng-show="viewSwitch.form">
+						<div class="row">
+							<div class="col-md-12">
+								<div class="page-header">
+									<h1>We want to hear from you</h1>
+								</div>
+							</div>
+						</div>
+						<div class="row">
+							<!--div class="col-md-3"></div-->
+							
+							<div class="col-md-12">
+							<forms-page></forms-page>
+						</div>
+					</div>
+				</div>
+				<!-- If we have a form command  processing -->
+				<div ng-show="viewSwitch.processing">
 					<div class="row">
 						<!--div class="col-md-3"></div-->
 						<div class="col-md-12">
 							<div class="page-header">
-								<h1>We want to hear from you</h1><!--h1><small> tell us more...</small></h1-->
+								<h1>Sending...<small> please wait</small></h1>
 							</div>
 						</div>
 					</div>
 					<div class="row">
-						<!--div class="col-md-3"></div-->
-						
 						<div class="col-md-12">
-						<forms-page></forms-page>
-					</div>
-				</div>
-			</div>
-			<!-- If we have a form command  processing -->
-			<div ng-show="viewSwitch.processing">
-				<div class="row">
-					<!--div class="col-md-3"></div-->
-					<div class="col-md-12">
-						<div class="page-header">
-							<h1>Sending...<small> please wait</small></h1>
+							<div ng-include src="'partials/spinner.html'" ng-init="color = 'night'"></div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<div ng-include src="'partials/spinner.html'" ng-init="color = 'night'"></div>
+				<!-- If we have a form complete -->
+				<div ng-show="viewSwitch.complete">
+					<div class="row">
+						<!--div class="col-md-3"></div-->
+						<div class="col-md-6">
+							<div class="page-header">
+								<h1>Success!<small> </small></h1>
+							</div>
+						</div>
 					</div>
-				</div>
-			</div>
-			<!-- If we have a form complete -->
-			<div ng-show="viewSwitch.complete">
-				<div class="row">
-					<!--div class="col-md-3"></div-->
-					<div class="col-md-6">
-						<div class="page-header">
-							<h1>Success!<small> </small></h1>
+					<div class="row">
+						<div class="col-md-12">
+							<!-- If we have a form processing -->
+							<div class="confirmation">
+								<!-- We can use the Intercom to share this service -->
+								<h1 class="color night">Thank you, {{fName}}</h1>
+								<p class="lead color contrast"><small>We appreciate the interests you have in our products and services. A guernica Softworks processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-md-12">
-						<!-- If we have a form processing -->
-						<div class="confirmation">
-							<!-- We can use the Intercom to share this service -->
-							<h1 class="color night">Thank you, {{fName}}</h1>
-							<p class="lead color contrast"><small>We appreciate the interests you have in our products and services. A guernica Softworks processional will contact you over the next few days. Again, thank you and we look forward to working with you in the near future.<br/><br/>Sincerely,<br/>The gS team</small></p>
+				<div class="confirmation" ng-show="viewSwitch.error">
+					<div class="row">
+						<div class="col-md-12">
+							<h1 class="color night">I'm sorry, {{fName}}</h1>
+							<p class="lead color night"><small>I've encountered some type of problem. Please try your request later. We are deeply sorry for any inconvenience.<br/><br/>Sincerely,<br/>The gS team</small></p>
 						</div>
 					</div>
 				</div>
+				<div class="form-accent top"></div>
+				<div class="form-accent bottom"></div>
 			</div>
-
-			<div class="confirmation" ng-show="viewSwitch.error">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 class="color night">I'm sorry, {{fName}}</h1>
-						<p class="lead color night"><small>I've encountered some type of problem. Please try your request later. We are deeply sorry for any inconvenience.<br/><br/>Sincerely,<br/>The gS team</small></p>
-					</div>
-				</div>
-			</div>
-
-			<div class="form-accent top"></div>
-			<div class="form-accent bottom"></div>
+			<div class="pad-70"></div>
 		</div>
-		<div class="pad-70"></div>
 	</div>
-</div>
 </div>
 </div>

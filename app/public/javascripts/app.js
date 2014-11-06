@@ -16,7 +16,6 @@ angular.module('gSoft', [
 ]).
 config(['$routeProvider', '$locationProvider', '$httpProvider',
     function($routeProvider, $locationProvider, $httpProvider) {
-        //$locationProvider.html5Mode(true);
         $locationProvider.html5Mode(true).hashPrefix('!');
         $httpProvider.defaults.useXDomain = true;
         $httpProvider.defaults.withCredentials = true;
@@ -279,6 +278,8 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
                     return directory + resolution() + '/' + name + '-head' + '.' + extension;
                 case 'CUT':
                     return directory + 'thumbs/' + name + '-cut' + '.' + extension;
+                case 'PORT':
+                    return directory + 'portfolio/' + name + '-port' + '.' + extension;
                 default:
                     return directory;
             }
@@ -328,7 +329,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
                 $scope.loadcontainer = true;
             });
         });
-    }
+    };
 
     this.stopscroll = function($scope, image) {
 
@@ -344,9 +345,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
                 $scope.fadeinbackground = true;
             });
         }
-        //else 
-        //$interval.cancel(interval);
-    }
+    };
 
     this.scrollbackground = function($scope, time, images, selectors) {
 
@@ -366,7 +365,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 
         }, time);
 
-    }
+    };
 
     this.render = function($scope, primary, secondary) {
         if ($scope.windowOpened)
@@ -378,7 +377,7 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
                 openpage($scope, primary, secondary);
         });
 
-    }
+    };
 
     this.timeout = function(time) {
         var deferred = $q.defer();
@@ -726,8 +725,10 @@ config(['$routeProvider', '$locationProvider', '$httpProvider',
 
 .controller('ContributorCtrl', ["$scope", "Title", "Router",
     function($scope, Title, Router) {
-        Title.set("guernica Softworks contributors");
-        Router.pull($scope);
+        
+        Router.pull($scope);        
+        var acitvePortal = ($scope.activePortal && $scope.activePortal.title) ? $scope.activePortal.title : "";
+        Title.set("guernica Softworks contributors: " + acitvePortal);
     }
 ])
 

@@ -23,12 +23,16 @@
 
 .text-huge {
     font-size: 400%;
-    @include respond-to(less_than_tablet) {font-size: 200%;}
+    @include respond-to(less_than_tablet) {
+        font-size: 200%;
+    }
 }
 
 .text-massive {
     font-size: 600%;
-    @include respond-to(less_than_tablet) {font-size: 200%;}
+    @include respond-to(less_than_tablet) {
+        font-size: 200%;
+    }
 }
 
 .page-view {
@@ -48,6 +52,22 @@
     }
     #client-page {}
     #scroll-page {
+        .image-describe {
+            @include opacity(0);
+            @include transition(opacity 400ms ease);
+        }
+        .title-topper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 150px;
+            width: 100%;
+            padding-top: 70px;
+            //margin-bottom: -250px;
+            background-color: $night;
+            color: $white;
+            border-bottom: 2px solid $black;
+        }
         .impress {
             width: 100%;
             min-height: 800px;
@@ -72,6 +92,9 @@
                     //display: block !important;
                     cursor: pointer !important;
                     opacity: 1 !important;
+                }
+                .image-describe {
+                    @include opacity(1);
                 }
             }
             @include respond-to(handhelds) {
@@ -106,11 +129,9 @@
             // margin-bottom: 50px;
             min-height: 400px;
             overflow: hidden;
-
             @include respond-to(less_than_tablet) {
-               min-height: 300px;
+                min-height: 300px;
             }
-
 
             &.page {
                 min-height: 800px;
@@ -158,6 +179,9 @@
             &.constrict {
                 min-height: 0 !important;
             }
+            &.title-row {
+                min-height: 150px !important;
+            }
         }
     }
     #primary-page {
@@ -186,87 +210,83 @@
                     margin-bottom: 40px;
                     padding: 10px;
                     @include respond-to(handhelds) {
-                      //  padding: 3px;
+                        //  padding: 3px;
                     }
+
                     display: block;
                     .parent-wrapper {
                         display: inline-block;
-
                         .left {
                             width: 20%;
                         }
-
                         .right {
                             width: 80%;
                         }
-                    .nav-parents {
-                        display: block;
-                        //display: block;
-                        position: relative;
-                        @include respond-to(handhelds) {
-                            padding: 0;
-                        }
-
-                        @include respond-to(reduced) {
-                            padding: 0;
-                        }
-
-                        // @include respond-to(less_than_tablet) {
-                        //     padding: 0;
-                        // }
-                        text-align: center;
-                        &.top-parent {
-                           //   background: red;
-                            //width: 18%;
-                        }
-                        &.middle-parent {
-      
-                        }
-                        &.bottom-parent {
-                                    }
-                        .nav-ctl {
-                            color: $gray;
-                            cursor: pointer;
-                            &.nav-arrow {
-                                font-size: 5em;
-                                @include transition(color 300ms ease);
-                                @include respond-to(mobile) {
-                                    font-size: 4em;
-                                }
-
-                                @include respond-to(handhelds) {
-                                    font-size: 3.5em;
-                                }
-
-                                @include respond-to(reduced) {
-                                    font-size: 3.5em;
-                                }
-
-                                color: rgba($white, 0.5);
-                                &:hover {
-                                    color: white;
-                                }
-                            }
-                            &.nav-ctl-parent {
-                                .nav-links-indicators {
-                                    display: block;
-                                }
-                                .emphasis {
-                                    color: $white;
-                                    cursor: default;
-                                }
-                                width: 100%;
+                        .nav-parents {
+                            display: block;
+                            //display: block;
+                            position: relative;
+                            @include respond-to(handhelds) {
                                 padding: 0;
-                                padding-top: 5px;
-                                padding-bottom: 5px;
                             }
-                            &.nav-up {}
-                            &.nav-down {}
-                            &.no-show {
-                                display: none;
-                            }
-                        }
 
+                            @include respond-to(reduced) {
+                                padding: 0;
+                            }
+
+                            // @include respond-to(less_than_tablet) {
+                            //     padding: 0;
+                            // }
+                            text-align: center;
+                            &.top-parent {
+                                //   background: red;
+                                //width: 18%;
+                           
+                            }
+                            &.middle-parent {}
+                            &.bottom-parent {}
+                            .nav-ctl {
+                                color: $gray;
+                                cursor: pointer;
+                                &.nav-arrow {
+                                    font-size: 5em;
+                                    @include transition(color 300ms ease);
+                                    @include respond-to(mobile) {
+                                        font-size: 4em;
+                                    }
+
+                                    @include respond-to(handhelds) {
+                                        font-size: 3.5em;
+                                    }
+
+                                    @include respond-to(reduced) {
+                                        font-size: 3.5em;
+                                    }
+
+                                    color: rgba($white, 0.5);
+                                    &:hover {
+                                        color: white;
+                                    }
+                                }
+                                &.nav-ctl-parent {
+                                    .nav-links-indicators {
+                                        display: block;
+                                    }
+                                    .emphasis {
+                                        color: $white;
+                                        cursor: default;
+                                    }
+                                    width: 100%;
+                                    padding: 0;
+                                    padding-top: 5px;
+                                    padding-bottom: 5px;
+                                }
+                                &.nav-up {}
+                                &.nav-down {}
+                                &.no-show {
+                                    display: none;
+                                }
+                            }
                         }
                     }
                 }

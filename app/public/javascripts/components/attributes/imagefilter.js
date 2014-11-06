@@ -30,7 +30,7 @@
         function(ImageLocation, Intercom) {
 
             var setStyle = function(attrs, input) {
-                //console.log("IMage", input);
+                
                 // return if there is no input
                 if (!input || !input.name)
                     return;
@@ -55,7 +55,6 @@
 
                         // we set the style for the initial load
                         var input = angular.fromJson(attrs.imageBackground);
-
                         setStyle(attrs, input);
                         // if the window size changes, we need to see if we need to
                         // change the window based on the screen size
@@ -95,7 +94,6 @@
         function(ImageLocation, Intercom) {
 
             var setStyle = function(attrs, input) {
-                //console.log("IMage", input);
                 // return if there is no input
                 if (!input || !input.name)
                     return;

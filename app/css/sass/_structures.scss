@@ -32,9 +32,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-::-webkit-scrollbar {
-    display: none;
-}
+
 
 a {
     color: $white !important;
@@ -195,19 +193,19 @@ a {
 
 .btn {
     &.btn-primary {
-        @include button-color($contrast, white);
+        @include button-color($contrast, $white);
     }
     &.btn-success {
-        @include button-color($base, white);
+        @include button-color($base, $white);
     }
     &.btn-info {
-        @include button-color($blue, white);
+        @include button-color($blue, $white);
     }
     &.btn-warning {
-        @include button-color($gold, white);
+        @include button-color($gold, $white);
     }
     &.btn-danger {
-        @include button-color($red, white);
+        @include button-color($red, $white);
     }
     &.btn-default {
         @include button-color($white, $night);

@@ -39,7 +39,6 @@
                     fullPath = images(input), // full path
                     image = 'background: url(' + fullPath + ")"; // build the attribute tag
 
-
                 if (attrs.style !== image)
                     attrs.$set('style', image); // we apply
             };

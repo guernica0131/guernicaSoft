@@ -1,5 +1,5 @@
 <div ng-if="portal.template == 'portfolio-title-row'">
-	<div class="title-topper">
+	<div id="portfolio-topper" class="title-topper">
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-5 pull-left">
@@ -15,8 +15,8 @@
 </div>
 
 <div ng-if="portal.template == 'portfolio-row'" >
+	<div in-view="fadein($event, portal.id)"></div>
 	<div class="container-fluid">
-		<div in-view="fadein($event, portal.id)"></div>
 		<div class="row">
 			<div class="col-md-12">
 				
@@ -135,6 +135,7 @@
 				<h1 class="color night">{{portal.title}}</h1>
 			</div>
 		</div>
+		<div in-view="fadein($event, portal.id)"></div>
 		<div class="pad-40"></div>
 		<div class="row">
 			<div class="col-md-12">
@@ -145,7 +146,7 @@
 				</div>
 			</div>
 		</div>
-		<div in-view="fadein($event, portal.id)"></div>
+		
 		<div class="pad-20"></div>
 		<div class="row">
 			<div class="col-md-8">
@@ -187,7 +188,10 @@
 					<div class="pad-5 visible-sm visible-xs"></div>
 					<contact class="break-out" ng-init-"color = 'gold'"></contact>
 				</div>
-				<div ng-bind-html="trust(portal.closer)"></div>
+				<div ng-if="portal.credits">
+					<!-- ng-bind-html="trust(portal.closer)" -->
+					<br/><br/><br/><br/><h4>{{portal.credits.message}} <a href="contributors?portal={{portal.credits.portal}}" ng-click='obscure(false)'>{{portal.credits.a}}</a></h4>
+				</div>
 			</div>
 		</div>
 	</div>

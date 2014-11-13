@@ -1,24 +1,30 @@
 .push-to-bottom {
-    margin-top: 500px;
+    margin-top: 80%;
     // position: absolute;
     //bottom: 300px;
-    //bottom: 100px;
-    // vertical-align: bottom;
-    @include respond-to(medium-screens) {
-        margin-top: 400px;
-    }
+    //top: 0;
+    //bottom: 20px;
+     //vertical-align: bottom;
+   
+    // @include respond-to(medium-screens) {
+    //     margin-top: 400px;
+    // }
 
-    @include respond-to(tablet) {
-        margin-top: 250px;
-    }
+    // @include respond-to(narrow-screens ) {
+    //     margin-top: 3000px;
+    // }
 
-    @include respond-to(reduced) {
-        margin-top: 150px;
-    }
+    // @include respond-to(tablet) {
+    //     margin-top: 150px;
+    // }
 
-    @include respond-to(handhelds) {
-        margin-top: 70px;
-    }
+    // @include respond-to(reduced) {
+    //     margin-top: 150px;
+    // }
+
+    // @include respond-to(handhelds) {
+    //     margin-top: 70px;
+    // }
 }
 
 .text-huge {
@@ -57,16 +63,16 @@
             @include transition(opacity 400ms ease);
         }
         .title-topper {
-            position: absolute;
-            top: 0;
-            left: 0;
-            height: 150px;
+           // position: absolute;
+           /// top: 0;
+           // left: 0;
+            height: 100%;
             width: 100%;
-            padding-top: 70px;
+            padding-top: 60px;
             //margin-bottom: -250px;
-            background-color: $night;
+            //background-color: $night;
             color: $white;
-            border-bottom: 2px solid $black;
+            
         }
         .impress {
             width: 100%;
@@ -181,10 +187,15 @@
             }
             &.title-row {
                 min-height: 150px !important;
+                border-bottom: 2px solid $black;
             }
         }
     }
     #primary-page {
+        ::-webkit-scrollbar {
+           display: none;
+        }
+
         .view-container {
             height: 100%;
         }

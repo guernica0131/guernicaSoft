@@ -43,17 +43,22 @@
         //  padding: 5px;
         overflow: hidden;
         @include border-radius(5px);
-        @include box-shadow(3px 3px 10px 0px rgba(0, 0, 0, 0.75));
+        //@include box-shadow(3px 3px 10px 0px rgba(0, 0, 0, 0.75));
+        @include box-shadow(0 3px 10px 0 rgba($black, 0.75));
         &:hover {
             //border: 3px solid $base;
-            @include box-shadow(3px 3px 10px 2px rgba($base, 0.75));
+           // @include box-shadow(3px 3px 10px 2px rgba($base, 0.75));
+            @include box-shadow(0 3px 10px 0 rgba($base, 0.75));
+            @include transition(width, height 300ms ease);
+            //@include transition(width, height 300ms ease);
+
             width: 155px;
             height: 155px;
             //padding: 0;
             margin: 2.5px;
             //margin-right: 10px;
             //margin-left: 10px;
-            @include transition(width, height 300ms ease);
+            
             //@include transition(height 300ms ease);
         }
 
@@ -89,7 +94,8 @@
 
         &.active {
             //border: 3px solid $gold;
-            @include box-shadow(3px 3px 10px 2px rgba($gold, 0.75));
+           // @include box-shadow(3px 3px 10px 2px rgba($gold, 0.75));
+             @include box-shadow(0 3px 10px 0 rgba($gold, 0.75));
         }
         .portal-container {
             background: $night;

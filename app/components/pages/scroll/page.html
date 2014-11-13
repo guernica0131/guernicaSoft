@@ -1,7 +1,7 @@
 <div id="scroll-page">
 	<div class="fog" ng-class="{in:drawcontent}">
 		<div ng-repeat="portal in activePortal.rows">
-			<div class="row-back  {{portal.row.display}} background {{portal.cssClass}} {{portal.row.image.cssClass}}" ng-init="portal = portal" image-background='{"request": "ROW", "name": "{{portal.row.image.src}}"} '>
+			<div class="row-back  {{portal.row.display}} background {{portal.cssClass}}" check-device="{{portal.row.image.cssClass}}" ng-init="portal = portal" image-background='{"request": "ROW", "name": "{{portal.row.image.src}}"} '>
 				<div ng-include="'partials/row-templates.html'"></div>
 			</div>
 		</div>

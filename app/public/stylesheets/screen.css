@@ -1,85 +1,71 @@
 /*
-Error: Invalid CSS after "... display: block": expected "{", was ";"
-        on line 16 of /Volumes/SpaceDrive/Dropbox/Code/guernicaSoft/app/css/sass/_tiles.scss
-        from line 49 of /Volumes/SpaceDrive/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss
-
-11:         //     position:absolute;
-12:             
-13:         // }
-14: 
-15: >>>>>>> 77758a33b8687512e1c3431dacb3b7dc4a1f2a4d
-16:         display: block;
-17:         width: 150px;
-18:         height: 150px;
-19:         @include respond-to(tablet) {}
-20: 
-21:         @include respond-to(reduced) {}
+Syntax error: File to import not found or unreadable: bootstrap.
+              Load paths:
+                /Users/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass
+                /Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-core-1.0.0.alpha.19/stylesheets
+                /Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/susy-2.1.1/sass
+                Compass::SpriteImporter
+        on line 8 of /Users/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss
 
 Backtrace:
-/Volumes/SpaceDrive/Dropbox/Code/guernicaSoft/app/css/sass/_tiles.scss:16
-/Volumes/SpaceDrive/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss:49
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1163:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1099:in `expected'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:1094:in `tok!'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:641:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:661:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:650:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:642:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:711:in `declaration_or_ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:661:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:653:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:642:in `block'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:635:in `ruleset'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:660:in `block_child'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:650:in `block_contents'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:117:in `stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/scss/parser.rb:42:in `parse'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:393:in `_to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:299:in `to_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:313:in `block in visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:88:in `block in with_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:88:in `with_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:312:in `visit_import'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:79:in `block in with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:115:in `with_frame'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/stack.rb:79:in `with_base'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:158:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `map'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/base.rb:36:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:157:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/visitors/perform.rb:8:in `visit'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/root_node.rb:36:in `css_tree'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/tree/root_node.rb:20:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/engine.rb:268:in `render'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:17:in `block in render'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:29:in `with_import_scope'
-/Library/Ruby/Gems/2.0.0/gems/compass-import-once-1.0.5/lib/compass/import-once/engine.rb:16:in `render'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:491:in `update_stylesheet'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:215:in `block in update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `each'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:209:in `update_stylesheets'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:469:in `on_file_changed'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/lib/sass/plugin/compiler.rb:328:in `block in watch'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:252:in `on_change'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/listener.rb:290:in `block in initialize_adapter'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.rb:254:in `call'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.rb:254:in `report_changes'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.rb:323:in `poll_changed_directories'
-/Library/Ruby/Gems/2.0.0/gems/sass-3.4.5/vendor/listen/lib/listen/adapter.rb:299:in `block in start_poller'
+/Users/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss:8
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/import_node.rb:66:in `rescue in import'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/import_node.rb:45:in `import'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/import_node.rb:28:in `imported_file'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/import_node.rb:37:in `css_import?'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:283:in `visit_import'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `block in visit'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/stack.rb:79:in `block in with_base'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/stack.rb:121:in `with_frame'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/stack.rb:79:in `with_base'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:152:in `visit'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `map'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:161:in `block in visit_children'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:173:in `with_environment'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:160:in `visit_children'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:180:in `visit_root'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/base.rb:36:in `visit'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:151:in `visit'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/root_node.rb:36:in `css_tree'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/tree/root_node.rb:20:in `render'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/sass-3.3.5/lib/sass/engine.rb:274:in `render'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-import-once-1.0.4/lib/compass/import-once/engine.rb:17:in `block in render'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-import-once-1.0.4/lib/compass/import-once/engine.rb:29:in `with_import_scope'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-import-once-1.0.4/lib/compass/import-once/engine.rb:16:in `render'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:171:in `block (2 levels) in compile'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:153:in `timed'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:166:in `block in compile'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/logger.rb:46:in `red'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:165:in `compile'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:144:in `compile_if_required'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:129:in `block (2 levels) in run'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:127:in `each'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:127:in `block in run'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:153:in `timed'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/compiler.rb:126:in `run'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/compiler.rb:24:in `compile'
+/Users/guernica0131/.rvm/rubies/ruby-2.1.1/lib/ruby/2.1.0/forwardable.rb:183:in `compile'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/project_watcher.rb:101:in `sass_modified'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/project_watcher.rb:89:in `sass_callback'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/watch.rb:14:in `call'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/watch.rb:14:in `run_callback'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/project_watcher.rb:69:in `block in listen_callback'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/project_watcher.rb:66:in `each'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-1.0.0.alpha.19/lib/compass/watcher/project_watcher.rb:66:in `listen_callback'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/listen-1.1.6/lib/listen/listener.rb:236:in `call'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/listen-1.1.6/lib/listen/listener.rb:236:in `on_change'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/listen-1.1.6/lib/listen/listener.rb:271:in `block in initialize_adapter'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `call'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/listen-1.1.6/lib/listen/adapter.rb:244:in `report_changes'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/listen-1.1.6/lib/listen/adapter.rb:313:in `poll_changed_directories'
+/Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/listen-1.1.6/lib/listen/adapter.rb:289:in `block in start_poller'
 */
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Invalid CSS after \"... display: block\": expected \"{\", was \";\"\A         on line 16 of /Volumes/SpaceDrive/Dropbox/Code/guernicaSoft/app/css/sass/_tiles.scss\A         from line 49 of /Volumes/SpaceDrive/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss\A \A 11:         //     position:absolute;\A 12:             \A 13:         // }\A 14: \A 15: >>>>>>> 77758a33b8687512e1c3431dacb3b7dc4a1f2a4d\A 16:         display: block;\A 17:         width: 150px;\A 18:         height: 150px;\A 19:         @include respond-to(tablet) {}\A 20: \A 21:         @include respond-to(reduced) {}"; }
+  content: "Syntax error: File to import not found or unreadable: bootstrap.\A               Load paths:\A                 /Users/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass\A                 /Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/compass-core-1.0.0.alpha.19/stylesheets\A                 /Users/guernica0131/.rvm/gems/ruby-2.1.1/gems/susy-2.1.1/sass\A                 Compass::SpriteImporter\A         on line 8 of /Users/guernica0131/Dropbox/Code/guernicaSoft/app/css/sass/screen.scss"; }

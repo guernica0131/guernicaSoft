@@ -1,6 +1,6 @@
 require 'compass/import-once/activate'
 # Require any additional compass plugins here.
-require 'bootstrap-sass'
+# require 'bootstrap-sass'
 
 # require 'font-awesome-sass'
 # Set this to the root of your project when deployed:

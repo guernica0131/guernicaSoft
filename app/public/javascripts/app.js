@@ -643,7 +643,7 @@
 
             }, function(error) {
                 //console.log("I feel rejected", error);
-                alert("There was an issue conntecting to the API. Please try again later");
+                alert("There was an issue connecting to the API. Please try again later.");
             });
 
         }

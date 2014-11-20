@@ -12,5 +12,6 @@ config.yml
 config-laptop.yml
 app/config.yml
 */config.yml
-
+npm-debug.log
+*.log
 */.sass-cache/

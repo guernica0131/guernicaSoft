@@ -1,6 +1,7 @@
 logs/*
 !.gitkeep
 node_modules/
+node_modules_bak/
 tmp
 .DS_Store
 .idea
@@ -9,3 +10,4 @@ tmp
 config.yml
 config-laptop.yml
 npm-debug.log
+

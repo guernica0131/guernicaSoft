@@ -3,62 +3,49 @@
     'use strict';
 
     angular.module('gSoft.navbar', [])
+    .directive('navBar', ["$location", "Intercom", "LoadPage",
+        function($location, Intercom, LoadPage) {
+            return {
+                restrict: 'E',
+                templateUrl: 'components/navbar/navbar.html',
+                controller: ["$scope",
+                    function($scope) {
 
-    // .config(['$routeProvider', function($routeProvider) {
-    //  	$routeProvider.when('/view1', {
-    //    	templateUrl: 'views/view1/view1.html',
-    //    	controller: 'View1Ctrl'
-    //  	});
-    // }])
-
-    .directive('navBar', ["$location", "Intercom", "LoadPage", function($location, Intercom, LoadPage) {
-        return {
-            restrict: 'E',
-            templateUrl: 'components/navbar/navbar.html',
-            controller: ["$scope",function($scope) {
-
-                $scope.navbar = {};
-                $scope.navbar.thinking = false;
-        		
-                Intercom.on($scope, 'thinking', function(e, thoughts) {   
-                    $scope.navbar.thinking = thoughts;
-                });
-
-                $scope.buttons = buttons;
-        		$scope.isActive = function(selected) {
-        			return (selected === $location.path());
-        		}
-
-                $scope.navigating = function(active) {
-                    if (active)
-                        return;
-
-                    $scope.navbar.thinking = true;
-                    LoadPage.timeout(1000).then(function() {
+                        $scope.navbar = {};
                         $scope.navbar.thinking = false;
-                    });
-                    
-                    LoadPage.timeout(1000).then(function() {
-                        $scope.navbar.thinking = false;
-                    });
 
-                }
-            }],
-            controllerAs: 'nav',
-            scope: true,
-          ///  location: true
+                        Intercom.on($scope, 'thinking', function(e, thoughts) {
+                            $scope.navbar.thinking = thoughts;
+                        });
+
+                        $scope.buttons = buttons;
+                        $scope.isActive = function(selected) {
+                            return (selected === $location.path());
+                        }
+
+                        $scope.navigating = function(active) {
+                            if (active)
+                                return;
+
+                            $scope.navbar.thinking = true;
+                            LoadPage.timeout(1000).then(function() {
+                                $scope.navbar.thinking = false;
+                                var navbar_toggle = $('.navbar-toggle');
+                                    if (navbar_toggle.is(':visible'))   
+                                    navbar_toggle.trigger('click');
+                            
+                            });
+
+                        }
+                    }
+                ],
+                controllerAs: 'nav',
+                scope: true
+            }
         }
-    }]);
+    ]);
 
-/*    .controller('navbarCtrl', ["$scope",
-        function($scope) {
-        	console.log("This is the controller");
-
-        	$scope.buttons = buttons;
-            //$scope.greeting = "HI Adam";
-        }
-    ]);*/
-	  var buttons = [
+    var buttons = [
 
         {
             name: "Services",
@@ -73,7 +60,7 @@
 
         },
 
-      {
+        {
             name: "Global",
             cssClass: "base",
             url: "/global",

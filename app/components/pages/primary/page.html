@@ -1,14 +1,8 @@
 <div id="primary-page">
 	<div class="view-container fog" ng-class="{in:drawcontent}">
-<<<<<<< HEAD
 		<div class="content-container cover-background" portal-background="BODY,content,body,src"> 
 			<div ng-if="activePortal.content.overlay" class="overlay"></div>
 			<!-- .content.body.src -->
-=======
-		<div class="content-container cover-background" image-background='{"request": "BODY", "name": "{{activePortal.content.body.src}}"}'> 
-			<div ng-if="activePortal.overlay" class="overlay"></div>
-
->>>>>>> 77758a33b8687512e1c3431dacb3b7dc4a1f2a4d
 			<div class="page-body">
 				<div class="page-body-wrapper raise">
 					<div class="view-frame">
@@ -16,14 +10,8 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-sm-8 col-md-8">
-<<<<<<< HEAD
 									<h1 class="color {{activePortal.css.text.header}}">{{activePortal.title}} <span class="lead  color {{activePortal.css.text.lead}}">{{activePortal.body.lead}}</span></h1>
 									<h4 class="color {{activePortal.css.text.p}}" ng-bind-html="trust(activePortal.body.text)"></h4>
-=======
-									<h1 class="color {{activePortal.css.text.header}}">{{activePortal.title}} <small class="lead  color {{activePortal.css.text.lead}}">{{activePortal.lead}}</small></h1>
-									<!--h4 class="color {{activePortal.css.text.p}}">{{trust(activePortal.body.text)}}</h4-->
-									<h4 class="color {{activePortal.css.text.p}}"><span ng-bind-html="trust(activePortal.body.text)"></span></h4>
->>>>>>> 77758a33b8687512e1c3431dacb3b7dc4a1f2a4d
 								</div>
 								<!--social ng-init="color = 'transparent'"></social-->
 							</div>

@@ -12,3 +12,4 @@ config-laptop.yml
 app/config.yml
 */config.yml
 
+*/.sass-cache/
